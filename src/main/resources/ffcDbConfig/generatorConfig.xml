@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="ffcDbConfig/generatorConfig.properties"/>
+    <!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
+    <classPathEntry location="${MYSQL.JAR.LOCATION}"/>
+
+    <context id="ffc_contex" targetRuntime="MyBatis3"
+             defaultModelType="flat">
+
+        <!-- 覆盖xml文件 -->
+        <plugin
+                type="com.my.ffc.plugin.FfcPlugin"/>
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}"
+                        password="${jdbc.password}">
+
+            <!-- 针对oracle数据库 -->
+            <property name="remarksReporting" value="true"/>
+            <!-- 针对mysql数据库 -->
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+        <!-- 数据表对应的model层 -->
+        <javaModelGenerator
+                targetPackage="${model.targetPackage}"
+                targetProject="${model.targetProject}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mybatispper 映射配置文件，XML文件 -->
+        <sqlMapGenerator
+                targetPackage="${mapperXml.targetPackage}"
+                targetProject="${mapperXml.targetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- mybatis3中的mapper接口，JAVA文件 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="${mapperJava.targetPackage}"
+                             targetProject="${mapperJava.targetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
+        <table tableName="scores" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+
+    </context>
+</generatorConfiguration>
