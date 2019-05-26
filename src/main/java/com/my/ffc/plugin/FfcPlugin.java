@@ -66,36 +66,36 @@ public class FfcPlugin extends BasePlugin {
         commonMap.put("classType", modelClassType);
         commonMap.put("interface", anInterface);
 
-        switch (pluginTypeEnum) {
-            case TABLE:
-                processTableTemplate(commonMap);
-                break;
-            case FIELD:
-                processFildTemplate(commonMap);
-                break;
-            default:
-                throw new RuntimeException("未匹配到类型!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!");
+        try {
+            switch (pluginTypeEnum) {
+                case TABLE:
+                    processTableTemplate(commonMap);
+                    break;
+                case FIELD:
+                    processFildTemplate(commonMap);
+                    break;
+                default:
+                    throw new RuntimeException("未匹配到类型!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
         }
 
     }
 
-    private void processTableTemplate(Map<String, Object> commonMap) {
-        try {
+    private void processTableTemplate(Map<String, Object> commonMap) throws Exception {
 //            System.out.println(tableTemplatePackage);
-            Template template = cfgTable.getTemplate("aa.ftl");
+        Template template = cfgTable.getTemplate("aa.ftl");
 
-            ByteArrayOutputStream bao = new ByteArrayOutputStream(1024);
-            Writer out = new OutputStreamWriter(bao);
-            template.process(commonMap, out);
-            out.flush();
-            out.close();
+        ByteArrayOutputStream bao = new ByteArrayOutputStream(1024);
+        Writer out = new OutputStreamWriter(bao);
+        template.process(commonMap, out);
+        out.flush();
+        out.close();
 
-            String s = new String(bao.toByteArray(), StandardCharsets.UTF_8);
-            System.out.println(":::::::::::::::::::::::::::::::::::" + s);
+        String s = new String(bao.toByteArray(), StandardCharsets.UTF_8);
+        System.out.println(":::::::::::::::::::::::::::::::::::" + s);
 
-        } catch (Exception e) {
-            throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
-        }
     }
 
     private void processFildTemplate(Map<String, Object> commonMap) {
