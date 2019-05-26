@@ -70,13 +70,12 @@ public class FfcPlugin extends BasePlugin {
         commonMap.put("interface", anInterface);
 
         switch (pluginTypeEnum) {
-            case FIELD:
-                processFildTemplate(commonMap);
-                break;
             case TABLE:
                 processTableTemplate(commonMap);
                 break;
-
+            case FIELD:
+                processFildTemplate(commonMap);
+                break;
             default:
                 throw new RuntimeException("未匹配到类型!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!");
         }
