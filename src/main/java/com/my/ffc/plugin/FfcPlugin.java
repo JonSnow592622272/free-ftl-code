@@ -71,7 +71,7 @@ public class FfcPlugin extends BasePlugin {
 
         switch (pluginTypeEnum) {
             case FIELD:
-//                processFildTemplate(commonMap);
+                processFildTemplate(commonMap);
                 break;
             case TABLE:
                 processTableTemplate(commonMap);

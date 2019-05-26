@@ -12,11 +12,6 @@ import java.util.List;
 public class StartUp {
     public static void main(String[] args) throws Exception {
         List<String> warnings = new ArrayList<String>();
-        warnings.add("zzzzz");
-        warnings.add("zzzzz55555555555");
-        warnings.add("zzzzz666666");
-
-
         boolean overwrite = true;
         ClassPathResource generatorConfigResource = new ClassPathResource("ffcDbConfig/generatorConfig.xml");
 //		File configFile = new File("generatorConfig.xml");
