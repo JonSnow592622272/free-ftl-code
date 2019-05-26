@@ -115,6 +115,8 @@ public class FfcPlugin extends BasePlugin {
         }
     }
 
+
+    //ssssssss
     public static void main(String[] args) throws IOException {
         Path path = new File("D:/a/b/d").toPath();
         Files.createDirectories(path);
