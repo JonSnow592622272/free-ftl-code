@@ -10,10 +10,8 @@ import org.mybatis.generator.api.dom.java.Interface;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.config.Context;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -87,13 +85,15 @@ public class FfcPlugin extends BasePlugin {
 //            System.out.println(tableTemplatePackage);
             Template template = cfgTable.getTemplate("aa.ftl");
 
-            // 获取输出流（指定到控制台（标准输出））
-            Writer out = new OutputStreamWriter(System.out);
-            // StringWriter out = new StringWriter();
-            // System.out.println(out.toString());
-            // 数据与模板合并（数据+模板=输出）
+            ByteArrayOutputStream bao = new ByteArrayOutputStream(1024);
+            Writer out = new OutputStreamWriter(bao);
             template.process(commonMap, out);
             out.flush();
+            out.close();
+
+            String s = new String(bao.toByteArray(), StandardCharsets.UTF_8);
+            System.out.println(":::::::::::::::::::::::::::::::::::" + s);
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (TemplateException e) {
@@ -102,21 +102,21 @@ public class FfcPlugin extends BasePlugin {
     }
 
     private void processFildTemplate(Map<String, Object> commonMap) {
-        try {
-            Template template = cfgField.getTemplate("aa.ftl");
-
-            // 获取输出流（指定到控制台（标准输出））
-            Writer out = new OutputStreamWriter(System.out);
-            // StringWriter out = new StringWriter();
-            // System.out.println(out.toString());
-            // 数据与模板合并（数据+模板=输出）
-            template.process(commonMap, out);
-            out.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (TemplateException e) {
-            throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
-        }
+//        try {
+//            Template template = cfgField.getTemplate("aa.ftl");
+//
+//            // 获取输出流（指定到控制台（标准输出））
+//            Writer out = new OutputStreamWriter(System.out);
+//            // StringWriter out = new StringWriter();
+//            // System.out.println(out.toString());
+//            // 数据与模板合并（数据+模板=输出）
+//            template.process(commonMap, out);
+//            out.flush();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (TemplateException e) {
+//            throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
+//        }
     }
 
     public static void main(String[] args) throws IOException {
