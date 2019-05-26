@@ -8,18 +8,12 @@
     <!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
     <classPathEntry location="${MYSQL.JAR.LOCATION}"/>
 
-    <context id="ffc_contex" targetRuntime="MyBatis3"
-             defaultModelType="flat">
+    <context id="ffc_contex" targetRuntime="MyBatis3" defaultModelType="flat">
 
-        <!-- 覆盖xml文件 -->
-        <plugin
-                type="com.my.ffc.plugin.FfcPlugin"/>
+        <plugin type="com.my.ffc.plugin.FfcPlugin"/>
 
         <!-- 数据库连接 -->
-        <jdbcConnection driverClass="${jdbc.driverClass}"
-                        connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}"
-                        password="${jdbc.password}">
-
+        <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}" password="${jdbc.password}">
             <!-- 针对oracle数据库 -->
             <property name="remarksReporting" value="true"/>
             <!-- 针对mysql数据库 -->

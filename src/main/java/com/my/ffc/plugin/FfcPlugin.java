@@ -41,18 +41,18 @@ public class FfcPlugin extends BasePlugin {
 
     @Override
     public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
-        readyGo(field, topLevelClass, introspectedColumn, introspectedTable, modelClassType, null);
+        readyGo(field, topLevelClass, introspectedColumn, introspectedTable, modelClassType, null, PluginTypeEnum.FIELD);
         return false;
     }
 
 
     @Override
     public boolean clientGenerated(Interface anInterface, TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-        readyGo(null, topLevelClass, null, introspectedTable, null, anInterface);
+        readyGo(null, topLevelClass, null, introspectedTable, null, anInterface, PluginTypeEnum.TABLE);
         return false;
     }
 
-    private void readyGo(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType, Interface anInterface) {
+    private void readyGo(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType, Interface anInterface, PluginTypeEnum pluginTypeEnum) {
         try {
 
             Template template = cfgTable.getTemplate("aa.ftl");
