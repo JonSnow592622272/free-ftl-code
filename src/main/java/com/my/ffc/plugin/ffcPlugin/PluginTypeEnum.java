@@ -1,4 +1,4 @@
-package com.my.ffc.plugin;
+package com.my.ffc.plugin.ffcPlugin;
 
 /**
  * @author wulm

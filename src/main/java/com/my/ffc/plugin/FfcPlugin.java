@@ -1,5 +1,6 @@
 package com.my.ffc.plugin;
 
+import com.my.ffc.plugin.ffcPlugin.PluginTypeEnum;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.mybatis.generator.api.IntrospectedColumn;
