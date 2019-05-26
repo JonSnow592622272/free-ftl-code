@@ -7,8 +7,7 @@ package com.my.ffc.plugin;
  * @desc 插件类型枚举
  */
 public enum PluginTypeEnum {
-    FIELD,
-    TABLE
-
+    TABLE,
+    FIELD
 
 }

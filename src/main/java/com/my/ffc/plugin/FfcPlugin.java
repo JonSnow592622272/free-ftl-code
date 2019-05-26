@@ -68,60 +68,42 @@ public class FfcPlugin extends BasePlugin {
         commonMap.put("interface", anInterface);
 
         try {
+
+            String templatePackage;
+            Template template;
             switch (pluginTypeEnum) {
                 case TABLE:
-                    processTableTemplate(commonMap);
+                    templatePackage = tableTemplatePackage;
+                    template = cfgTable.getTemplate("aa.ftl");
                     break;
                 case FIELD:
-                    processFildTemplate(commonMap);
+                    templatePackage = fieldTemplatePackage;
+                    template = cfgField.getTemplate("aa.ftl");
                     break;
                 default:
                     throw new RuntimeException("未匹配到类型!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!");
             }
+
+            ByteArrayOutputStream bao = new ByteArrayOutputStream(1024);
+            Writer out = new OutputStreamWriter(bao);
+            template.process(commonMap, out);
+            out.flush();
+            out.close();
+
+            String s = new String(bao.toByteArray(), StandardCharsets.UTF_8);
+            System.out.println(":::::::::::::::::::::::::::::::::::" + s);
+
+            Properties ftlProperties = new Properties();
+            ftlProperties.load(new StringReader("#设置表触发ftl模板文件夹\n" +
+                    "tableTemplatePackage=src/main/resources/ffcTemplate/defaultGroup/tableTemplate\n" +
+                    "#设置属性触发ftl模板文件夹(没有的话，可以不设置)\n" +
+                    "fieldTemplatePackage=src/main/resources/ffcTemplate/defaultGroup/fieldTemplate\n"));
+            System.out.println("666666666666666666");
+
         } catch (Exception e) {
             throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
         }
 
-    }
-
-    private void processTableTemplate(Map<String, Object> commonMap) throws Exception {
-//            System.out.println(tableTemplatePackage);
-        Template template = cfgTable.getTemplate("aa.ftl");
-
-        ByteArrayOutputStream bao = new ByteArrayOutputStream(1024);
-        Writer out = new OutputStreamWriter(bao);
-        template.process(commonMap, out);
-        out.flush();
-        out.close();
-
-        String s = new String(bao.toByteArray(), StandardCharsets.UTF_8);
-        System.out.println(":::::::::::::::::::::::::::::::::::" + s);
-
-        Properties ftlProperties = new Properties();
-        ftlProperties.load(new StringReader("#设置表触发ftl模板文件夹\n" +
-                "tableTemplatePackage=src/main/resources/ffcTemplate/defaultGroup/tableTemplate\n" +
-                "#设置属性触发ftl模板文件夹(没有的话，可以不设置)\n" +
-                "fieldTemplatePackage=src/main/resources/ffcTemplate/defaultGroup/fieldTemplate\n"));
-        System.out.println("666666666666666666");
-
-    }
-
-    private void processFildTemplate(Map<String, Object> commonMap) {
-//        try {
-//            Template template = cfgField.getTemplate("aa.ftl");
-//
-//            // 获取输出流（指定到控制台（标准输出））
-//            Writer out = new OutputStreamWriter(System.out);
-//            // StringWriter out = new StringWriter();
-//            // System.out.println(out.toString());
-//            // 数据与模板合并（数据+模板=输出）
-//            template.process(commonMap, out);
-//            out.flush();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (TemplateException e) {
-//            throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
-//        }
     }
 
     public static void main(String[] args) throws IOException {
