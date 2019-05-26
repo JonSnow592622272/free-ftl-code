@@ -26,31 +26,18 @@
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
 
-        <!-- 数据表对应的model层 -->
-        <javaModelGenerator
-                targetPackage="${model.targetPackage}"
-                targetProject="${model.targetProject}">
-            <property name="enableSubPackages" value="true"/>
-            <property name="trimStrings" value="true"/>
-        </javaModelGenerator>
-
-        <!-- mybatispper 映射配置文件，XML文件 -->
-        <sqlMapGenerator
-                targetPackage="${mapperXml.targetPackage}"
-                targetProject="${mapperXml.targetProject}">
-            <property name="enableSubPackages" value="true"/>
-        </sqlMapGenerator>
-
-        <!-- mybatis3中的mapper接口，JAVA文件 -->
-        <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="${mapperJava.targetPackage}"
-                             targetProject="${mapperJava.targetProject}">
-            <property name="enableSubPackages" value="true"/>
-        </javaClientGenerator>
+        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+        <javaModelGenerator targetPackage="com.xxx" targetProject="/"></javaModelGenerator>
+        <sqlMapGenerator targetPackage="xxx" targetProject="xxx"></sqlMapGenerator>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xxx" targetProject="/"></javaClientGenerator>
+        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
 
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table tableName="scores"></table>
+        <table tableName="scores">
+            <property name="aaaa" value="bbbbbbbbbbbbbbbbbbbbbbbb"></property>
+            <property name="cccc" value="ddd"></property>
+        </table>
         <table tableName="zzz"></table>
 
 

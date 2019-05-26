@@ -1,2 +1,2 @@
-${introspectedTable.fullyQualifiedTable.introspectedTableName}
-${introspectedTable.fullyQualifiedTable.introspectedTableName}
+${table.fullyQualifiedTable.introspectedTableName}
+
