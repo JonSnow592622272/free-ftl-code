@@ -57,7 +57,7 @@ public class FfcPlugin extends BasePlugin {
 
             Template template = cfgTable.getTemplate("aa.ftl");
 
-            // 建立数据模型（Map）
+            // 建立数据模型（Map）fff
             Map<String, Object> root = new HashMap<>();
             root.put("field", field);
             root.put("class", topLevelClass);
