@@ -22,15 +22,19 @@ import java.util.Map;
 
 public class FfcPlugin extends BasePlugin {
 
+    private String tableTemplatePackage;
+    private String fieldTemplatePackage;
     private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
-
     private Configuration cfgField = new Configuration(Configuration.VERSION_2_3_23);
 
     @Override
     public void setContext(Context context) {
         try {
-            cfgTable.setDirectoryForTemplateLoading(new File(context.getProperty("tableTemplatePackage")));
-            cfgField.setDirectoryForTemplateLoading(new File(context.getProperty("fieldTemplatePackage")));
+            tableTemplatePackage = context.getProperty("tableTemplatePackage");
+            fieldTemplatePackage = context.getProperty("fieldTemplatePackage");
+
+            cfgTable.setDirectoryForTemplateLoading(new File(tableTemplatePackage));
+            cfgField.setDirectoryForTemplateLoading(new File(fieldTemplatePackage));
         } catch (IOException e) {
             throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
         }
@@ -67,7 +71,7 @@ public class FfcPlugin extends BasePlugin {
 
         switch (pluginTypeEnum) {
             case FIELD:
-                processFildTemplate(commonMap);
+//                processFildTemplate(commonMap);
                 break;
             case TABLE:
                 processTableTemplate(commonMap);
@@ -81,6 +85,7 @@ public class FfcPlugin extends BasePlugin {
 
     private void processTableTemplate(Map<String, Object> commonMap) {
         try {
+//            System.out.println(tableTemplatePackage);
             Template template = cfgTable.getTemplate("aa.ftl");
 
             // 获取输出流（指定到控制台（标准输出））
@@ -115,8 +120,6 @@ public class FfcPlugin extends BasePlugin {
         }
     }
 
-
-    //ssssssss
     public static void main(String[] args) throws IOException {
         Path path = new File("D:/a/b/d").toPath();
         Files.createDirectories(path);
