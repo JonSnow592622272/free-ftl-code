@@ -27,16 +27,17 @@
         </jdbcConnection>
 
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
-        <javaModelGenerator targetPackage="com.xxx" targetProject="/"></javaModelGenerator>
-        <sqlMapGenerator targetPackage="xxx" targetProject="xxx"></sqlMapGenerator>
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xxx" targetProject="/"></javaClientGenerator>
+        <javaModelGenerator targetPackage="com.xxx" targetProject="/"/>
+        <sqlMapGenerator targetPackage="xxx" targetProject="xxx"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xxx" targetProject="/"/>
         <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
 
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
         <table tableName="scores">
-            <property name="aaaa" value="bbbbbbbbbbbbbbbbbbbbbbbb"></property>
-            <property name="cccc" value="ddd"></property>
+            <!--以下属性可以传递到模板文件中-->
+            <property name="aaaa" value="bbbbbbbbbbbbbbbbbbbbbbbb"/>
+            <property name="cccc" value="ddd"/>
         </table>
         <table tableName="zzz"></table>
 
