@@ -16,6 +16,7 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class FfcPlugin extends BasePlugin {
 
@@ -95,6 +96,13 @@ public class FfcPlugin extends BasePlugin {
 
         String s = new String(bao.toByteArray(), StandardCharsets.UTF_8);
         System.out.println(":::::::::::::::::::::::::::::::::::" + s);
+
+        Properties ftlProperties = new Properties();
+        ftlProperties.load(new StringReader("#设置表触发ftl模板文件夹\n" +
+                "tableTemplatePackage=src/main/resources/ffcTemplate/defaultGroup/tableTemplate\n" +
+                "#设置属性触发ftl模板文件夹(没有的话，可以不设置)\n" +
+                "fieldTemplatePackage=src/main/resources/ffcTemplate/defaultGroup/fieldTemplate\n"));
+        System.out.println("666666666666666666");
 
     }
 
