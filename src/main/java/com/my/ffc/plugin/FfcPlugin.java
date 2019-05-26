@@ -2,7 +2,6 @@ package com.my.ffc.plugin;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import freemarker.template.TemplateException;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.Field;
@@ -94,9 +93,7 @@ public class FfcPlugin extends BasePlugin {
             String s = new String(bao.toByteArray(), StandardCharsets.UTF_8);
             System.out.println(":::::::::::::::::::::::::::::::::::" + s);
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (TemplateException e) {
+        } catch (Exception e) {
             throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
         }
     }
