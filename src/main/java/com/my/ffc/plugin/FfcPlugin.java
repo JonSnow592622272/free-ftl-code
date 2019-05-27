@@ -126,9 +126,9 @@ public class FfcPlugin extends BasePlugin {
                     try {
                         Path configFilePath = new File(path.toAbsolutePath().toString() + "config.properties").toPath();
 
+                        //从ftl模板生成properties内容
                         byte[] baoBytes = loadFtlTemplate(commonMap, cfg, configFilePath);
-
-                        //从ftl模板生成properties
+                        //生成properties
                         Properties ftlProperties = new Properties();
                         ftlProperties.load(new StringReader(new String(baoBytes, StandardCharsets.UTF_8)));
 
@@ -147,7 +147,16 @@ public class FfcPlugin extends BasePlugin {
                         //创建文件
                         if ("1".equals(fileCreateTypeProp)) {
                             //重写模式
-                            Files.write(createFilePath, bao2Bytes);
+                            if (Files.exists(createFilePath)) {
+                                //检查文件内容是否一致，如果完全一致则不需要再覆盖了
+                                if (!new String(Files.readAllBytes(createFilePath), StandardCharsets.UTF_8)
+                                        .equals(new String(bao2Bytes, StandardCharsets.UTF_8))) {
+                                    //文件存在且内容不同!!!!!!!!!!替换！！！！！！
+                                    Files.write(createFilePath, bao2Bytes);
+                                }
+                            } else {
+                                Files.write(createFilePath, bao2Bytes);
+                            }
                         } else if ("2".equals(fileCreateTypeProp)) {
                             //替换模式。只支持xml。对“标签”和“id”匹配的进行替换
                             //.............................................................................................
