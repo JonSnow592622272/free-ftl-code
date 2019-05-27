@@ -63,7 +63,7 @@ public class FfcPlugin extends BasePlugin {
             }
 
         } catch (IOException e) {
-            throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
+            throw new RuntimeException("执行失败!!!!!!!!!!!!!!!!!!!", e);
         }
 
     }
@@ -168,7 +168,7 @@ public class FfcPlugin extends BasePlugin {
                         }
 
                     } catch (Exception e) {
-                        throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
+                        throw new RuntimeException("执行失败!!!!!!!!!!!!!!!!!!!" + e.getMessage(), e);
                     }
 
                 } else {
@@ -178,7 +178,7 @@ public class FfcPlugin extends BasePlugin {
             });
 
         } catch (Exception e) {
-            throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
+            throw new RuntimeException("执行失败!!!!!!!!!!!!!!!!!!!" + e.getMessage(), e);
         }
 
     }
