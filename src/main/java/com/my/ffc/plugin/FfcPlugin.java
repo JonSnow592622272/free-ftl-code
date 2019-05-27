@@ -90,11 +90,11 @@ public class FfcPlugin extends BasePlugin {
         // 建立数据模型（Map）
         Map<String, Object> commonMap = new HashMap<>();
         commonMap.put("field", field);
-        commonMap.put("class", topLevelClass);
-        commonMap.put("column", introspectedColumn);
-        commonMap.put("table", introspectedTable);
-        commonMap.put("classType", modelClassType);
-        commonMap.put("interface", anInterface);
+        commonMap.put("topLevelClass", topLevelClass);
+        commonMap.put("introspectedColumn", introspectedColumn);
+        commonMap.put("introspectedTable", introspectedTable);
+        commonMap.put("modelClassType", modelClassType);
+        commonMap.put("anInterface", anInterface);
 
         try {
 
