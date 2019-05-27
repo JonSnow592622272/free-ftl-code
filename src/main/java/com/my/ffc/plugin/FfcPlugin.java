@@ -3,6 +3,7 @@ package com.my.ffc.plugin;
 import com.my.ffc.plugin.ffcPlugin.PluginTypeEnum;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.Field;
@@ -125,48 +126,35 @@ public class FfcPlugin extends BasePlugin {
                     try {
                         Path configFilePath = new File(path.toAbsolutePath().toString() + "config.properties").toPath();
 
-                        Assert.isTrue(Files.exists(configFilePath) && !Files
-                                .isDirectory(configFilePath), "确保文件存在且不是文件夹!!!!!" + configFilePath.toAbsolutePath()
-                                .toString());
+                        byte[] baoBytes = loadFtlTemplate(commonMap, cfg, configFilePath);
 
-                        Template template = cfg.getTemplate(configFilePath.getFileName().toString());
-                        ByteArrayOutputStream bao = new ByteArrayOutputStream(1024);
-                        Writer out = new OutputStreamWriter(bao);
-                        template.process(commonMap, out);
-                        out.flush();
-                        out.close();
-                        String configContent = new String(bao.toByteArray(), StandardCharsets.UTF_8);
-
+                        //从ftl模板生成properties
                         Properties ftlProperties = new Properties();
-                        ftlProperties.load(new StringReader(configContent));
+                        ftlProperties.load(new StringReader(new String(baoBytes, StandardCharsets.UTF_8)));
 
+                        //properties配置属性
                         String filePathProp = ftlProperties.getProperty("filePath");
                         Assert.isTrue(!StringUtils.isEmpty(filePathProp), configFilePath.toAbsolutePath()
                                 .toString() + "文件中filePath不能为空");
                         String fileCreateTypeProp = ftlProperties.getProperty("fileCreateType");
 
-                        Template template2 = cfg.getTemplate(path.getFileName().toString());
-                        ByteArrayOutputStream bao2 = new ByteArrayOutputStream(1024);
-                        Writer out2 = new OutputStreamWriter(bao2);
-                        template2.process(commonMap, out2);
-                        out2.flush();
-                        out2.close();
+                        //从ftl模板生成代码
+                        byte[] bao2Bytes = loadFtlTemplate(commonMap, cfg, path);
 
-//                        String ftlContent = new String(bao.toByteArray(), StandardCharsets.UTF_8);
-
-                        //创建目录
                         Path createFilePath = new File(filePathProp).toPath();
+                        //创建目录
                         Files.createDirectories(createFilePath.getParent());
+                        //创建文件
                         if ("1".equals(fileCreateTypeProp)) {
                             //重写模式
-                            Files.write(createFilePath, bao2.toByteArray());
+                            Files.write(createFilePath, bao2Bytes);
                         } else if ("2".equals(fileCreateTypeProp)) {
-                            //替换模式
+                            //替换模式。只支持xml。对“标签”和“id”匹配的进行替换
                             //.............................................................................................
                         } else {
                             //不重写模式
                             if (!Files.exists(createFilePath)) {
-                                Files.write(createFilePath, bao2.toByteArray());
+                                Files.write(createFilePath, bao2Bytes);
                             }
                         }
 
@@ -184,6 +172,19 @@ public class FfcPlugin extends BasePlugin {
             throw new RuntimeException("error!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!", e);
         }
 
+    }
+
+    private byte[] loadFtlTemplate(Map<String, Object> commonMap, Configuration cfg, Path configFilePath) throws IOException, TemplateException {
+        Assert.isTrue(Files.exists(configFilePath) && !Files
+                .isDirectory(configFilePath), "确保文件存在且不是文件夹!!!!!" + configFilePath.toAbsolutePath()
+                .toString());
+        Template template = cfg.getTemplate(configFilePath.getFileName().toString());
+        ByteArrayOutputStream bao = new ByteArrayOutputStream(1024);
+        Writer out = new OutputStreamWriter(bao);
+        template.process(commonMap, out);
+        out.flush();
+        out.close();
+        return bao.toByteArray();
     }
 
 }
