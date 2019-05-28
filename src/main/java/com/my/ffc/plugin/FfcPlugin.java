@@ -155,14 +155,17 @@ public class FfcPlugin extends BasePlugin {
                                     Files.write(createFilePath, bao2Bytes);
                                 }
                             } else {
-                                Files.write(createFilePath, bao2Bytes);
+                                //文件不存在则创建
+                                if (bao2Bytes.length > 0) {
+                                    Files.write(createFilePath, bao2Bytes);
+                                }
                             }
                         } else if ("2".equals(fileCreateTypeProp)) {
                             //替换模式。只支持xml。对“标签”和“id”匹配的进行替换
                             //.............................................................................................
                         } else {
-                            //不重写模式
-                            if (!Files.exists(createFilePath)) {
+                            //不重写模式（文件不存在则创建，存在则不覆盖）
+                            if (!Files.exists(createFilePath) && bao2Bytes.length > 0) {
                                 Files.write(createFilePath, bao2Bytes);
                             }
                         }
