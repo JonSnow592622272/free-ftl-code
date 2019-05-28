@@ -16,6 +16,7 @@
         <property name="fieldTemplatePackage" value="${fieldTemplatePackage}"/>
 
 
+        <!-- 增加ffc插件 -->
         <plugin type="com.my.ffc.plugin.FfcPlugin"/>
 
         <!-- 数据库连接 -->
@@ -47,7 +48,6 @@
         <table tableName="mall_money_user" domainObjectName="MallMoneyUser">
             <property name="module" value="userModule模块"/>
         </table>
-
 
 
     </context>
