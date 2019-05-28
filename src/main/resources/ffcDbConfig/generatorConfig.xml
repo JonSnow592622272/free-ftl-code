@@ -39,9 +39,15 @@
             <!--以下属性可以传递到ftl模板文件中，可以自由定义-->
             <property name="module" value="userModule模块"/>
         </table>
+
         <table tableName="test_scores" domainObjectName="TestScores">
             <property name="module" value="study模块"/>
         </table>
+
+        <table tableName="mall_money_user" domainObjectName="MallMoneyUser">
+            <property name="module" value="userModule模块"/>
+        </table>
+
 
 
     </context>
