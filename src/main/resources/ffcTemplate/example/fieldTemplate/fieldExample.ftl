@@ -18,10 +18,12 @@ xml传递属性（从generatorConfig.xml的table标签传递过来）：module:$
 
 
 字段：
-数据库字段类型 : ${introspectedColumn.jdbcTypeName}
-数据库字段名称 : ${introspectedColumn.actualColumnName}
+        数据库字段类型 : ${introspectedColumn.jdbcTypeName}
+        数据库字段名称 : ${introspectedColumn.actualColumnName}
+        数据库字段备注 : ${introspectedColumn.remarks}
 
-java类型包名 : ${introspectedColumn.fullyQualifiedJavaType.packageName}
-java类型类名 : ${introspectedColumn.fullyQualifiedJavaType.shortNameWithoutTypeArguments}
-java类型包名+类名 : ${introspectedColumn.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters}
-java属性名称 : ${introspectedColumn.javaProperty}
+
+        java类型包名 : ${introspectedColumn.fullyQualifiedJavaType.packageName}
+        java类型类名 : ${introspectedColumn.fullyQualifiedJavaType.shortNameWithoutTypeArguments}
+        java类型包名+类名 : ${introspectedColumn.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters}
+        java属性名称 : ${introspectedColumn.javaProperty}
