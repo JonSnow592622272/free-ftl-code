@@ -127,10 +127,10 @@ public class FfcPlugin extends BasePlugin {
                         Path configFilePath = new File(path.toAbsolutePath().toString() + "config.properties").toPath();
 
                         //从ftl模板生成properties内容
-                        byte[] baoBytes = loadFtlTemplate(commonMap, cfg, configFilePath);
+                        byte[] baoBytesProperties = loadFtlTemplate(commonMap, cfg, configFilePath);
                         //生成properties
                         Properties ftlProperties = new Properties();
-                        ftlProperties.load(new StringReader(new String(baoBytes, StandardCharsets.UTF_8)));
+                        ftlProperties.load(new StringReader(new String(baoBytesProperties, StandardCharsets.UTF_8)));
 
                         //properties配置属性
                         String filePathProp = ftlProperties.getProperty("filePath");
@@ -139,7 +139,7 @@ public class FfcPlugin extends BasePlugin {
                         String fileCreateTypeProp = ftlProperties.getProperty("fileCreateType");
 
                         //从ftl模板生成代码
-                        byte[] bao2Bytes = loadFtlTemplate(commonMap, cfg, path);
+                        byte[] baoBytesCode = loadFtlTemplate(commonMap, cfg, path);
 
                         Path createFilePath = new File(filePathProp).toPath();
                         //创建目录
@@ -150,14 +150,14 @@ public class FfcPlugin extends BasePlugin {
                             if (Files.exists(createFilePath)) {
                                 //检查文件内容是否一致，如果完全一致则不需要再覆盖了
                                 if (!new String(Files.readAllBytes(createFilePath), StandardCharsets.UTF_8)
-                                        .equals(new String(bao2Bytes, StandardCharsets.UTF_8))) {
+                                        .equals(new String(baoBytesCode, StandardCharsets.UTF_8))) {
                                     //文件存在且内容不同!!!!!!!!!!替换！！！！！！
-                                    Files.write(createFilePath, bao2Bytes);
+                                    Files.write(createFilePath, baoBytesCode);
                                 }
                             } else {
                                 //文件不存在则创建
-                                if (bao2Bytes.length > 0) {
-                                    Files.write(createFilePath, bao2Bytes);
+                                if (baoBytesCode.length > 0) {
+                                    Files.write(createFilePath, baoBytesCode);
                                 }
                             }
                         } else if ("2".equals(fileCreateTypeProp)) {
@@ -165,8 +165,8 @@ public class FfcPlugin extends BasePlugin {
                             //.............................................................................................
                         } else {
                             //不重写模式（文件不存在则创建，存在则不覆盖）
-                            if (!Files.exists(createFilePath) && bao2Bytes.length > 0) {
-                                Files.write(createFilePath, bao2Bytes);
+                            if (!Files.exists(createFilePath) && baoBytesCode.length > 0) {
+                                Files.write(createFilePath, baoBytesCode);
                             }
                         }
 
