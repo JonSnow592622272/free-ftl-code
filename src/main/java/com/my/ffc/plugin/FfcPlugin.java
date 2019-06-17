@@ -1,8 +1,12 @@
 package com.my.ffc.plugin;
 
+import com.my.ffc.xml.IgnoreDTDEntityResolver;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.io.SAXReader;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.Field;
@@ -175,8 +179,13 @@ public class FfcPlugin extends BasePlugin {
                                 }
                             }
                         } else if ("2".equals(fileCreateTypeProp)) {
-                            //替换模式。只支持xml。对“标签”和属性匹配的进行替换
-                            //.............................................................................................
+                            //替换模式。只支持xml。对“标签”和属性匹配的进行替换（文件不存在则创建，存在则替换）
+                            if (!Files.exists(createFilePath) && baoBytesCode.length > 0) {
+                                Files.write(createFilePath, baoBytesCode);
+                            } else {
+                                //文件存在，进行匹配替换
+                                replaceXmlAndWriteFile(createFilePath, new String(baoBytesCode, StandardCharsets.UTF_8));
+                            }
 
                         } else {
                             //不重写模式（文件不存在则创建，存在则不覆盖）
@@ -214,4 +223,12 @@ public class FfcPlugin extends BasePlugin {
         return bao.toByteArray();
     }
 
+    private void replaceXmlAndWriteFile(Path oldFilePath, String newXmlStr) throws IOException, DocumentException {
+
+        SAXReader reader = new SAXReader(false);
+        // 忽略DTD，降低延迟
+        reader.setEntityResolver(new IgnoreDTDEntityResolver());
+        Document oldDocument = reader.read(oldFilePath.toFile());
+
+    }
 }

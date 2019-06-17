@@ -1,5 +1,6 @@
 package com.my.ffc;
 
+import com.my.ffc.xml.IgnoreDTDEntityResolver;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
@@ -8,9 +9,6 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.springframework.core.io.ClassPathResource;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -20,13 +18,6 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Xmltest {
-    public static class IgnoreDTDEntityResolver implements EntityResolver {
-
-        @Override
-        public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
-            return new InputSource(new ByteArrayInputStream("<?xml version='1.0' encoding='UTF-8'?>".getBytes()));
-        }
-    }
 
     public static void main32(String[] args) throws Exception {
         Document document = DocumentHelper
@@ -69,10 +60,15 @@ public class Xmltest {
             System.out.println("=============开始遍历第" + i + "本书==========");
             Element element = it.next();
 
-            Document document = DocumentHelper
-                    .parseText("<resultMap id=\"BaseResultMap\" type=\"com.yunyihenkey.basedao.malldb.basevo.MallMoneyDelay\">\n" +
-                            "    <id column=\"id\" jdbcType=\"BIGINT\" property=\"id\"/>\n" +
-                            "  </resultMap><!-- ssss -->");
+            SAXReader reader2 = new SAXReader(false);
+// 忽略DTD，降低延迟
+            reader2.setEntityResolver(new IgnoreDTDEntityResolver());
+
+            String s = "<resultMap id=\"BaseResultMap\" type=\"com.yunyihenkey.basedao.malldb.basevo.MallMoneyDelay\">\n" +
+                    "    <id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>\n" +
+                    "  </resultMap>";
+            Document document = reader2
+                    .read(new ByteArrayInputStream(s.getBytes()));
 
             Element rootElement1 = document.getRootElement();
             it.remove();
