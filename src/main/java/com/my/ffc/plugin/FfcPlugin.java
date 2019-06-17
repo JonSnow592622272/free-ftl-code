@@ -1,6 +1,5 @@
 package com.my.ffc.plugin;
 
-import com.my.ffc.plugin.ffcPlugin.PluginTypeEnum;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -23,6 +22,17 @@ import java.util.Map;
 import java.util.Properties;
 
 public class FfcPlugin extends BasePlugin {
+
+    /**
+     * @author wulm
+     * @date 2019/5/26 21:06
+     * @version 1.0.0
+     * @desc 插件类型枚举
+     */
+    public enum PluginTypeEnum {
+        TABLE,
+        FIELD
+    }
 
     private String tableTemplatePackage;
     private String fieldTemplatePackage;
