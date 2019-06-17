@@ -3,7 +3,6 @@ package com.my.ffc;
 import com.my.ffc.xml.IgnoreDTDEntityResolver;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
-import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
@@ -18,28 +17,6 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Xmltest {
-
-    public static void main32(String[] args) throws Exception {
-        Document document = DocumentHelper
-                .parseText("<resultMap id=\"BaseResultMap\" type=\"com.yunyihenkey.basedao.malldb.basevo.MallMoneyDelay\">\n" +
-                        "    <id column=\"id\" jdbcType=\"BIGINT\" property=\"id\"/>\n" +
-                        "    <result column=\"money_user_id\" jdbcType=\"BIGINT\" property=\"moneyUserId\"/>\n" +
-                        "    <result column=\"account_type\" jdbcType=\"INTEGER\" property=\"accountType\"/>\n" +
-                        "    <result column=\"title\" jdbcType=\"VARCHAR\" property=\"title\"/>\n" +
-                        "    <result column=\"order_money\" jdbcType=\"BIGINT\" property=\"orderMoney\"/>\n" +
-                        "    <result column=\"money\" jdbcType=\"BIGINT\" property=\"money\"/>\n" +
-                        "    <result column=\"money_type\" jdbcType=\"INTEGER\" property=\"moneyType\"/>\n" +
-                        "    <result column=\"relation_id\" jdbcType=\"BIGINT\" property=\"relationId\"/>\n" +
-                        "    <result column=\"remarks\" jdbcType=\"VARCHAR\" property=\"remarks\"/>\n" +
-                        "    <result column=\"create_time\" jdbcType=\"TIMESTAMP\" property=\"createTime\"/>\n" +
-                        "    <result column=\"sign\" jdbcType=\"VARCHAR\" property=\"sign\"/>\n" +
-                        "    <result column=\"old_money\" jdbcType=\"BIGINT\" property=\"oldMoney\"/>\n" +
-                        "    <result column=\"postage_fee\" jdbcType=\"BIGINT\" property=\"postageFee\"/>\n" +
-                        "  </resultMap>");
-
-        System.out.println(document.getRootElement().asXML());
-
-    }
 
     public static void main(String[] args) throws Exception {
         SAXReader reader = new SAXReader();
@@ -64,15 +41,20 @@ public class Xmltest {
 // 忽略DTD，降低延迟
             reader2.setEntityResolver(new IgnoreDTDEntityResolver());
 
-            String s = "<resultMap id=\"BaseResultMap\" type=\"com.yunyihenkey.basedao.malldb.basevo.MallMoneyDelay\">\n" +
-                    "    <id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>\n" +
-                    "  </resultMap>";
+            String s = "<resultMap id=\"BaseResultMap\" type=\"com.yunyihenkey.basedao.malldb.basevo.MallMoneyDelay\">" +
+                    "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>" +
+                    "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>" +
+                    "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>" +
+                    "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>" +
+                    "</resultMap>";
             Document document = reader2
                     .read(new ByteArrayInputStream(s.getBytes()));
 
             Element rootElement1 = document.getRootElement();
+//            rootElement1.createCopy()
             it.remove();
             it.add(rootElement1);
+            it.add(rootElement1.createCopy("xxxx"));
 
 //            System.out.println(":::::" + element.asXML());
             if (true) {
@@ -108,16 +90,57 @@ public class Xmltest {
 
             // 把创建好的XML文档写入字符串
             xmlWriter.write(extdocument);
+            xmlWriter.close();
 
+            stringWriter.close();
             // 打印字符串,即是XML文档
             System.out.println(stringWriter.toString());
 
-            xmlWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 //        System.out.println(extdocument.asXML());
 
+    }
+
+    public static void main2332(String[] args) throws Exception {
+        String a="<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<!DOCTYPE mapper PUBLIC \"-//mybatis.org//DTD Mapper 3.0//EN\" \"http://mybatis.org/dtd/mybatis-3-mapper.dtd\">\n" +
+                "<mapper namespace=\"com.yunyihenkey.basedao.malldb.basemapper.MallMoneyDelayBaseMapper\">\n" +
+                "    <resultMap id=\"BaseResultMap\" type=\"com.yunyihenkey.basedao.malldb.basevo.MallMoneyDelay\">\n" +
+                "        <id column=\"id\" jdbcType=\"BIGINT\" property=\"id\"/>\n" +
+                "        <result column=\"money_user_id\" jdbcType=\"BIGINT\" property=\"moneyUserId\"/>\n" +
+                "        <result column=\"account_type\" jdbcType=\"INTEGER\" property=\"accountType\"/>\n" +
+                "    </resultMap>\n" +
+                "    <sql id=\"Base_Column_List\">\n" +
+                "        id, money_user_id, account_type, title, order_money, money, money_type, relation_id,\n" +
+                "        remarks, create_time, sign, old_money, postage_fee\n" +
+                "    </sql>\n" +
+                "\n" +
+                "</mapper>";
+
+        OutputFormat outputFormat = OutputFormat.createPrettyPrint();
+        //outputFormat.setEncoding("UTF-8");
+        // outputFormat.setSuppressDeclaration(true); //是否生产xml头
+        //outputFormat.setIndent(true); //设置是否缩进
+        //outputFormat.setIndent("    "); //以四个空格方式实现缩进
+        outputFormat.setTrimText(false);
+
+
+        SAXReader reader = new SAXReader(false);
+        // 忽略DTD，降低延迟
+        reader.setEntityResolver(new IgnoreDTDEntityResolver());
+
+
+        Document oldDocument = reader.read(new ByteArrayInputStream(a.getBytes()));
+
+        StringWriter stringWriter = new StringWriter();
+
+        XMLWriter xmlWriter = new XMLWriter(stringWriter, outputFormat);
+        xmlWriter.write(oldDocument);
+
+
+        System.out.println(stringWriter.toString());
     }
 }

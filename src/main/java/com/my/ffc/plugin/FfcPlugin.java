@@ -4,9 +4,13 @@ import com.my.ffc.xml.IgnoreDTDEntityResolver;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.dom.java.Field;
@@ -20,10 +24,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class FfcPlugin extends BasePlugin {
 
@@ -179,12 +180,14 @@ public class FfcPlugin extends BasePlugin {
                                 }
                             }
                         } else if ("2".equals(fileCreateTypeProp)) {
-                            //替换模式。只支持xml。对“标签”和属性匹配的进行替换（文件不存在则创建，存在则替换）
+                            //替换模式。只支持xml。对“标签”和属性匹配的进行替换（无则创建，存在则替换）
+//                            Assert.isTrue(createFilePath.endsWith(".xml"), "警告！！！该模式只支持xml格式文件！" + createFilePath
+//                                    .toAbsolutePath().toString());
                             if (!Files.exists(createFilePath) && baoBytesCode.length > 0) {
                                 Files.write(createFilePath, baoBytesCode);
                             } else {
                                 //文件存在，进行匹配替换
-                                replaceXmlAndWriteFile(createFilePath, new String(baoBytesCode, StandardCharsets.UTF_8));
+                                replaceXmlAndWriteFile(createFilePath, baoBytesCode);
                             }
 
                         } else {
@@ -223,12 +226,123 @@ public class FfcPlugin extends BasePlugin {
         return bao.toByteArray();
     }
 
-    private void replaceXmlAndWriteFile(Path oldFilePath, String newXmlStr) throws IOException, DocumentException {
+    /**
+     * @desc 替换xml，在新的xml内容在老的xml内容中，无则创建，存在则匹配替换。
+     * @author wulm
+     * @date 2019/6/17 17:43
+     * @param oldFilePath 老的xml文件路径
+     * @param newXmlBytes 新的xml内容
+     **/
+    private void replaceXmlAndWriteFile(Path oldFilePath, byte[] newXmlBytes) throws IOException, DocumentException {
 
         SAXReader reader = new SAXReader(false);
         // 忽略DTD，降低延迟
         reader.setEntityResolver(new IgnoreDTDEntityResolver());
-        Document oldDocument = reader.read(oldFilePath.toFile());
+
+        byte[] oldXmlBytes = Files.readAllBytes(oldFilePath);
+
+        Document oldDocument = reader.read(new ByteArrayInputStream(oldXmlBytes));
+        Element oldRootElement = oldDocument.getRootElement();
+
+        Document newDocument = reader.read(new ByteArrayInputStream(newXmlBytes));
+        Element newRootElement = newDocument.getRootElement();
+        //匹配替换处理
+        replaceElement(oldRootElement, newRootElement);
+        //写入文件
+        OutputFormat outputFormat = OutputFormat.createPrettyPrint();
+        //outputFormat.setEncoding("UTF-8");
+        // outputFormat.setSuppressDeclaration(true); //是否生产xml头
+        //outputFormat.setIndent(true); //设置是否缩进
+        //outputFormat.setIndent("    "); //以四个空格方式实现缩进
+        outputFormat.setTrimText(false);
+
+        ByteArrayOutputStream oldNewXmlBaos = new ByteArrayOutputStream(1024);
+
+        XMLWriter xmlWriter = new XMLWriter(oldNewXmlBaos, outputFormat);
+        xmlWriter.write(oldDocument);
+
+        byte[] oldNewXmlBytes = oldNewXmlBaos.toByteArray();
+
+        //检查文件内容是否一致，如果完全一致则不需要再覆盖了
+        if (!new String(oldXmlBytes, StandardCharsets.UTF_8)
+                .equals(new String(oldNewXmlBytes, StandardCharsets.UTF_8))) {
+            Files.write(oldFilePath, oldNewXmlBytes);
+        }
 
     }
+
+    /**
+     * @desc 匹配替换处理
+     * @author wulm
+     * @date 2019/6/17 17:58
+     **/
+    private void replaceElement(Element oldElement, Element newElement) {
+        List<Element> oldElements = oldElement.elements();
+
+        Iterator<Element> newIt = newElement.elementIterator();
+        newWhile:
+        while (newIt.hasNext()) {
+            Element newChild = newIt.next();
+            String newChildName = newChild.getName();
+            //新xml节点和老xml节点比较
+            //节点是否在老xml存在
+            boolean isExistElement = false;
+            //待匹配的新xml属性
+            List<Attribute> newCheckAttributes = null;
+            ListIterator<Element> oldIt = oldElements.listIterator();
+            oldWhile:
+            while (oldIt.hasNext()) {
+                Element oldChild = oldIt.next();
+                if (newChildName.equals(oldChild.getName())) {
+                    //标签相同，进一步检查属性是否相同
+                    if (newCheckAttributes == null) {
+                        //初始化当前新的xml属性集合
+                        newCheckAttributes = new ArrayList<>();
+                        for (String attrName : replaceModeCheckAttributes) {
+                            //添加待匹配的新xml属性
+                            Attribute newAttribute = newChild.attribute(attrName);
+                            if (newAttribute == null) {
+                                //在新的xml中没有完全匹配到指定属性，直接跳过当前检测
+                                continue newWhile;
+                            } else {
+                                newCheckAttributes.add(newAttribute);
+                            }
+                        }
+                    }
+                    for (Attribute newAttribute : newCheckAttributes) {
+                        Attribute oldAttribute = oldChild.attribute(newAttribute.getName());
+                        if (oldAttribute != null && oldAttribute.getValue().equals(newAttribute.getValue())) {
+                            //存在且匹配到则替换
+                            isExistElement = true;
+                            oldIt.remove();
+                            oldIt.add(newChild.createCopy());
+                            //continue  newWhile;///////////////////////////////////////////////////////////这里可以考虑以后要不要匹配过成功一次就跳过。
+                        }
+                    }
+                }
+            }
+            if (!isExistElement) {
+                //新的xml存在，但老的xml没找到，采用“无则创建原则”////////////////////////////////////////////////后面可以考虑是否调整顺序
+                oldElements.add(0, newChild.createCopy());
+            }
+        }
+    }
+
+    public static void main23(String[] args) {
+        List<Integer> list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+//        ListIterator<Integer> it = list.listIterator();
+//        while (it.hasNext()) {
+//            it.add(9);
+//            System.out.println(it.next() + "::" + list.size());
+//
+//        }
+
+        System.out.println(list);
+
+    }
+
 }
