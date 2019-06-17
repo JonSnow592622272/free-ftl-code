@@ -36,6 +36,7 @@ public class FfcPlugin extends BasePlugin {
 
     private String tableTemplatePackage;
     private String fieldTemplatePackage;
+    private String[] replaceModeCheckAttributes;
     private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
     private Configuration cfgField = new Configuration(Configuration.VERSION_2_3_23);
     private boolean isEnableTablePlugin = true;
@@ -47,14 +48,10 @@ public class FfcPlugin extends BasePlugin {
 
             tableTemplatePackage = context.getProperty("tableTemplatePackage");
             fieldTemplatePackage = context.getProperty("fieldTemplatePackage");
+            String rmca = context.getProperty("replaceModeCheckAttributes");
+
             if ("${tableTemplatePackage}".equals(tableTemplatePackage)) {
                 tableTemplatePackage = null;
-            }
-            if ("${fieldTemplatePackage}".equals(fieldTemplatePackage)) {
-                fieldTemplatePackage = null;
-            }
-
-            if (StringUtils.isEmpty(tableTemplatePackage)) {
                 isEnableTablePlugin = false;
             } else {
                 Assert.isTrue(Files
@@ -63,14 +60,21 @@ public class FfcPlugin extends BasePlugin {
                 cfgTable.setDirectoryForTemplateLoading(new File(tableTemplatePackage));
             }
 
-            if (StringUtils.isEmpty(fieldTemplatePackage)) {
+            if ("${fieldTemplatePackage}".equals(fieldTemplatePackage)) {
+                fieldTemplatePackage = null;
                 isEnableFieldPlugin = false;
             } else {
                 Assert.isTrue(Files
                         .isDirectory(new File(fieldTemplatePackage)
                                 .toPath()), "确保fieldTemplatePackage存在且为文件夹！fieldTemplatePackage=" + fieldTemplatePackage);
                 cfgField.setDirectoryForTemplateLoading(new File(fieldTemplatePackage));
+
             }
+
+            if ("${replaceModeCheckAttributes}".equals(rmca)) {
+                rmca = "id";
+            }
+            replaceModeCheckAttributes = rmca.split(",");
 
         } catch (IOException e) {
             throw new RuntimeException("执行失败!!!!!!!!!!!!!!!!!!!", e);
@@ -171,8 +175,9 @@ public class FfcPlugin extends BasePlugin {
                                 }
                             }
                         } else if ("2".equals(fileCreateTypeProp)) {
-                            //替换模式。只支持xml。对“标签”和“id”匹配的进行替换
+                            //替换模式。只支持xml。对“标签”和属性匹配的进行替换
                             //.............................................................................................
+
                         } else {
                             //不重写模式（文件不存在则创建，存在则不覆盖）
                             if (!Files.exists(createFilePath) && baoBytesCode.length > 0) {

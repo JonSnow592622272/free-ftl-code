@@ -24,6 +24,7 @@
     id, money_user_id, account_type, title, order_money, money, money_type, relation_id, 
     remarks, create_time, sign, old_money, postage_fee
   </sql>
+  sssssssssssssssssssssssssssssssss
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
