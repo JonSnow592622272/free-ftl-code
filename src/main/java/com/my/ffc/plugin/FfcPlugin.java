@@ -286,7 +286,6 @@ public class FfcPlugin extends BasePlugin {
         newWhile:
         while (newIt.hasNext()) {
             Element newChild = newIt.next();
-            String newChildName = newChild.getName();
             //新xml节点和老xml节点比较
             //节点是否在老xml存在
             boolean isExistElement = false;
@@ -296,7 +295,7 @@ public class FfcPlugin extends BasePlugin {
             oldWhile:
             while (oldIt.hasNext()) {
                 Element oldChild = oldIt.next();
-                if (newChildName.equals(oldChild.getName())) {
+                if (newChild.getName().equals(oldChild.getName())) {
                     //标签相同，进一步检查属性是否相同
                     if (newCheckAttributes == null) {
                         //初始化当前新的xml属性集合
@@ -312,16 +311,24 @@ public class FfcPlugin extends BasePlugin {
                             }
                         }
                     }
+                    boolean isAllAttrEquals = true;
                     for (Attribute newAttribute : newCheckAttributes) {
                         Attribute oldAttribute = oldChild.attribute(newAttribute.getName());
-                        if (oldAttribute != null && oldAttribute.getValue().equals(newAttribute.getValue())) {
-                            //存在且匹配到则替换
-                            isExistElement = true;
-                            oldIt.remove();
-                            oldIt.add(newChild.createCopy());
-                            //continue  newWhile;///////////////////////////////////////////////////////////这里可以考虑以后要不要标签属性匹配过成功一次就跳过。
+                        if (oldAttribute == null || !oldAttribute.getValue().equals(newAttribute.getValue())) {
+                            isAllAttrEquals = false;
+                            break;
                         }
                     }
+                    if (isAllAttrEquals) {
+                        //存在且匹配到则替换
+                        isExistElement = true;
+                        oldIt.remove();
+//                        Element copy = newChild.createCopy();
+//                        System.out.println("::::::::::::::::::::" + copy.asXML());
+                        oldIt.add(newChild.createCopy());
+                        //continue  newWhile;///////////////////////////////////////////////////////////这里可以考虑以后要不要标签属性匹配过成功一次就跳过。
+                    }
+
                 }
             }
             if (!isExistElement) {
@@ -329,23 +336,6 @@ public class FfcPlugin extends BasePlugin {
                 oldElements.add(0, newChild.createCopy());
             }
         }
-    }
-
-    public static void main23(String[] args) {
-        List<Integer> list = new ArrayList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-
-//        ListIterator<Integer> it = list.listIterator();
-//        while (it.hasNext()) {
-//            it.add(9);
-//            System.out.println(it.next() + "::" + list.size());
-//
-//        }
-
-        System.out.println(list);
-
     }
 
 }
