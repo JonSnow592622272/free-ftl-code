@@ -74,22 +74,40 @@ public class FileUtils {
         return sb.toString().getBytes(StandardCharsets.UTF_8);
     }
 
-    public static List<String> trimOnlyEmptyLine(List<String> strs) {
+    /**
+     * @desc 删除空白行
+     * @author wulm
+     * @date 2019/6/18 21:25
+     * @param strs 内容列表
+     * @param isRetainOneEmptyLine 连续多行空白是否保留一行空白
+     * @param isTrimNotEmptyLine 是否对内容不为空的行也进行Trim操作
+     * @return 内容列表
+     **/
+    public static List<String> trimLine(List<String> strs, boolean isRetainOneEmptyLine, boolean isTrimNotEmptyLine) {
         ListIterator<String> it = strs.listIterator();
         boolean isExistLastNewLine = false;
         while (it.hasNext()) {
             String next = it.next();
-            if (StringUtils.isEmpty(next.trim())) {
-                if (!isExistLastNewLine) {
-                    isExistLastNewLine = true;
-                    //多个空行保留一行
+            String trim = next.trim();
+            if (StringUtils.isEmpty(trim)) {
+                if (isRetainOneEmptyLine) {
+                    if (!isExistLastNewLine) {
+                        isExistLastNewLine = true;
+                        //多个空行保留一行
 //                    it.remove();
 //                    it.add("");
+                    } else {
+                        it.remove();
+                    }
                 } else {
                     it.remove();
                 }
             } else {
                 isExistLastNewLine = false;
+                if (isTrimNotEmptyLine) {
+                    it.remove();
+                    it.add(trim);
+                }
             }
         }
         return strs;
