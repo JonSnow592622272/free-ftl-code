@@ -41,8 +41,8 @@ public class Xmltest {
 // 忽略DTD，降低延迟
             reader2.setEntityResolver(new IgnoreDTDEntityResolver());
 
-            String s = "<resultMap id=\"BaseResultMap\" type=\"com.yunyihenkey.basedao.malldb.basevo.MallMoneyDelay\">" +
-                    "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>" +
+            String s = "<resultMap id=\"BaseResultMap\" type=\"com.yunyihenkey.basedao.malldb.basevo.MallMoneyDelay\">\n\n\n" +
+                    "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>\n\n\n\n\n\n" +
                     "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>" +
                     "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>" +
                     "<id column=\"id\" jdbcType=\"BIGINT\" property=\"id6666666666666666666666666\"/>" +
@@ -54,7 +54,6 @@ public class Xmltest {
 //            rootElement1.createCopy()
             it.remove();
             it.add(rootElement1);
-            it.add(rootElement1.createCopy("xxxx"));
 
 //            System.out.println(":::::" + element.asXML());
             if (true) {

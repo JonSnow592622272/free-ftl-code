@@ -1,5 +1,6 @@
 package com.my.ffc.plugin;
 
+import com.my.ffc.util.FileUtils;
 import com.my.ffc.xml.IgnoreDTDEntityResolver;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -261,7 +262,9 @@ public class FfcPlugin extends BasePlugin {
         XMLWriter xmlWriter = new XMLWriter(oldNewXmlBaos, outputFormat);
         xmlWriter.write(oldDocument);
 
-        byte[] oldNewXmlBytes = oldNewXmlBaos.toByteArray();
+        //去除空白行，存在多行空白只保留一行空白
+        byte[] oldNewXmlBytes = FileUtils
+                .stringToBytes(FileUtils.trimOnlyEmptyLine(FileUtils.readAllLines(oldNewXmlBaos.toByteArray())));
 
         //检查文件内容是否一致，如果完全一致则不需要再覆盖了
         if (!new String(oldXmlBytes, StandardCharsets.UTF_8)
@@ -316,7 +319,7 @@ public class FfcPlugin extends BasePlugin {
                             isExistElement = true;
                             oldIt.remove();
                             oldIt.add(newChild.createCopy());
-                            //continue  newWhile;///////////////////////////////////////////////////////////这里可以考虑以后要不要匹配过成功一次就跳过。
+                            //continue  newWhile;///////////////////////////////////////////////////////////这里可以考虑以后要不要标签属性匹配过成功一次就跳过。
                         }
                     }
                 }
