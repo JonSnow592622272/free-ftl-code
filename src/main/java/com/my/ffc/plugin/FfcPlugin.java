@@ -319,7 +319,7 @@ public class FfcPlugin extends BasePlugin {
                             isExistElement = true;
                             oldIt.remove();
                             oldIt.add(newChild.createCopy());
-                            //continue  newWhile;///////////////////////////////////////////////////////////这里可以考虑以后要不要匹配过成功一次就跳过。
+                            //continue  newWhile;///////////////////////////////////////////////////////////这里可以考虑以后要不要标签属性匹配过成功一次就跳过。
                         }
                     }
                 }
