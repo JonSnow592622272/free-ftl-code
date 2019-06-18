@@ -263,7 +263,7 @@ public class FfcPlugin extends BasePlugin {
         xmlWriter.write(oldDocument);
 
         byte[] oldNewXmlBytes = FileUtils
-                .stringToBytes(trimOnlyEmptyLine(FileUtils.readAllLines(oldNewXmlBaos.toByteArray())));
+                .stringToBytes(FileUtils.trimOnlyEmptyLine(FileUtils.readAllLines(oldNewXmlBaos.toByteArray())));
 
         //检查文件内容是否一致，如果完全一致则不需要再覆盖了
         if (!new String(oldXmlBytes, StandardCharsets.UTF_8)
@@ -271,17 +271,6 @@ public class FfcPlugin extends BasePlugin {
             Files.write(oldFilePath, oldNewXmlBytes);
         }
 
-    }
-
-    public static List<String> trimOnlyEmptyLine(List<String> strs) {
-        ListIterator<String> it = strs.listIterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            if (StringUtils.isEmpty(next.trim())) {
-                it.remove();
-            }
-        }
-        return strs;
     }
 
     /**
