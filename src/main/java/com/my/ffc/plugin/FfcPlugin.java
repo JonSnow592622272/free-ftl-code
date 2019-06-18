@@ -262,6 +262,7 @@ public class FfcPlugin extends BasePlugin {
         XMLWriter xmlWriter = new XMLWriter(oldNewXmlBaos, outputFormat);
         xmlWriter.write(oldDocument);
 
+        //去除空白行，存在多行空白只保留一行空白
         byte[] oldNewXmlBytes = FileUtils
                 .stringToBytes(FileUtils.trimOnlyEmptyLine(FileUtils.readAllLines(oldNewXmlBaos.toByteArray())));
 
