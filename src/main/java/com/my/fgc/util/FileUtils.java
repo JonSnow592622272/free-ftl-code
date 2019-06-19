@@ -1,12 +1,14 @@
 package com.my.fgc.util;
 
 import org.springframework.util.StringUtils;
+import sun.security.action.GetPropertyAction;
 
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.security.AccessController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -62,14 +64,10 @@ public class FileUtils {
 
     public static String stringsToString(List<String> strs) {
         StringBuilder sb = new StringBuilder();
-        boolean isFirst = true;
         for (String str : strs) {
-            if (!isFirst) {
-                sb.append("\n");
-            } else {
-                isFirst = false;
-            }
             sb.append(str);
+            sb.append(AccessController.doPrivileged(
+                    new GetPropertyAction("line.separator")));
         }
         return sb.toString();
     }

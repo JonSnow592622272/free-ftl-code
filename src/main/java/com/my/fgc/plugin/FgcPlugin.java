@@ -263,13 +263,12 @@ public class FgcPlugin extends BasePlugin {
         xmlWriter.write(oldDocument);
 
         //去除空白行，存在多行空白只保留一行空白
-        String oldNewXmlStr = FileUtils
-                .stringsToString(FileUtils.trimLine(FileUtils.readAllLines(oldNewXmlBaos.toByteArray()), true, false));
+        List<String> oldNewXmlStrs = FileUtils
+                .trimLine(FileUtils.readAllLines(oldNewXmlBaos.toByteArray()), true, false);
 
         //检查文件内容是否一致，如果完全一致则不需要再覆盖了
-        if (!new String(oldXmlBytes, StandardCharsets.UTF_8)
-                .equals(oldNewXmlStr)) {
-            Files.write(oldFilePath, oldNewXmlStr.getBytes(StandardCharsets.UTF_8));
+        if (!new String(oldXmlBytes, StandardCharsets.UTF_8).equals(FileUtils.stringsToString(oldNewXmlStrs))) {
+            Files.write(oldFilePath, oldNewXmlStrs);
         }
 
     }
