@@ -42,7 +42,6 @@ public class FgcPlugin extends BasePlugin {
 
     private String tableTemplatePackage;
     private String fieldTemplatePackage;
-    private String[] replaceModeCheckAttributes;
     private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
     private Configuration cfgField = new Configuration(Configuration.VERSION_2_3_23);
     private boolean isEnableTablePlugin = true;
@@ -54,7 +53,6 @@ public class FgcPlugin extends BasePlugin {
 
             tableTemplatePackage = context.getProperty("tableTemplatePackage");
             fieldTemplatePackage = context.getProperty("fieldTemplatePackage");
-            String rmca = context.getProperty("replaceModeCheckAttributes");
 
             if ("${tableTemplatePackage}".equals(tableTemplatePackage)) {
                 tableTemplatePackage = null;
@@ -76,11 +74,6 @@ public class FgcPlugin extends BasePlugin {
                 cfgField.setDirectoryForTemplateLoading(new File(fieldTemplatePackage));
 
             }
-
-            if ("${replaceModeCheckAttributes}".equals(rmca)) {
-                rmca = "id";
-            }
-            replaceModeCheckAttributes = rmca.split(",");
 
         } catch (IOException e) {
             throw new RuntimeException("执行失败!!!!!!!!!!!!!!!!!!!", e);
@@ -188,7 +181,12 @@ public class FgcPlugin extends BasePlugin {
                                 Files.write(createFilePath, baoBytesCode);
                             } else {
                                 //文件存在，进行匹配替换
-                                replaceXmlAndWriteFile(createFilePath, baoBytesCode);
+
+                                String rmca = ftlProperties.getProperty("replaceModeCheckAttributes");
+                                if (rmca == null || "".equals(rmca.trim())) {
+                                    rmca = "id";
+                                }
+                                replaceXmlAndWriteFile(createFilePath, baoBytesCode, rmca.split(","));
                             }
 
                         } else {
@@ -233,8 +231,9 @@ public class FgcPlugin extends BasePlugin {
      * @date 2019/6/17 17:43
      * @param oldFilePath 老的xml文件路径
      * @param newXmlBytes 新的xml内容
+     * @param replaceModeCheckAttributes 替换模式要检查标签的属性
      **/
-    private void replaceXmlAndWriteFile(Path oldFilePath, byte[] newXmlBytes) throws IOException, DocumentException {
+    private void replaceXmlAndWriteFile(Path oldFilePath, byte[] newXmlBytes, String[] replaceModeCheckAttributes) throws IOException, DocumentException {
 
         SAXReader reader = new SAXReader(false);
         // 忽略DTD，降低延迟
@@ -248,7 +247,7 @@ public class FgcPlugin extends BasePlugin {
         Document newDocument = reader.read(new ByteArrayInputStream(newXmlBytes));
         Element newRootElement = newDocument.getRootElement();
         //匹配替换处理
-        replaceElement(oldRootElement, newRootElement);
+        replaceElement(oldRootElement, newRootElement, replaceModeCheckAttributes);
         //写入文件
         OutputFormat outputFormat = OutputFormat.createPrettyPrint();
         //outputFormat.setEncoding("UTF-8");
@@ -278,7 +277,7 @@ public class FgcPlugin extends BasePlugin {
      * @author wulm
      * @date 2019/6/17 17:58
      **/
-    private void replaceElement(Element oldElement, Element newElement) {
+    private void replaceElement(Element oldElement, Element newElement, String[] replaceModeCheckAttributes) {
         List<Element> oldElements = oldElement.elements();
 
         Iterator<Element> newIt = newElement.elementIterator();

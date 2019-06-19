@@ -14,8 +14,6 @@
         <property name="tableTemplatePackage" value="${tableTemplatePackage}"/>
         <!--设置属性触发ftl模板文件夹-->
         <property name="fieldTemplatePackage" value="${fieldTemplatePackage}"/>
-        <!--设置标签匹配属性  -->
-        <property name="replaceModeCheckAttributes" value="${replaceModeCheckAttributes}"/>
 
         <!-- 增加fgc插件 -->
         <plugin type="com.my.fgc.plugin.FgcPlugin"/>
