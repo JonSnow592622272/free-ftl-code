@@ -101,7 +101,7 @@ public class FgcPlugin extends BasePlugin {
     private void readyGo(PluginTypeEnum pluginTypeEnum, Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType, Interface anInterface) {
 
         // 建立数据模型（Map）
-        Map<String, Object> commonMap = new HashMap<>();
+        Map commonMap = new HashMap<>();
         commonMap.put("field", field);
         commonMap.put("topLevelClass", topLevelClass);
         commonMap.put("introspectedColumn", introspectedColumn);
@@ -145,11 +145,21 @@ public class FgcPlugin extends BasePlugin {
                         Properties ftlProperties = new Properties();
                         ftlProperties.load(new StringReader(new String(baoBytesProperties, StandardCharsets.UTF_8)));
 
+                        String filePath = "filePath";
+                        String fileCreateType = "fileCreateType";
+                        String rmca = "replaceModeCheckAttributes";
+
                         //properties配置属性
-                        String filePathProp = ftlProperties.getProperty("filePath");
+                        String filePathProp = ftlProperties.getProperty(filePath);
                         Assert.isTrue(!StringUtils.isEmpty(filePathProp), configFilePath.toAbsolutePath()
                                 .toString() + "文件中filePath不能为空");
-                        String fileCreateTypeProp = ftlProperties.getProperty("fileCreateType");
+
+                        String fileCreateTypeProp = ftlProperties.getProperty(fileCreateType);
+                        if (fileCreateTypeProp == null || "".equals(fileCreateTypeProp.trim())) {
+                            fileCreateTypeProp = "0";
+                        }
+
+                        commonMap.putAll(ftlProperties);
 
                         //从ftl模板生成代码
                         byte[] baoBytesCode = loadFtlTemplate(commonMap, cfg, path);
@@ -158,7 +168,12 @@ public class FgcPlugin extends BasePlugin {
                         //创建目录
                         Files.createDirectories(createFilePath.getParent());
                         //创建文件
-                        if ("1".equals(fileCreateTypeProp)) {
+                        if ("0".equals(fileCreateTypeProp)) {
+                            //不重写模式（文件不存在则创建，存在则不覆盖）
+                            if (!Files.exists(createFilePath) && baoBytesCode.length > 0) {
+                                Files.write(createFilePath, baoBytesCode);
+                            }
+                        } else if ("1".equals(fileCreateTypeProp)) {
                             //重写模式
                             if (Files.exists(createFilePath)) {
                                 //检查文件内容是否一致，如果完全一致则不需要再覆盖了
@@ -182,18 +197,15 @@ public class FgcPlugin extends BasePlugin {
                             } else {
                                 //文件存在，进行匹配替换
 
-                                String rmca = ftlProperties.getProperty("replaceModeCheckAttributes");
-                                if (rmca == null || "".equals(rmca.trim())) {
-                                    rmca = "id";
+                                String rmcaProp = ftlProperties.getProperty(rmca);
+                                if (rmcaProp == null || "".equals(rmcaProp.trim())) {
+                                    rmcaProp = "id";
                                 }
-                                replaceXmlAndWriteFile(createFilePath, baoBytesCode, rmca.split(","));
+                                replaceXmlAndWriteFile(createFilePath, baoBytesCode, rmcaProp.split(","));
                             }
 
                         } else {
-                            //不重写模式（文件不存在则创建，存在则不覆盖）
-                            if (!Files.exists(createFilePath) && baoBytesCode.length > 0) {
-                                Files.write(createFilePath, baoBytesCode);
-                            }
+                            throw new IllegalAccessException("该模式尚未开发！！！");
                         }
 
                     } catch (Exception e) {

@@ -1,3 +1,7 @@
+${filePath}
+${fileCreateType}
+${replaceModeCheckAttributes}
+
 !!!!!注意：
 !!!!!
 !!!!!tableTemplate的ftl可以使用 anInterface, topLevelClass, introspectedTable 三个对象
