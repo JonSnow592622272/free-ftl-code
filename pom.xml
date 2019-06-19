@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.my</groupId>
-    <artifactId>free-ftl-code</artifactId>
+    <artifactId>free-generator-code</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
