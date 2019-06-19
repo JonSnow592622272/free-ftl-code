@@ -1,7 +1,7 @@
-package com.my.ffc.plugin;
+package com.my.fgc.plugin;
 
-import com.my.ffc.util.FileUtils;
-import com.my.ffc.xml.IgnoreDTDEntityResolver;
+import com.my.fgc.util.FileUtils;
+import com.my.fgc.xml.IgnoreDTDEntityResolver;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -27,7 +27,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class FfcPlugin extends BasePlugin {
+public class FgcPlugin extends BasePlugin {
 
     /**
      * @author wulm

@@ -1,4 +1,4 @@
-package com.my.ffc.plugin;
+package com.my.fgc.plugin;
 
 import org.mybatis.generator.api.*;
 import org.mybatis.generator.api.dom.java.Field;

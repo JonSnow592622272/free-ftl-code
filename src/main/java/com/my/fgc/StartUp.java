@@ -1,4 +1,4 @@
-package com.my.ffc;
+package com.my.fgc;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
@@ -13,7 +13,7 @@ public class StartUp {
     public static void main(String[] args) throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        ClassPathResource generatorConfigResource = new ClassPathResource("ffcDbConfig/generatorConfig.xml");
+        ClassPathResource generatorConfigResource = new ClassPathResource("fgcDbConfig/generatorConfig.xml");
 //		File configFile = new File("generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(generatorConfigResource.getInputStream());

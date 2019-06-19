@@ -1,4 +1,4 @@
-package com.my.ffc.util;
+package com.my.fgc.util;
 
 import org.springframework.util.StringUtils;
 

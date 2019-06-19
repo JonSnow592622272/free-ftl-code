@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <properties resource="ffcDbConfig/generatorConfig.properties"/>
+    <properties resource="fgcDbConfig/generatorConfig.properties"/>
     <!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
     <classPathEntry location="${MYSQL.JAR.LOCATION}"/>
 
-    <context id="ffc_contex" targetRuntime="MyBatis3" defaultModelType="flat">
+    <context id="fgc_contex" targetRuntime="MyBatis3" defaultModelType="flat">
 
         <!--设置表触发ftl模板文件夹-->
         <property name="tableTemplatePackage" value="${tableTemplatePackage}"/>
@@ -17,8 +17,8 @@
         <!--设置标签匹配属性  -->
         <property name="replaceModeCheckAttributes" value="${replaceModeCheckAttributes}"/>
 
-        <!-- 增加ffc插件 -->
-        <plugin type="com.my.ffc.plugin.FfcPlugin"/>
+        <!-- 增加fgc插件 -->
+        <plugin type="com.my.fgc.plugin.FgcPlugin"/>
 
         <!-- 数据库连接 -->
         <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}"

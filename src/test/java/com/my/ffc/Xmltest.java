@@ -1,6 +1,6 @@
-package com.my.ffc;
+package com.my.fgc;
 
-import com.my.ffc.xml.IgnoreDTDEntityResolver;
+import com.my.fgc.xml.IgnoreDTDEntityResolver;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
