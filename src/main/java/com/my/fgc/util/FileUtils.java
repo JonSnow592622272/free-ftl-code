@@ -60,7 +60,7 @@ public class FileUtils {
         return new BufferedReader(reader);
     }
 
-    public static byte[] stringToBytes(List<String> strs) {
+    public static String stringsToString(List<String> strs) {
         StringBuilder sb = new StringBuilder();
         boolean isFirst = true;
         for (String str : strs) {
@@ -71,7 +71,11 @@ public class FileUtils {
             }
             sb.append(str);
         }
-        return sb.toString().getBytes(StandardCharsets.UTF_8);
+        return sb.toString();
+    }
+
+    public static byte[] stringsToBytes(List<String> strs) {
+        return stringsToString(strs).getBytes(StandardCharsets.UTF_8);
     }
 
     /**
