@@ -205,7 +205,7 @@ public class FgcPlugin extends BasePlugin {
                             }
 
                         } else {
-                            throw new IllegalAccessException("该模式尚未开发！！！");
+                            throw new IllegalArgumentException("该模式尚未开发！！！");
                         }
 
                     } catch (Exception e) {
