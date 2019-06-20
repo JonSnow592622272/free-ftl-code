@@ -54,7 +54,7 @@ public class FgcPlugin extends BasePlugin {
             tableTemplatePackage = context.getProperty("tableTemplatePackage");
             fieldTemplatePackage = context.getProperty("fieldTemplatePackage");
 
-            if ("${tableTemplatePackage}".equals(tableTemplatePackage)) {
+            if ("".equals(tableTemplatePackage) || "${tableTemplatePackage}".equals(tableTemplatePackage)) {
                 tableTemplatePackage = null;
                 isEnableTablePlugin = false;
             } else {
@@ -64,7 +64,7 @@ public class FgcPlugin extends BasePlugin {
                 cfgTable.setDirectoryForTemplateLoading(new File(tableTemplatePackage));
             }
 
-            if ("${fieldTemplatePackage}".equals(fieldTemplatePackage)) {
+            if ("".equals(fieldTemplatePackage) || "${fieldTemplatePackage}".equals(fieldTemplatePackage)) {
                 fieldTemplatePackage = null;
                 isEnableFieldPlugin = false;
             } else {
