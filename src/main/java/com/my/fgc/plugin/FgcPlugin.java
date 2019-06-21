@@ -29,7 +29,6 @@ import java.util.*;
 
 public class FgcPlugin extends BasePlugin {
 
-
     private String tableTemplatePackage;
     private String fieldTemplatePackage;
     private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
@@ -49,6 +48,7 @@ public class FgcPlugin extends BasePlugin {
         TABLE,
         FIELD
     }
+
     @Override
     public void setContext(Context context) {
         try {
@@ -133,15 +133,16 @@ public class FgcPlugin extends BasePlugin {
                     throw new RuntimeException("未匹配到类型!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!");
             }
 
-            Files.list(new File(templatePackage).toPath()).forEach(path -> {
+            Files.list(new File(templatePackage).toPath()).forEach(templatePath -> {
 
-                if (path.toAbsolutePath().toString().endsWith(".ftl")) {
+                if (templatePath.toAbsolutePath().toString().endsWith(".ftl")) {
 
                     try {
-                        Path configFilePath = new File(path.toAbsolutePath().toString() + "config.properties").toPath();
+                        Path templateConfigFilePath = new File(templatePath.toAbsolutePath()
+                                .toString() + "config.properties").toPath();
 
                         //从ftl模板生成properties内容
-                        byte[] baoBytesProperties = loadFtlTemplate(commonMap, cfg, configFilePath);
+                        byte[] baoBytesProperties = loadFtlTemplate(commonMap, cfg, templateConfigFilePath);
                         //生成properties
                         Properties ftlProperties = new Properties();
                         ftlProperties.load(new StringReader(new String(baoBytesProperties, StandardCharsets.UTF_8)));
@@ -152,7 +153,7 @@ public class FgcPlugin extends BasePlugin {
 
                         //properties配置属性
                         String filePathProp = ftlProperties.getProperty(filePath);
-                        Assert.isTrue(!StringUtils.isEmpty(filePathProp), configFilePath.toAbsolutePath()
+                        Assert.isTrue(!StringUtils.isEmpty(filePathProp), templateConfigFilePath.toAbsolutePath()
                                 .toString() + "文件中filePath不能为空");
 
                         String fileCreateTypeProp = ftlProperties.getProperty(fileCreateType);
@@ -163,7 +164,7 @@ public class FgcPlugin extends BasePlugin {
                         commonMap.putAll(ftlProperties);
 
                         //从ftl模板生成代码
-                        byte[] baoBytesCode = loadFtlTemplate(commonMap, cfg, path);
+                        byte[] baoBytesCode = loadFtlTemplate(commonMap, cfg, templatePath);
 
                         Path createFilePath = new File(filePathProp).toPath();
                         //创建目录
@@ -202,7 +203,7 @@ public class FgcPlugin extends BasePlugin {
                                 if (rmcaProp == null || "".equals(rmcaProp.trim())) {
                                     rmcaProp = "id";
                                 }
-                                replaceXmlAndWriteFile(createFilePath, baoBytesCode, rmcaProp.split(","));
+                                replaceXmlAndWriteFile(createFilePath, templatePath, baoBytesCode, rmcaProp.split(","));
                             }
 
                         } else {
@@ -243,10 +244,11 @@ public class FgcPlugin extends BasePlugin {
      * @author wulm
      * @date 2019/6/17 17:43
      * @param oldFilePath 老的xml文件路径
+     * @param templatePath 模板文件路径
      * @param newXmlBytes 新的xml内容
      * @param replaceModeCheckAttributes 替换模式要检查标签的属性
      **/
-    private void replaceXmlAndWriteFile(Path oldFilePath, byte[] newXmlBytes, String[] replaceModeCheckAttributes) throws IOException, DocumentException {
+    private void replaceXmlAndWriteFile(Path oldFilePath, Path templatePath, byte[] newXmlBytes, String[] replaceModeCheckAttributes) throws IOException {
 
         SAXReader reader = new SAXReader(false);
         // 忽略DTD，降低延迟
@@ -254,11 +256,24 @@ public class FgcPlugin extends BasePlugin {
 
         byte[] oldXmlBytes = Files.readAllBytes(oldFilePath);
 
-        Document oldDocument = reader.read(new ByteArrayInputStream(oldXmlBytes));
+        Document oldDocument = null;
+        try {
+            oldDocument = reader.read(new ByteArrayInputStream(oldXmlBytes));
+        } catch (DocumentException e) {
+            throw new RuntimeException("原文件必须是xml文件内容！！！！！！！！！！！！！！！！oldFilePath=" + oldFilePath.toAbsolutePath()
+                    .toString(), e);
+        }
         Element oldRootElement = oldDocument.getRootElement();
 
-        Document newDocument = reader.read(new ByteArrayInputStream(newXmlBytes));
+        Document newDocument = null;
+        try {
+            newDocument = reader.read(new ByteArrayInputStream(newXmlBytes));
+        } catch (DocumentException e) {
+            throw new RuntimeException("新文件必须是xml文件内容！！！！！！！！！！！！！！！！templatePath=" + templatePath.toAbsolutePath()
+                    .toString(), e);
+        }
         Element newRootElement = newDocument.getRootElement();
+
         //匹配替换处理
         replaceElement(oldRootElement, newRootElement, replaceModeCheckAttributes);
         //写入文件
