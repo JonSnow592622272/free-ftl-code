@@ -1,10 +1,11 @@
 package com.my.haha;
 
+import java.io.Serializable;
 <#-- 导入包，去除重复包 -->
 <#list introspectedTable.allColumns as allColumns>
-    <#if allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ?index_of("java.lang")==0>
+    <#if allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ?index_of("java.lang")!=0>
         <#list introspectedTable.allColumns as allColumns2>
-            <#if allColumns2.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ?index_of("java.lang")==0>
+            <#if allColumns2.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ?index_of("java.lang")!=0>
                 <#if allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ==allColumns2.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters>
                     <#if allColumns_index==allColumns2_index>
 import ${allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters};
@@ -38,11 +39,12 @@ private static final long serialVersionUID = 1L;
 <#-- 主键get、set方法 -->
 <#list introspectedTable.primaryKeyColumns as primaryKey>
     public ${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${primaryKey.javaProperty}() {
-    return ${primaryKey.javaProperty};
+        return ${primaryKey.javaProperty};
     }
 
     public ${introspectedTable.tableConfiguration.domainObjectName} set${primaryKey.javaProperty}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
-    this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
+        this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
+        return this;
     }
 </#list>
 
@@ -54,6 +56,7 @@ private static final long serialVersionUID = 1L;
 
     public ${introspectedTable.tableConfiguration.domainObjectName} set${baseColumns.javaProperty}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
         this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
+        return this;
     }
 </#list>
 
