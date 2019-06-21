@@ -38,11 +38,11 @@ private static final long serialVersionUID = 1L;
 
 <#-- 主键get、set方法 -->
 <#list introspectedTable.primaryKeyColumns as primaryKey>
-    public ${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${primaryKey.javaProperty}() {
+    public ${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${primaryKey.javaProperty?cap_first}() {
         return ${primaryKey.javaProperty};
     }
 
-    public ${introspectedTable.tableConfiguration.domainObjectName} set${primaryKey.javaProperty}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
+    public ${introspectedTable.tableConfiguration.domainObjectName} set${primaryKey.javaProperty?cap_first}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
         this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
         return this;
     }
@@ -50,11 +50,11 @@ private static final long serialVersionUID = 1L;
 
 <#-- 非主键get、set方法 -->
 <#list introspectedTable.nonPrimaryKeyColumns as baseColumns>
-    public ${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${baseColumns.javaProperty}() {
+    public ${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${baseColumns.javaProperty?cap_first}() {
         return ${baseColumns.javaProperty};
     }
 
-    public ${introspectedTable.tableConfiguration.domainObjectName} set${baseColumns.javaProperty}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
+    public ${introspectedTable.tableConfiguration.domainObjectName} set${baseColumns.javaProperty?cap_first}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
         this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
         return this;
     }
