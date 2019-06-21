@@ -1,6 +1,5 @@
 package com.my.haha;
 
-
 <#-- 导入包，去除重复包 -->
 <#list introspectedTable.allColumns as allColumns>
     <#if allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ?index_of("java.lang")==0>
@@ -18,20 +17,20 @@ import ${allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParamete
     </#if>
 </#list>
 
-
-
 /**
- * ${introspectedTable.remarks}
- *
- */
+* ${introspectedTable.remarks}
+*
+*/
 public class ${introspectedTable.tableConfiguration.domainObjectName} implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+private static final long serialVersionUID = 1L;
 
 <#-- ----------  BEGIN 字段循环遍历  ---------->
+<#-- 主键字段属性 -->
 <#list introspectedTable.primaryKeyColumns as primaryKey>
     private ${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty};
 </#list>
+<#-- 非主键字段属性 -->
 <#list introspectedTable.nonPrimaryKeyColumns as baseColumns>
     private ${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty};
 </#list>
@@ -39,11 +38,11 @@ public class ${introspectedTable.tableConfiguration.domainObjectName} implements
 <#-- 主键get、set方法 -->
 <#list introspectedTable.primaryKeyColumns as primaryKey>
     public ${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${primaryKey.javaProperty}() {
-        return ${primaryKey.javaProperty};
+    return ${primaryKey.javaProperty};
     }
 
-    public void set${primaryKey.javaProperty}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
-        this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
+    public ${introspectedTable.tableConfiguration.domainObjectName} set${primaryKey.javaProperty}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
+    this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
     }
 </#list>
 
@@ -53,11 +52,10 @@ public class ${introspectedTable.tableConfiguration.domainObjectName} implements
         return ${baseColumns.javaProperty};
     }
 
-    public void set${baseColumns.javaProperty}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
+    public ${introspectedTable.tableConfiguration.domainObjectName} set${baseColumns.javaProperty}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
         this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
     }
 </#list>
-
 
 
 }
