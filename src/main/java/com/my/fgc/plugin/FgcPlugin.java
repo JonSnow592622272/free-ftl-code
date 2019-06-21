@@ -244,7 +244,7 @@ public class FgcPlugin extends BasePlugin {
      * @author wulm
      * @date 2019/6/17 17:43
      * @param oldFilePath 老的xml文件路径
-     * @param templatePath 模板文件路径
+     * @param templatePath xml模板文件路径
      * @param newXmlBytes 新的xml内容
      * @param replaceModeCheckAttributes 替换模式要检查标签的属性
      **/
