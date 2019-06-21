@@ -29,6 +29,16 @@ import java.util.*;
 
 public class FgcPlugin extends BasePlugin {
 
+
+    private String tableTemplatePackage;
+    private String fieldTemplatePackage;
+    private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
+    private Configuration cfgField = new Configuration(Configuration.VERSION_2_3_23);
+    private boolean isEnableTablePlugin = true;
+    private boolean isEnableFieldPlugin = true;
+    /** 建立数据模型（Map），用于传递到模板文件中*/
+    Map commonMap = new HashMap<>();
+
     /**
      * @author wulm
      * @date 2019/5/26 21:06
@@ -39,18 +49,11 @@ public class FgcPlugin extends BasePlugin {
         TABLE,
         FIELD
     }
-
-    private String tableTemplatePackage;
-    private String fieldTemplatePackage;
-    private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
-    private Configuration cfgField = new Configuration(Configuration.VERSION_2_3_23);
-    private boolean isEnableTablePlugin = true;
-    private boolean isEnableFieldPlugin = true;
-
     @Override
     public void setContext(Context context) {
         try {
-
+            //将generatorConfig.xml中的properties传递到ftl模板中
+            commonMap.putAll(context.getProperties());
             tableTemplatePackage = context.getProperty("tableTemplatePackage");
             fieldTemplatePackage = context.getProperty("fieldTemplatePackage");
 
@@ -100,8 +103,6 @@ public class FgcPlugin extends BasePlugin {
 
     private void readyGo(PluginTypeEnum pluginTypeEnum, Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType, Interface anInterface) {
 
-        // 建立数据模型（Map）
-        Map commonMap = new HashMap<>();
         commonMap.put("field", field);
         commonMap.put("topLevelClass", topLevelClass);
         commonMap.put("introspectedColumn", introspectedColumn);

@@ -12,3 +12,5 @@ import org.springframework.web.bind.annotation.RestController;
 public class ${introspectedTable.tableConfiguration.domainObjectName}Controller {
 
 }
+
+//${nishizhuma}
