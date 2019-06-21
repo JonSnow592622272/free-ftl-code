@@ -1,0 +1,63 @@
+package com.my.haha;
+
+
+<#-- 导入包，去除重复包 -->
+<#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ?index_of("java.lang")==0>
+        <#list introspectedTable.allColumns as allColumns2>
+            <#if allColumns2.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ?index_of("java.lang")==0>
+                <#if allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters ==allColumns2.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters>
+                    <#if allColumns_index==allColumns2_index>
+import ${allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParameters};
+                    <#else>
+                        <#break >
+                    </#if>
+                </#if>
+            </#if>
+        </#list>
+    </#if>
+</#list>
+
+
+
+/**
+ * ${introspectedTable.remarks}
+ *
+ */
+public class ${introspectedTable.tableConfiguration.domainObjectName} implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+<#-- ----------  BEGIN 字段循环遍历  ---------->
+<#list introspectedTable.primaryKeyColumns as primaryKey>
+    private ${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty};
+</#list>
+<#list introspectedTable.nonPrimaryKeyColumns as baseColumns>
+    private ${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty};
+</#list>
+
+<#-- 主键get、set方法 -->
+<#list introspectedTable.primaryKeyColumns as primaryKey>
+    public ${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${primaryKey.javaProperty}() {
+        return ${primaryKey.javaProperty};
+    }
+
+    public void set${primaryKey.javaProperty}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
+        this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
+    }
+</#list>
+
+<#-- 非主键get、set方法 -->
+<#list introspectedTable.nonPrimaryKeyColumns as baseColumns>
+    public ${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${baseColumns.javaProperty}() {
+        return ${baseColumns.javaProperty};
+    }
+
+    public void set${baseColumns.javaProperty}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
+        this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
+    }
+</#list>
+
+
+
+}
