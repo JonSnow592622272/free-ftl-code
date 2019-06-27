@@ -13,7 +13,7 @@ public class StartUp {
     public static void main(String[] args) throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        ClassPathResource generatorConfigResource = new ClassPathResource("fgcDbConfig/generatorConfig.xml");
+        ClassPathResource generatorConfigResource = new ClassPathResource("fgcDbConfig/mailalaConfig/generatorConfig.xml");
 //		File configFile = new File("generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(generatorConfigResource.getInputStream());
