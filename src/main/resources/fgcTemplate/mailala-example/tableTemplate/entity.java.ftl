@@ -1,4 +1,4 @@
-package com.my.haha;
+package com.yunyihenkey.mall.core.capital.entity;
 
 import java.io.Serializable;
 <#-- 导入包，去除重复包 -->
