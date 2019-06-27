@@ -1,4 +1,4 @@
-package com.my.haha;
+package com.yunyihenkey.mall.core.capital.mapper;
 
 import com.my.haha.${introspectedTable.tableConfiguration.domainObjectName};
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
