@@ -9,7 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StartUp {
+public class StartUpMaiLaLa {
     public static void main(String[] args) throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
