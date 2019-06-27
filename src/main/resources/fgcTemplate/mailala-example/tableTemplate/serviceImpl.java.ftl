@@ -1,6 +1,7 @@
-package com.my.haha;
+package ${diy_serviceImpl_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.Impl;
 
-import com.my.haha.${introspectedTable.tableConfiguration.domainObjectName};
+import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${introspectedTable.tableConfiguration.domainObjectName};
+import ${diy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${introspectedTable.tableConfiguration.domainObjectName}Mapper;
 import org.springframework.stereotype.Service;
 
 /**

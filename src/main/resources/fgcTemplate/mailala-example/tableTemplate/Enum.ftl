@@ -6,7 +6,7 @@
     </#if>
 </#list>
 <#if isHaveEnum >
-    package com.yunyihenkey.mall.core.capital.consts;
+    package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
     /**
     * <p>
     * ${introspectedTable.remarks}

@@ -21,7 +21,31 @@
 
 
         <!--↓↓↓↓↓↓↓↓自定义ftl全局属性，如果用不到可以不用关注↓↓↓↓↓↓↓↓-->
-        <property name="nishizhuma" value="shia"/>
+
+        <!--model生成路径-->
+        <property name="diy_model_targetPackage" value="${diy_model_targetPackage}"/>
+        <property name="diy_model_targetProject" value="${diy_model_targetProject}"/>
+
+        <!--mapper的xml文件生成路径-->
+        <property name="diy_mapperXml_targetPackage" value="${diy_mapperXml_targetPackage}"/>
+        <property name="diy_mapperXml_targetProject" value="${diy_mapperXml_targetProject}"/>
+
+        <!--mapper接口JAVA文件生成路径-->
+        <property name="diy_mapperJava_targetPackage" value="${diy_mapperJava_targetPackage}"/>
+        <property name="diy_mapperJava_targetProject" value="${diy_mapperJava_targetProject}"/>
+
+        <!--service文件生成路径-->
+        <property name="diy_service_targetPackage" value="${diy_service_targetPackage}"/>
+        <property name="diy_service_targetProject" value="${diy_service_targetProject}"/>
+
+        <!--serviceImp实现类文件生成路径-->
+        <property name="diy_serviceImpl_targetPackage" value="${diy_serviceImpl_targetPackage}"/>
+        <property name="diy_serviceImpl_targetProject" value="${diy_serviceImpl_targetProject}"/>
+
+        <!--枚举类文件生成路径-->
+        <property name="diy_enum_targetPackage" value="${diy_enum_targetPackage}"/>
+        <property name="diy_enum_targetProject" value="${diy_enum_targetProject}"/>
+
 
 
         <!--↑↑↑↑↑↑↑↑自定义ftl全局属性，如果用不到可以不用关注↑↑↑↑↑↑↑↑-->

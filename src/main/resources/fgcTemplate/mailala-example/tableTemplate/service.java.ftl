@@ -1,6 +1,6 @@
-package com.my.haha;
+package ${diy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
-import com.my.haha.${introspectedTable.tableConfiguration.domainObjectName};
+import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${introspectedTable.tableConfiguration.domainObjectName};
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
