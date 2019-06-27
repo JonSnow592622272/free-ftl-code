@@ -18,6 +18,7 @@ import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.Interface;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.config.Context;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
@@ -31,10 +32,12 @@ public class FgcPlugin extends BasePlugin {
 
     private String tableTemplatePackage;
     private String fieldTemplatePackage;
-    private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
-    private Configuration cfgField = new Configuration(Configuration.VERSION_2_3_23);
+    private File tableTemplatePackageFile;
+    private File fieldTemplatePackageFile;
     private boolean isEnableTablePlugin = true;
     private boolean isEnableFieldPlugin = true;
+    private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
+    private Configuration cfgField = new Configuration(Configuration.VERSION_2_3_23);
     /** 建立数据模型（Map），用于传递到模板文件中*/
     Map commonMap = new HashMap<>();
 
@@ -61,20 +64,35 @@ public class FgcPlugin extends BasePlugin {
                 tableTemplatePackage = null;
                 isEnableTablePlugin = false;
             } else {
+                try {
+                    //使用classpath相对路径
+                    tableTemplatePackageFile = new ClassPathResource(tableTemplatePackage).getFile();
+                } catch (IOException e) {
+                    //使用绝对路径
+                    tableTemplatePackageFile = new File(tableTemplatePackage);
+                }
                 Assert.isTrue(Files
-                        .isDirectory(new File(tableTemplatePackage)
+                        .isDirectory(tableTemplatePackageFile
                                 .toPath()), "确保tableTemplatePackage存在且为文件夹！tableTemplatePackage=" + tableTemplatePackage);
-                cfgTable.setDirectoryForTemplateLoading(new File(tableTemplatePackage));
+                cfgTable.setDirectoryForTemplateLoading(tableTemplatePackageFile);
             }
 
             if ("".equals(fieldTemplatePackage) || "${fieldTemplatePackage}".equals(fieldTemplatePackage)) {
                 fieldTemplatePackage = null;
                 isEnableFieldPlugin = false;
             } else {
+                try {
+                    //使用classpath相对路径
+                    fieldTemplatePackageFile = new ClassPathResource(fieldTemplatePackage).getFile();
+                } catch (IOException e) {
+                    //使用绝对路径
+                    fieldTemplatePackageFile = new File(fieldTemplatePackage);
+                }
+
                 Assert.isTrue(Files
-                        .isDirectory(new File(fieldTemplatePackage)
+                        .isDirectory(fieldTemplatePackageFile
                                 .toPath()), "确保fieldTemplatePackage存在且为文件夹！fieldTemplatePackage=" + fieldTemplatePackage);
-                cfgField.setDirectoryForTemplateLoading(new File(fieldTemplatePackage));
+                cfgField.setDirectoryForTemplateLoading(fieldTemplatePackageFile);
 
             }
 
@@ -113,33 +131,34 @@ public class FgcPlugin extends BasePlugin {
         try {
 
             Configuration cfg;
-            String templatePackage;
+            File templatePackageFile;
             switch (pluginTypeEnum) {
                 case TABLE:
                     if (!isEnableTablePlugin) {
                         return;
                     }
                     cfg = cfgTable;
-                    templatePackage = tableTemplatePackage;
+                    templatePackageFile = tableTemplatePackageFile;
                     break;
                 case FIELD:
                     if (!isEnableFieldPlugin) {
                         return;
                     }
                     cfg = cfgField;
-                    templatePackage = fieldTemplatePackage;
+                    templatePackageFile = fieldTemplatePackageFile;
                     break;
                 default:
                     throw new RuntimeException("未匹配到类型!!!!!!!!!!!!执行失败!!!!!!!!!!!!!!!!!!!");
             }
 
-            Files.list(new File(templatePackage).toPath()).forEach(templatePath -> {
+            Files.list(templatePackageFile.toPath()).forEach(templatePath -> {
 
                 if (templatePath.toAbsolutePath().toString().endsWith(".ftl")) {
 
                     try {
-                        Path templateConfigFilePath = new File(templatePath.toAbsolutePath()
-                                .toString() + "config.properties").toPath();
+                        String s = templatePath.toAbsolutePath()
+                                .toString();
+                        Path templateConfigFilePath = new File(s + "config.properties").toPath();
 
                         //从ftl模板生成properties内容
                         byte[] baoBytesProperties = loadFtlTemplate(commonMap, cfg, templateConfigFilePath);
