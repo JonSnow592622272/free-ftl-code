@@ -5,9 +5,9 @@ import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.propert
 import org.springframework.stereotype.Repository;
 
 /**
- * ${introspectedTable.remarks}-Mapper 接口
- *
- */
+* ${introspectedTable.remarks}-Mapper 接口
+*
+*/
 @Repository(value = "i${introspectedTable.tableConfiguration.domainObjectName}Mapper")
 public interface ${introspectedTable.tableConfiguration.domainObjectName}Mapper extends BaseMapper<${introspectedTable.tableConfiguration.domainObjectName}> {
 
