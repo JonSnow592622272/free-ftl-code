@@ -187,21 +187,21 @@ public class FgcPlugin extends BasePlugin {
 
                         Path createFilePath = new File(filePathProp).toPath();
 
+                        boolean isExistsOldFile = Files.exists(createFilePath);
                         //原始文件数据
-                        byte[] oldFileBytes = Files.readAllBytes(createFilePath);
+                        byte[] oldFileBytes = isExistsOldFile ? Files.readAllBytes(createFilePath) : new byte[0];
 
                         //创建目录
                         Files.createDirectories(createFilePath.getParent());
                         //创建文件
                         if ("0".equals(fileCreateTypeProp)) {
                             //不重写模式（文件不存在则创建，存在则不覆盖）
-                            if ((!Files
-                                    .exists(createFilePath) || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
+                            if ((!isExistsOldFile || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
                                 Files.write(createFilePath, baoBytesCode);
                             }
                         } else if ("1".equals(fileCreateTypeProp)) {
                             //重写模式
-                            if (Files.exists(createFilePath) && oldFileBytes.length > 0) {
+                            if (isExistsOldFile && oldFileBytes.length > 0) {
                                 //检查文件内容是否一致，如果完全一致则不需要再覆盖了
                                 if (!new String(oldFileBytes, StandardCharsets.UTF_8)
                                         .equals(new String(baoBytesCode, StandardCharsets.UTF_8))) {
@@ -218,8 +218,7 @@ public class FgcPlugin extends BasePlugin {
                             //替换模式。只支持xml。对“标签”和属性匹配的进行替换（无则创建，存在则替换）
 //                            Assert.isTrue(createFilePath.endsWith(".xml"), "警告！！！该模式只支持xml格式文件！" + createFilePath
 //                                    .toAbsolutePath().toString());
-                            if ((!Files
-                                    .exists(createFilePath) || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
+                            if ((!isExistsOldFile || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
                                 Files.write(createFilePath, baoBytesCode);
                             } else {
                                 //文件存在，进行匹配替换
