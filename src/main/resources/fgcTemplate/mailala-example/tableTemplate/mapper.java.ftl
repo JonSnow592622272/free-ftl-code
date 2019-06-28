@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * ${introspectedTable.remarks}-Mapper 接口
  *
  */
-@Repository(value = "modulesMallMoneyUser")
+@Repository(value = "i${introspectedTable.tableConfiguration.domainObjectName}Mapper")
 public interface ${introspectedTable.tableConfiguration.domainObjectName}Mapper extends BaseMapper<${introspectedTable.tableConfiguration.domainObjectName}> {
 
 }
