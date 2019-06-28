@@ -186,25 +186,30 @@ public class FgcPlugin extends BasePlugin {
                         byte[] baoBytesCode = loadFtlTemplate(commonMap, cfg, templatePath);
 
                         Path createFilePath = new File(filePathProp).toPath();
+
+                        //原始文件数据
+                        byte[] oldFileBytes = Files.readAllBytes(createFilePath);
+
                         //创建目录
                         Files.createDirectories(createFilePath.getParent());
                         //创建文件
                         if ("0".equals(fileCreateTypeProp)) {
                             //不重写模式（文件不存在则创建，存在则不覆盖）
-                            if (!Files.exists(createFilePath) && baoBytesCode.length > 0) {
+                            if ((!Files
+                                    .exists(createFilePath) || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
                                 Files.write(createFilePath, baoBytesCode);
                             }
                         } else if ("1".equals(fileCreateTypeProp)) {
                             //重写模式
-                            if (Files.exists(createFilePath)) {
+                            if (Files.exists(createFilePath) && oldFileBytes.length > 0) {
                                 //检查文件内容是否一致，如果完全一致则不需要再覆盖了
-                                if (!new String(Files.readAllBytes(createFilePath), StandardCharsets.UTF_8)
+                                if (!new String(oldFileBytes, StandardCharsets.UTF_8)
                                         .equals(new String(baoBytesCode, StandardCharsets.UTF_8))) {
                                     //文件存在且内容不同!!!!!!!!!!替换！！！！！！
                                     Files.write(createFilePath, baoBytesCode);
                                 }
                             } else {
-                                //文件不存在则创建
+                                //文件不存在或者为空文件则创建
                                 if (baoBytesCode.length > 0) {
                                     Files.write(createFilePath, baoBytesCode);
                                 }
@@ -213,7 +218,8 @@ public class FgcPlugin extends BasePlugin {
                             //替换模式。只支持xml。对“标签”和属性匹配的进行替换（无则创建，存在则替换）
 //                            Assert.isTrue(createFilePath.endsWith(".xml"), "警告！！！该模式只支持xml格式文件！" + createFilePath
 //                                    .toAbsolutePath().toString());
-                            if (!Files.exists(createFilePath) && baoBytesCode.length > 0) {
+                            if ((!Files
+                                    .exists(createFilePath) || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
                                 Files.write(createFilePath, baoBytesCode);
                             } else {
                                 //文件存在，进行匹配替换
@@ -222,7 +228,8 @@ public class FgcPlugin extends BasePlugin {
                                 if (rmcaProp == null || "".equals(rmcaProp.trim())) {
                                     rmcaProp = "id";
                                 }
-                                replaceXmlAndWriteFile(createFilePath, templatePath, baoBytesCode, rmcaProp.split(","));
+                                replaceXmlAndWriteFile(createFilePath, oldFileBytes, templatePath, baoBytesCode, rmcaProp
+                                        .split(","));
                             }
 
                         } else {
@@ -263,17 +270,16 @@ public class FgcPlugin extends BasePlugin {
      * @author wulm
      * @date 2019/6/17 17:43
      * @param oldFilePath 老的xml文件路径
+     * @param oldXmlBytes
      * @param templatePath xml模板文件路径
      * @param newXmlBytes 新的xml内容
      * @param replaceModeCheckAttributes 替换模式要检查标签的属性
      **/
-    private void replaceXmlAndWriteFile(Path oldFilePath, Path templatePath, byte[] newXmlBytes, String[] replaceModeCheckAttributes) throws IOException {
+    private void replaceXmlAndWriteFile(Path oldFilePath, byte[] oldXmlBytes, Path templatePath, byte[] newXmlBytes, String[] replaceModeCheckAttributes) throws IOException {
 
         SAXReader reader = new SAXReader(false);
         // 忽略DTD，降低延迟
         reader.setEntityResolver(new IgnoreDTDEntityResolver());
-
-        byte[] oldXmlBytes = Files.readAllBytes(oldFilePath);
 
         Document oldDocument = null;
         try {

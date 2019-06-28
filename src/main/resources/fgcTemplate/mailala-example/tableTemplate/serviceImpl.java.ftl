@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * ${introspectedTable.remarks}-服务实现类
  *
  */
-@Service
+@Service("i${introspectedTable.tableConfiguration.domainObjectName}ServiceImpl")
 public class ${introspectedTable.tableConfiguration.domainObjectName}ServiceImpl extends ServiceImpl<${introspectedTable.tableConfiguration.domainObjectName}Mapper, ${introspectedTable.tableConfiguration.domainObjectName}> implements I${introspectedTable.tableConfiguration.domainObjectName}Service {
 
 
