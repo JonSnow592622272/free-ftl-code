@@ -82,401 +82,401 @@
                 </table>
         -->
 
-        <table tableName="operation_perm" domainObjectName="OperationPerm">
+
+        <table tableName="operation_perm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_role" domainObjectName="OperationRole">
+        <table tableName="operation_role">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_role_perm" domainObjectName="OperationRolePerm">
+        <table tableName="operation_role_perm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_user" domainObjectName="OperationUser">
+        <table tableName="operation_user">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_user_role" domainObjectName="OperationUserRole">
+        <table tableName="operation_user_role">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_user_token" domainObjectName="OperationUserToken">
+        <table tableName="operation_user_token">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_perm" domainObjectName="SellerPerm">
+        <table tableName="seller_perm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_role" domainObjectName="SellerRole">
+        <table tableName="seller_role">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_role_perm" domainObjectName="SellerRolePerm">
+        <table tableName="seller_role_perm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop" domainObjectName="SellerShop">
+        <table tableName="seller_shop">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_bank_info" domainObjectName="SellerShopBankInfo">
+        <table tableName="seller_shop_bank_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_bank_info_log" domainObjectName="SellerShopBankInfoLog">
+        <table tableName="seller_shop_bank_info_log">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_customize" domainObjectName="SellerShopCustomize">
+        <table tableName="seller_shop_customize">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_renovation" domainObjectName="SellerShopRenovation">
+        <table tableName="seller_shop_renovation">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_template" domainObjectName="SellerTemplate">
+        <table tableName="seller_template">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user" domainObjectName="SellerUser">
+        <table tableName="seller_user">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user_role" domainObjectName="SellerUserRole">
+        <table tableName="seller_user_role">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user_token" domainObjectName="SellerUserToken">
+        <table tableName="seller_user_token">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_aftersale_info" domainObjectName="ShoppingmallOrderAftersaleInfo">
+        <table tableName="shoppingmall_order_aftersale_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_info" domainObjectName="ShoppingmallOrderInfo">
+        <table tableName="shoppingmall_order_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_product_info" domainObjectName="ShoppingmallOrderProductInfo">
+        <table tableName="shoppingmall_order_product_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user" domainObjectName="ShoppingmallUser">
+        <table tableName="shoppingmall_user">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_address" domainObjectName="ShoppingmallUserAddress">
+        <table tableName="shoppingmall_user_address">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_token" domainObjectName="ShoppingmallUserToken">
+        <table tableName="shoppingmall_user_token">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_category" domainObjectName="SupplierGoodsCategory">
+        <table tableName="supplier_goods_category">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_descrip" domainObjectName="SupplierGoodsDescrip">
+        <table tableName="supplier_goods_descrip">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_info" domainObjectName="SupplierGoodsInfo">
+        <table tableName="supplier_goods_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_user" domainObjectName="SupplierUser">
+        <table tableName="supplier_user">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_user_token" domainObjectName="SupplierUserToken">
+        <table tableName="supplier_user_token">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_registration_code" domainObjectName="SellerRegistrationCode">
+        <table tableName="seller_registration_code">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_survey_statistics" domainObjectName="SellerSurveyStatistics">
+        <table tableName="seller_survey_statistics">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_members" domainObjectName="SellerShopMembers">
+        <table tableName="seller_shop_members">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user_bak" domainObjectName="SellerUserBak">
+        <table tableName="seller_user_bak">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_money_business" domainObjectName="SellerShopMoneyBusiness">
+        <table tableName="seller_shop_money_business">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_money_cash" domainObjectName="SellerShopMoneyCash">
+        <table tableName="seller_shop_money_cash">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_advice" domainObjectName="SellerAdvice">
+        <table tableName="seller_advice">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_advice_type" domainObjectName="SellerAdviceType">
+        <table tableName="seller_advice_type">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user_business_log" domainObjectName="SellerUserBusinessLog">
+        <table tableName="seller_user_business_log">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_aftersale_voucher" domainObjectName="ShoppingmallOrderAftersaleVoucher">
+        <table tableName="shoppingmall_order_aftersale_voucher">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_product_logistics" domainObjectName="ShoppingmallOrderProductLogistics">
+        <table tableName="shoppingmall_order_product_logistics">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_goods_analysis" domainObjectName="SellerGoodsAnalysis">
+        <table tableName="seller_goods_analysis">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_customer_retain_analysis" domainObjectName="SellerCustomerRetainAnalysis">
+        <table tableName="seller_customer_retain_analysis">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_customer_order_analysis" domainObjectName="SellerCustomerOrderAnalysis">
+        <table tableName="seller_customer_order_analysis">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_settlement" domainObjectName="SellerShopSettlement">
+        <table tableName="seller_shop_settlement">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_message_notification" domainObjectName="SellerMessageNotification">
+        <table tableName="seller_message_notification">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_notice_ids" domainObjectName="SellerNoticeIds">
+        <table tableName="seller_notice_ids">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_aftersale_examine" domainObjectName="ShoppingmallOrderAftersaleExamine">
+        <table tableName="shoppingmall_order_aftersale_examine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_shopping_car" domainObjectName="ShoppingmallShoppingCar">
+        <table tableName="shoppingmall_shopping_car">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_proxy_apply" domainObjectName="ShoppingmallProxyApply">
+        <table tableName="shoppingmall_proxy_apply">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_coupon" domainObjectName="SellerCoupon">
+        <table tableName="seller_coupon">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_coupon_receive" domainObjectName="SellerCouponReceive">
+        <table tableName="seller_coupon_receive">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_advice" domainObjectName="ShoppingmallUserAdvice">
+        <table tableName="shoppingmall_user_advice">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_advice_type" domainObjectName="ShoppingmallUserAdviceType">
+        <table tableName="shoppingmall_user_advice_type">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_notice_ids" domainObjectName="ShoppingmallNoticeIds">
+        <table tableName="shoppingmall_notice_ids">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_message_notification" domainObjectName="ShoppingmallMessageNotification">
+        <table tableName="shoppingmall_message_notification">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_super_snowflake_datacenter" domainObjectName="MallSuperSnowflakeDatacenter">
+        <table tableName="mall_super_snowflake_datacenter">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_code_manage" domainObjectName="ShoppingmallCodeManage">
+        <table tableName="shoppingmall_code_manage">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_pay_back_notice" domainObjectName="ShoppingmallOrderPayBackNotice">
+        <table tableName="shoppingmall_order_pay_back_notice">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_pay" domainObjectName="ShoppingmallOrderPay">
+        <table tableName="shoppingmall_order_pay">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_appeal_info" domainObjectName="ShoppingmallOrderAppealInfo">
+        <table tableName="shoppingmall_order_appeal_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_nopay_record" domainObjectName="ShoppingmallNopayRecord">
+        <table tableName="shoppingmall_nopay_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_agent_pay_back_notice" domainObjectName="ShoppingmallAgentPayBackNotice">
+        <table tableName="shoppingmall_agent_pay_back_notice">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_trade_examine" domainObjectName="OperationTradeExamine">
+        <table tableName="operation_trade_examine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_banner_setting" domainObjectName="OperationBannerSetting">
+        <table tableName="operation_banner_setting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_info_sku" domainObjectName="SupplierGoodsInfoSku">
+        <table tableName="supplier_goods_info_sku">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_info_spu" domainObjectName="SupplierGoodsInfoSpu">
+        <table tableName="supplier_goods_info_spu">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_attribute_name" domainObjectName="SupplierGoodsAttributeName">
+        <table tableName="supplier_goods_attribute_name">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_attribute_detail" domainObjectName="SupplierGoodsAttributeDetail">
+        <table tableName="supplier_goods_attribute_detail">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_coupon_setting" domainObjectName="OperationCouponSetting">
+        <table tableName="operation_coupon_setting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_divided_rules" domainObjectName="OperationSystemDividedRules">
+        <table tableName="operation_system_divided_rules">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_msg" domainObjectName="OperationSystemMsg">
+        <table tableName="operation_system_msg">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_tariff_setting" domainObjectName="OperationSystemTariffSetting">
+        <table tableName="operation_system_tariff_setting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_shop_status_info" domainObjectName="OperationShopStatusInfo">
+        <table tableName="operation_shop_status_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_pay_type" domainObjectName="OperationSystemPayType">
+        <table tableName="operation_system_pay_type">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_coupon_giftbag" domainObjectName="SellerCouponGiftbag">
+        <table tableName="seller_coupon_giftbag">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_logistics" domainObjectName="SupplierLogistics">
+        <table tableName="supplier_logistics">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_user_account" domainObjectName="SupplierUserAccount">
+        <table tableName="supplier_user_account">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_account_bank_info" domainObjectName="SupplierAccountBankInfo">
+        <table tableName="supplier_account_bank_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_account_money_business" domainObjectName="SupplierAccountMoneyBusiness">
+        <table tableName="supplier_account_money_business">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_account_money_cash" domainObjectName="SupplierAccountMoneyCash">
+        <table tableName="supplier_account_money_cash">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_notice_ids" domainObjectName="SupplierNoticeIds">
+        <table tableName="supplier_notice_ids">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_message_notification" domainObjectName="Suppliermessagenotification">
+        <table tableName="supplier_message_notification">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_shopview_record" domainObjectName="ShoppingmallShopviewRecord">
+        <table tableName="shoppingmall_shopview_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_goodsview_record" domainObjectName="ShoppingmallGoodsviewRecord">
+        <table tableName="shoppingmall_goodsview_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_stock_record" domainObjectName="SupplierStockRecord">
+        <table tableName="supplier_stock_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_supplier_code" domainObjectName="SellerSupplierCode">
+        <table tableName="seller_supplier_code">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_user_authen" domainObjectName="SupplierUserAuthen">
+        <table tableName="supplier_user_authen">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_qualification_audit_record" domainObjectName="OperationQualificationAuditRecord">
+        <table tableName="operation_qualification_audit_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_contract_audit_record" domainObjectName="OperationContractAuditRecord">
+        <table tableName="operation_contract_audit_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_express_contract" domainObjectName="SupplierExpressContract">
+        <table tableName="supplier_express_contract">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_category_fee" domainObjectName="SupplierCategoryFee">
+        <table tableName="supplier_category_fee">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_keyword" domainObjectName="SellerImKeyword">
+        <table tableName="seller_im_keyword">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_keyword_reply" domainObjectName="SellerImKeywordReply">
+        <table tableName="seller_im_keyword_reply">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_keyword_matching" domainObjectName="SellerImKeywordMatching">
+        <table tableName="seller_im_keyword_matching">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_login_record" domainObjectName="ShoppingmallUserLoginRecord">
+        <table tableName="shoppingmall_user_login_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_chatting_user" domainObjectName="SellerImChattingUser">
+        <table tableName="seller_im_chatting_user">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_im_picture_record" domainObjectName="OperationImPictureRecord">
+        <table tableName="operation_im_picture_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_chat_goals" domainObjectName="SellerImChatGoals">
+        <table tableName="seller_im_chat_goals">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_im_report" domainObjectName="ShoppingmallImReport">
+        <table tableName="shoppingmall_im_report">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_im_report_type" domainObjectName="ShoppingmallImReportType">
+        <table tableName="shoppingmall_im_report_type">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_favorite" domainObjectName="SellerImFavorite">
+        <table tableName="seller_im_favorite">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_citymanager_code" domainObjectName="OperationCitymanagerCode">
+        <table tableName="operation_citymanager_code">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_perm" domainObjectName="SellerCitymanagerPerm">
+        <table tableName="seller_citymanager_perm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_user" domainObjectName="SellerCitymanagerUser">
+        <table tableName="seller_citymanager_user">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_extension_link" domainObjectName="SellerExtensionLink">
+        <table tableName="seller_extension_link">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_app_version" domainObjectName="OperationAppVersion">
+        <table tableName="operation_app_version">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_trade_examine_supplier" domainObjectName="OperationTradeExamineSupplier">
+        <table tableName="operation_trade_examine_supplier">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_user_profit" domainObjectName="OperationUserProfit">
+        <table tableName="operation_user_profit">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_evaluation_record" domainObjectName="ShoppingmallOrderEvaluationRecord">
+        <table tableName="shoppingmall_order_evaluation_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_money_cash" domainObjectName="SellerCitymanagerMoneyCash">
+        <table tableName="seller_citymanager_money_cash">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_account_trade_examine" domainObjectName="SupplierAccountTradeExamine">
+        <table tableName="supplier_account_trade_examine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_trade_examine" domainObjectName="SellerShopTradeExamine">
+        <table tableName="seller_shop_trade_examine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_notice_ids" domainObjectName="OperationNoticeIds">
+        <table tableName="operation_notice_ids">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_message_notification" domainObjectName="OperationMessageNotification">
+        <table tableName="operation_message_notification">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_activity_mall_car" domainObjectName="SellerActivityMallCar">
+        <table tableName="seller_activity_mall_car">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_platform_money_business" domainObjectName="OperationPlatformMoneyBusiness">
+        <table tableName="operation_platform_money_business">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_trade_examine" domainObjectName="SellerCitymanagerTradeExamine">
+        <table tableName="seller_citymanager_trade_examine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_marketing_order_info" domainObjectName="SellerMarketingOrderInfo">
+        <table tableName="seller_marketing_order_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_marketing_order_product_info" domainObjectName="SellerMarketingOrderProductInfo">
+        <table tableName="seller_marketing_order_product_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_marketing_goods_info" domainObjectName="OperationMarketingGoodsInfo">
+        <table tableName="operation_marketing_goods_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_marketing_goods_descrip" domainObjectName="OperationMarketingGoodsDescrip">
+        <table tableName="operation_marketing_goods_descrip">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_marketing_cdk" domainObjectName="OperationMarketingCdk">
+        <table tableName="operation_marketing_cdk">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_profit" domainObjectName="SellerShopProfit">
+        <table tableName="seller_shop_profit">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_user_token" domainObjectName="SellerCitymanagerUserToken">
+        <table tableName="seller_citymanager_user_token">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_marketing_activity" domainObjectName="OperationMarketingActivity">
+        <table tableName="operation_marketing_activity">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_marketing_order_info" domainObjectName="ShoppingmallMarketingOrderInfo">
+        <table tableName="shoppingmall_marketing_order_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_snowflake_datacenter" domainObjectName="MallSnowflakeDatacenter">
+        <table tableName="mall_snowflake_datacenter">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_activity_order" domainObjectName="SellerActivityOrder">
+        <table tableName="seller_activity_order">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_seller_product_profit" domainObjectName="OperationSellerProductProfit">
+        <table tableName="operation_seller_product_profit">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_my_activity" domainObjectName="SellerMyActivity">
+        <table tableName="seller_my_activity">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_shop_banner_show" domainObjectName="OperationShopBannerShow">
+        <table tableName="operation_shop_banner_show">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_marketing_order_returngoods_info"
-               domainObjectName="ShoppingmallMarketingOrderReturngoodsInfo">
+        <table tableName="shoppingmall_marketing_order_returngoods_info">
             <property name="module" value="defaultGroup"/>
         </table>
 
@@ -509,88 +509,87 @@
         <table tableName="operation_system_cash_rules">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_shop_setting" domainObjectName="OperationShopSetting">
+        <table tableName="operation_shop_setting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_discount_order_t" domainObjectName="ShopDiscountOrderT">
+        <table tableName="shop_discount_order_t">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_cut_order_t" domainObjectName="ShopCutOrderT">
+        <table tableName="shop_cut_order_t">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_full_order_t" domainObjectName="ShopFullOrderT">
+        <table tableName="shop_full_order_t">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_spellgroup_order_t" domainObjectName="ShopSpellgroupOrderT">
+        <table tableName="shop_spellgroup_order_t">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_pack_order_t" domainObjectName="ShopPackOrderT">
+        <table tableName="shop_pack_order_t">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_team_order_t" domainObjectName="ShopTeamOrderT">
+        <table tableName="shop_team_order_t">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_team_order_t" domainObjectName="ShopTeamOrderT">
+        <table tableName="shop_team_order_t">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="weapp_user" domainObjectName="WeappUser">
+        <table tableName="weapp_user">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_icon_manage" domainObjectName="OperationIconManage">
+        <table tableName="operation_icon_manage">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="webapp_help_center" domainObjectName="WebappHelpCenter">
+        <table tableName="webapp_help_center">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="weapp_user_address" domainObjectName="WeappUserAddress">
-            <property name="module" value="defaultGroup"/>
-        </table>
-
-        <table tableName="operation_goods_setting" domainObjectName="OperationGoodsSetting">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="shoppingmall_third_user_info" domainObjectName="ShoppingmallThirdUserInfo">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="shoppingmall_qyf_callbak_info" domainObjectName="ShoppingmallQyfCallbakInfo">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="shoppingmall_order_pay_union" domainObjectName="ShoppingmallOrderPayUnion">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="shoppingmall_qyf_platform_transfer_info"
-               domainObjectName="ShoppingmallQyfPlatformTransferInfo">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="mall_money_qyf_draw_cash_record" domainObjectName="MallMoneyQyfDrawCashRecord">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="goods_category_relation" domainObjectName="GoodsCategoryRelation">
+        <table tableName="weapp_user_address">
             <property name="module" value="defaultGroup"/>
         </table>
 
-        <table tableName="mall_area_address" domainObjectName="MallAreaAddress">
+        <table tableName="operation_goods_setting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_postage_config_area" domainObjectName="SupplierPostageConfigArea">
+        <table tableName="shoppingmall_third_user_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_postage_config" domainObjectName="SupplierPostageConfig">
+        <table tableName="shoppingmall_qyf_callbak_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_postage_template" domainObjectName="SupplierPostageTemplate">
+        <table tableName="shoppingmall_order_pay_union">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_goods_recommend" domainObjectName="SellerShopGoodsRecommend">
+        <table tableName="shoppingmall_qyf_platform_transfer_info">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_activity_management" domainObjectName="OperationActivityManagement">
+        <table tableName="mall_money_qyf_draw_cash_record">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_active_commodities" domainObjectName="OperationActiveCommodities">
+        <table tableName="goods_category_relation">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_recommend_position" domainObjectName="OperationRecommendPosition">
+
+        <table tableName="mall_area_address">
+            <property name="module" value="defaultGroup"/>
+        </table>
+        <table tableName="supplier_postage_config_area">
+            <property name="module" value="defaultGroup"/>
+        </table>
+        <table tableName="supplier_postage_config">
+            <property name="module" value="defaultGroup"/>
+        </table>
+        <table tableName="supplier_postage_template">
+            <property name="module" value="defaultGroup"/>
+        </table>
+        <table tableName="seller_shop_goods_recommend">
+            <property name="module" value="defaultGroup"/>
+        </table>
+        <table tableName="operation_activity_management">
+            <property name="module" value="defaultGroup"/>
+        </table>
+        <table tableName="operation_active_commodities">
+            <property name="module" value="defaultGroup"/>
+        </table>
+        <table tableName="operation_recommend_position">
             <property name="module" value="defaultGroup"/>
         </table>
 
