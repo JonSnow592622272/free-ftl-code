@@ -82,653 +82,515 @@
                 </table>
         -->
 
-        <table tableName="operation_perm" domainObjectName="OperationPerm" mapperName="OperationPermBaseMapper">
+        <table tableName="operation_perm" domainObjectName="OperationPerm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_role" domainObjectName="OperationRole" mapperName="OperationRoleBaseMapper">
+        <table tableName="operation_role" domainObjectName="OperationRole">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_role_perm" domainObjectName="OperationRolePerm"
-               mapperName="OperationRolePermBaseMapper">
+        <table tableName="operation_role_perm" domainObjectName="OperationRolePerm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_user" domainObjectName="OperationUser" mapperName="OperationUserBaseMapper">
+        <table tableName="operation_user" domainObjectName="OperationUser">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_user_role" domainObjectName="OperationUserRole"
-               mapperName="OperationUserRoleBaseMapper">
+        <table tableName="operation_user_role" domainObjectName="OperationUserRole">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_user_token" domainObjectName="OperationUserToken"
-               mapperName="OperationUserTokenBaseMapper">
+        <table tableName="operation_user_token" domainObjectName="OperationUserToken">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_perm" domainObjectName="SellerPerm" mapperName="SellerPermBaseMapper">
+        <table tableName="seller_perm" domainObjectName="SellerPerm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_role" domainObjectName="SellerRole" mapperName="SellerRoleBaseMapper">
+        <table tableName="seller_role" domainObjectName="SellerRole">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_role_perm" domainObjectName="SellerRolePerm" mapperName="SellerRolePermBaseMapper">
+        <table tableName="seller_role_perm" domainObjectName="SellerRolePerm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop" domainObjectName="SellerShop" mapperName="SellerShopBaseMapper">
+        <table tableName="seller_shop" domainObjectName="SellerShop">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_bank_info" domainObjectName="SellerShopBankInfo"
-               mapperName="SellerShopBankInfoBaseMapper">
+        <table tableName="seller_shop_bank_info" domainObjectName="SellerShopBankInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_bank_info_log" domainObjectName="SellerShopBankInfoLog"
-               mapperName="SellerShopBankInfoLogBaseMapper">
+        <table tableName="seller_shop_bank_info_log" domainObjectName="SellerShopBankInfoLog">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_customize" domainObjectName="SellerShopCustomize"
-               mapperName="SellerShopCustomizeBaseMapper">
+        <table tableName="seller_shop_customize" domainObjectName="SellerShopCustomize">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_renovation" domainObjectName="SellerShopRenovation"
-               mapperName="SellerShopRenovationBaseMapper">
+        <table tableName="seller_shop_renovation" domainObjectName="SellerShopRenovation">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_template" domainObjectName="SellerTemplate" mapperName="SellerTemplateBaseMapper">
+        <table tableName="seller_template" domainObjectName="SellerTemplate">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user" domainObjectName="SellerUser" mapperName="SellerUserBaseMapper">
+        <table tableName="seller_user" domainObjectName="SellerUser">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user_role" domainObjectName="SellerUserRole" mapperName="SellerUserRoleBaseMapper">
+        <table tableName="seller_user_role" domainObjectName="SellerUserRole">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user_token" domainObjectName="SellerUserToken" mapperName="SellerUserTokenBaseMapper">
+        <table tableName="seller_user_token" domainObjectName="SellerUserToken">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_aftersale_info" domainObjectName="ShoppingmallOrderAftersaleInfo"
-               mapperName="ShoppingmallOrderAftersaleInfoBaseMapper">
+        <table tableName="shoppingmall_order_aftersale_info" domainObjectName="ShoppingmallOrderAftersaleInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_info" domainObjectName="ShoppingmallOrderInfo"
-               mapperName="ShoppingmallOrderInfoBaseMapper">
+        <table tableName="shoppingmall_order_info" domainObjectName="ShoppingmallOrderInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_product_info" domainObjectName="ShoppingmallOrderProductInfo"
-               mapperName="ShoppingmallOrderProductInfoBaseMapper">
+        <table tableName="shoppingmall_order_product_info" domainObjectName="ShoppingmallOrderProductInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user" domainObjectName="ShoppingmallUser"
-               mapperName="ShoppingmallUserBaseMapper">
+        <table tableName="shoppingmall_user" domainObjectName="ShoppingmallUser">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_address" domainObjectName="ShoppingmallUserAddress"
-               mapperName="ShoppingmallUserAddressBaseMapper">
+        <table tableName="shoppingmall_user_address" domainObjectName="ShoppingmallUserAddress">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_token" domainObjectName="ShoppingmallUserToken"
-               mapperName="ShoppingmallUserTokenBaseMapper">
+        <table tableName="shoppingmall_user_token" domainObjectName="ShoppingmallUserToken">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_category" domainObjectName="SupplierGoodsCategory"
-               mapperName="SupplierGoodsCategoryBaseMapper">
+        <table tableName="supplier_goods_category" domainObjectName="SupplierGoodsCategory">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_descrip" domainObjectName="SupplierGoodsDescrip"
-               mapperName="SupplierGoodsDescripBaseMapper">
+        <table tableName="supplier_goods_descrip" domainObjectName="SupplierGoodsDescrip">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_info" domainObjectName="SupplierGoodsInfo"
-               mapperName="SupplierGoodsInfoBaseMapper">
+        <table tableName="supplier_goods_info" domainObjectName="SupplierGoodsInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_user" domainObjectName="SupplierUser" mapperName="SupplierUserBaseMapper">
+        <table tableName="supplier_user" domainObjectName="SupplierUser">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_user_token" domainObjectName="SupplierUserToken"
-               mapperName="SupplierUserTokenBaseMapper">
+        <table tableName="supplier_user_token" domainObjectName="SupplierUserToken">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_registration_code" domainObjectName="SellerRegistrationCode"
-               mapperName="SellerRegistrationCodeBaseMapper">
+        <table tableName="seller_registration_code" domainObjectName="SellerRegistrationCode">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_survey_statistics" domainObjectName="SellerSurveyStatistics"
-               mapperName="SellerSurveyStatisticsBaseMapper">
+        <table tableName="seller_survey_statistics" domainObjectName="SellerSurveyStatistics">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_members" domainObjectName="SellerShopMembers"
-               mapperName="SellerShopMembersBaseMapper">
+        <table tableName="seller_shop_members" domainObjectName="SellerShopMembers">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user_bak" domainObjectName="SellerUserBak" mapperName="SellerUserBakBaseMapper">
+        <table tableName="seller_user_bak" domainObjectName="SellerUserBak">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_money_business" domainObjectName="SellerShopMoneyBusiness"
-               mapperName="SellerShopMoneyBusinessBaseMapper">
+        <table tableName="seller_shop_money_business" domainObjectName="SellerShopMoneyBusiness">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_money_cash" domainObjectName="SellerShopMoneyCash"
-               mapperName="SellerShopMoneyCashBaseMapper">
+        <table tableName="seller_shop_money_cash" domainObjectName="SellerShopMoneyCash">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_advice" domainObjectName="SellerAdvice" mapperName="SellerAdviceBaseMapper">
+        <table tableName="seller_advice" domainObjectName="SellerAdvice">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_advice_type" domainObjectName="SellerAdviceType"
-               mapperName="SellerAdviceTypeBaseMapper">
+        <table tableName="seller_advice_type" domainObjectName="SellerAdviceType">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_user_business_log" domainObjectName="SellerUserBusinessLog"
-               mapperName="SellerUserBusinessLogBaseMapper">
+        <table tableName="seller_user_business_log" domainObjectName="SellerUserBusinessLog">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_aftersale_voucher" domainObjectName="ShoppingmallOrderAftersaleVoucher"
-               mapperName="ShoppingmallOrderAftersaleVoucherBaseMapper">
+        <table tableName="shoppingmall_order_aftersale_voucher" domainObjectName="ShoppingmallOrderAftersaleVoucher">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_product_logistics" domainObjectName="ShoppingmallOrderProductLogistics"
-               mapperName="ShoppingmallOrderProductLogisticsBaseMapper">
+        <table tableName="shoppingmall_order_product_logistics" domainObjectName="ShoppingmallOrderProductLogistics">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_goods_analysis" domainObjectName="SellerGoodsAnalysis"
-               mapperName="SellerGoodsAnalysisBaseMapper">
+        <table tableName="seller_goods_analysis" domainObjectName="SellerGoodsAnalysis">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_customer_retain_analysis" domainObjectName="SellerCustomerRetainAnalysis"
-               mapperName="SellerCustomerRetainAnalysisBaseMapper">
+        <table tableName="seller_customer_retain_analysis" domainObjectName="SellerCustomerRetainAnalysis">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_customer_order_analysis" domainObjectName="SellerCustomerOrderAnalysis"
-               mapperName="SellerCustomerOrderAnalysisBaseMapper">
+        <table tableName="seller_customer_order_analysis" domainObjectName="SellerCustomerOrderAnalysis">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_settlement" domainObjectName="SellerShopSettlement"
-               mapperName="SellerShopSettlementBaseMapper">
+        <table tableName="seller_shop_settlement" domainObjectName="SellerShopSettlement">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_message_notification" domainObjectName="SellerMessageNotification"
-               mapperName="SellerMessageNotificationBaseMapper">
+        <table tableName="seller_message_notification" domainObjectName="SellerMessageNotification">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_notice_ids" domainObjectName="SellerNoticeIds" mapperName="SellerNoticeIdsBaseMapper">
+        <table tableName="seller_notice_ids" domainObjectName="SellerNoticeIds">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_aftersale_examine" domainObjectName="ShoppingmallOrderAftersaleExamine"
-               mapperName="ShoppingmallOrderAftersaleExamineBaseMapper">
+        <table tableName="shoppingmall_order_aftersale_examine" domainObjectName="ShoppingmallOrderAftersaleExamine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_shopping_car" domainObjectName="ShoppingmallShoppingCar"
-               mapperName="ShoppingmallShoppingCarBaseMapper">
+        <table tableName="shoppingmall_shopping_car" domainObjectName="ShoppingmallShoppingCar">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_proxy_apply" domainObjectName="ShoppingmallProxyApply"
-               mapperName="ShoppingmallProxyApplyBaseMapper">
+        <table tableName="shoppingmall_proxy_apply" domainObjectName="ShoppingmallProxyApply">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_coupon" domainObjectName="SellerCoupon" mapperName="SellerCouponBaseMapper">
+        <table tableName="seller_coupon" domainObjectName="SellerCoupon">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_coupon_receive" domainObjectName="SellerCouponReceive"
-               mapperName="SellerCouponReceiveBaseMapper">
+        <table tableName="seller_coupon_receive" domainObjectName="SellerCouponReceive">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_advice" domainObjectName="ShoppingmallUserAdvice"
-               mapperName="ShoppingmallUserAdviceBaseMapper">
+        <table tableName="shoppingmall_user_advice" domainObjectName="ShoppingmallUserAdvice">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_advice_type" domainObjectName="ShoppingmallUserAdviceType"
-               mapperName="ShoppingmallUserAdviceTypeBaseMapper">
+        <table tableName="shoppingmall_user_advice_type" domainObjectName="ShoppingmallUserAdviceType">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_notice_ids" domainObjectName="ShoppingmallNoticeIds"
-               mapperName="ShoppingmallNoticeIdsBaseMapper">
+        <table tableName="shoppingmall_notice_ids" domainObjectName="ShoppingmallNoticeIds">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_message_notification" domainObjectName="ShoppingmallMessageNotification"
-               mapperName="ShoppingmallMessageNotificationBaseMapper">
+        <table tableName="shoppingmall_message_notification" domainObjectName="ShoppingmallMessageNotification">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_super_snowflake_datacenter" domainObjectName="MallSuperSnowflakeDatacenter"
-               mapperName="MallSuperSnowflakeDatacenterBaseMapper">
+        <table tableName="mall_super_snowflake_datacenter" domainObjectName="MallSuperSnowflakeDatacenter">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_code_manage" domainObjectName="ShoppingmallCodeManage"
-               mapperName="ShoppingmallCodeManageBaseMapper">
+        <table tableName="shoppingmall_code_manage" domainObjectName="ShoppingmallCodeManage">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_pay_back_notice" domainObjectName="ShoppingmallOrderPayBackNotice"
-               mapperName="ShoppingmallOrderPayBackNoticeBaseMapper">
+        <table tableName="shoppingmall_order_pay_back_notice" domainObjectName="ShoppingmallOrderPayBackNotice">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_pay" domainObjectName="ShoppingmallOrderPay"
-               mapperName="ShoppingmallOrderPayBaseMapper">
+        <table tableName="shoppingmall_order_pay" domainObjectName="ShoppingmallOrderPay">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_appeal_info" domainObjectName="ShoppingmallOrderAppealInfo"
-               mapperName="ShoppingmallOrderAppealInfoBaseMapper">
+        <table tableName="shoppingmall_order_appeal_info" domainObjectName="ShoppingmallOrderAppealInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_nopay_record" domainObjectName="ShoppingmallNopayRecord"
-               mapperName="ShoppingmallNopayRecordBaseMapper">
+        <table tableName="shoppingmall_nopay_record" domainObjectName="ShoppingmallNopayRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_agent_pay_back_notice" domainObjectName="ShoppingmallAgentPayBackNotice"
-               mapperName="ShoppingmallAgentPayBackNoticeBaseMapper">
+        <table tableName="shoppingmall_agent_pay_back_notice" domainObjectName="ShoppingmallAgentPayBackNotice">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_trade_examine" domainObjectName="OperationTradeExamine"
-               mapperName="OperationTradeExamineBaseMapper">
+        <table tableName="operation_trade_examine" domainObjectName="OperationTradeExamine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_banner_setting" domainObjectName="OperationBannerSetting"
-               mapperName="OperationBannerSettingBaseMapper">
+        <table tableName="operation_banner_setting" domainObjectName="OperationBannerSetting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_info_sku" domainObjectName="SupplierGoodsInfoSku"
-               mapperName="SupplierGoodsInfoSkuBaseMapper">
+        <table tableName="supplier_goods_info_sku" domainObjectName="SupplierGoodsInfoSku">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_info_spu" domainObjectName="SupplierGoodsInfoSpu"
-               mapperName="SupplierGoodsInfoSpuBaseMapper">
+        <table tableName="supplier_goods_info_spu" domainObjectName="SupplierGoodsInfoSpu">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_attribute_name" domainObjectName="SupplierGoodsAttributeName"
-               mapperName="SupplierGoodsAttributeNameBaseMapper">
+        <table tableName="supplier_goods_attribute_name" domainObjectName="SupplierGoodsAttributeName">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_goods_attribute_detail" domainObjectName="SupplierGoodsAttributeDetail"
-               mapperName="SupplierGoodsAttributeDetailBaseMapper">
+        <table tableName="supplier_goods_attribute_detail" domainObjectName="SupplierGoodsAttributeDetail">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_coupon_setting" domainObjectName="OperationCouponSetting"
-               mapperName="OperationCouponSettingBaseMapper">
+        <table tableName="operation_coupon_setting" domainObjectName="OperationCouponSetting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_divided_rules" domainObjectName="OperationSystemDividedRules"
-               mapperName="OperationSystemDividedRulesBaseMapper">
+        <table tableName="operation_system_divided_rules" domainObjectName="OperationSystemDividedRules">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_msg" domainObjectName="OperationSystemMsg"
-               mapperName="OperationSystemMsgBaseMapper">
+        <table tableName="operation_system_msg" domainObjectName="OperationSystemMsg">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_tariff_setting" domainObjectName="OperationSystemTariffSetting"
-               mapperName="OperationSystemTariffSettingBaseMapper">
+        <table tableName="operation_system_tariff_setting" domainObjectName="OperationSystemTariffSetting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_shop_status_info" domainObjectName="OperationShopStatusInfo"
-               mapperName="OperationShopStatusInfoBaseMapper">
+        <table tableName="operation_shop_status_info" domainObjectName="OperationShopStatusInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_pay_type" domainObjectName="OperationSystemPayType"
-               mapperName="OperationSystemPayTypeBaseMapper">
+        <table tableName="operation_system_pay_type" domainObjectName="OperationSystemPayType">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_coupon_giftbag" domainObjectName="SellerCouponGiftbag"
-               mapperName="SellerCouponGiftbagBaseMapper">
+        <table tableName="seller_coupon_giftbag" domainObjectName="SellerCouponGiftbag">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_logistics" domainObjectName="SupplierLogistics"
-               mapperName="SupplierLogisticsBaseMapper">
+        <table tableName="supplier_logistics" domainObjectName="SupplierLogistics">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_user_account" domainObjectName="SupplierUserAccount"
-               mapperName="SupplierUserAccountBaseMapper">
+        <table tableName="supplier_user_account" domainObjectName="SupplierUserAccount">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_account_bank_info" domainObjectName="SupplierAccountBankInfo"
-               mapperName="SupplierAccountBankInfoBaseMapper">
+        <table tableName="supplier_account_bank_info" domainObjectName="SupplierAccountBankInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_account_money_business" domainObjectName="SupplierAccountMoneyBusiness"
-               mapperName="SupplierAccountMoneyBusinessBaseMapper">
+        <table tableName="supplier_account_money_business" domainObjectName="SupplierAccountMoneyBusiness">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_account_money_cash" domainObjectName="SupplierAccountMoneyCash"
-               mapperName="SupplierAccountMoneyCashBaseMapper">
+        <table tableName="supplier_account_money_cash" domainObjectName="SupplierAccountMoneyCash">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_notice_ids" domainObjectName="SupplierNoticeIds"
-               mapperName="SupplierNoticeIdsBaseMapper">
+        <table tableName="supplier_notice_ids" domainObjectName="SupplierNoticeIds">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_message_notification" domainObjectName="Suppliermessagenotification"
-               mapperName="SuppliermessagenotificationBaseMapper">
+        <table tableName="supplier_message_notification" domainObjectName="Suppliermessagenotification">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_shopview_record" domainObjectName="ShoppingmallShopviewRecord"
-               mapperName="ShoppingmallShopviewRecordBaseMapper">
+        <table tableName="shoppingmall_shopview_record" domainObjectName="ShoppingmallShopviewRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_goodsview_record" domainObjectName="ShoppingmallGoodsviewRecord"
-               mapperName="ShoppingmallGoodsviewRecordBaseMapper">
+        <table tableName="shoppingmall_goodsview_record" domainObjectName="ShoppingmallGoodsviewRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_stock_record" domainObjectName="SupplierStockRecord"
-               mapperName="SupplierStockRecordBaseMapper">
+        <table tableName="supplier_stock_record" domainObjectName="SupplierStockRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_supplier_code" domainObjectName="SellerSupplierCode"
-               mapperName="SellerSupplierCodeBaseMapper">
+        <table tableName="seller_supplier_code" domainObjectName="SellerSupplierCode">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_user_authen" domainObjectName="SupplierUserAuthen"
-               mapperName="SupplierUserAuthenBaseMapper">
+        <table tableName="supplier_user_authen" domainObjectName="SupplierUserAuthen">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_qualification_audit_record" domainObjectName="OperationQualificationAuditRecord"
-               mapperName="OperationQualificationAuditRecordBaseMapper">
+        <table tableName="operation_qualification_audit_record" domainObjectName="OperationQualificationAuditRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_contract_audit_record" domainObjectName="OperationContractAuditRecord"
-               mapperName="OperationContractAuditRecordBaseMapper">
+        <table tableName="operation_contract_audit_record" domainObjectName="OperationContractAuditRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_express_contract" domainObjectName="SupplierExpressContract"
-               mapperName="SupplierExpressContractBaseMapper">
+        <table tableName="supplier_express_contract" domainObjectName="SupplierExpressContract">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_category_fee" domainObjectName="SupplierCategoryFee"
-               mapperName="SupplierCategoryFeeBaseMapper">
+        <table tableName="supplier_category_fee" domainObjectName="SupplierCategoryFee">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_keyword" domainObjectName="SellerImKeyword" mapperName="SellerImKeywordBaseMapper">
+        <table tableName="seller_im_keyword" domainObjectName="SellerImKeyword">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_keyword_reply" domainObjectName="SellerImKeywordReply"
-               mapperName="SellerImKeywordReplyBaseMapper">
+        <table tableName="seller_im_keyword_reply" domainObjectName="SellerImKeywordReply">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_keyword_matching" domainObjectName="SellerImKeywordMatching"
-               mapperName="SellerImKeywordMatchingBaseMapper">
+        <table tableName="seller_im_keyword_matching" domainObjectName="SellerImKeywordMatching">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_user_login_record" domainObjectName="ShoppingmallUserLoginRecord"
-               mapperName="ShoppingmallUserLoginRecordBaseMapper">
+        <table tableName="shoppingmall_user_login_record" domainObjectName="ShoppingmallUserLoginRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_chatting_user" domainObjectName="SellerImChattingUser"
-               mapperName="SellerImChattingUserBaseMapper">
+        <table tableName="seller_im_chatting_user" domainObjectName="SellerImChattingUser">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_im_picture_record" domainObjectName="OperationImPictureRecord"
-               mapperName="OperationImPictureRecordBaseMapper">
+        <table tableName="operation_im_picture_record" domainObjectName="OperationImPictureRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_chat_goals" domainObjectName="SellerImChatGoals"
-               mapperName="SellerImChatGoalsBaseMapper">
+        <table tableName="seller_im_chat_goals" domainObjectName="SellerImChatGoals">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_im_report" domainObjectName="ShoppingmallImReport"
-               mapperName="ShoppingmallImReportBaseMapper">
+        <table tableName="shoppingmall_im_report" domainObjectName="ShoppingmallImReport">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_im_report_type" domainObjectName="ShoppingmallImReportType"
-               mapperName="ShoppingmallImReportTypeBaseMapper">
+        <table tableName="shoppingmall_im_report_type" domainObjectName="ShoppingmallImReportType">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_im_favorite" domainObjectName="SellerImFavorite"
-               mapperName="SellerImFavoriteBaseMapper">
+        <table tableName="seller_im_favorite" domainObjectName="SellerImFavorite">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_citymanager_code" domainObjectName="OperationCitymanagerCode"
-               mapperName="OperationCitymanagerCodeBaseMapper">
+        <table tableName="operation_citymanager_code" domainObjectName="OperationCitymanagerCode">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_perm" domainObjectName="SellerCitymanagerPerm"
-               mapperName="SellerCitymanagerPermBaseMapper">
+        <table tableName="seller_citymanager_perm" domainObjectName="SellerCitymanagerPerm">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_user" domainObjectName="SellerCitymanagerUser"
-               mapperName="SellerCitymanagerUserBaseMapper">
+        <table tableName="seller_citymanager_user" domainObjectName="SellerCitymanagerUser">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_extension_link" domainObjectName="SellerExtensionLink"
-               mapperName="SellerExtensionLinkBaseMapper">
+        <table tableName="seller_extension_link" domainObjectName="SellerExtensionLink">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_app_version" domainObjectName="OperationAppVersion"
-               mapperName="OperationAppVersionBaseMapper">
+        <table tableName="operation_app_version" domainObjectName="OperationAppVersion">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_trade_examine_supplier" domainObjectName="OperationTradeExamineSupplier"
-               mapperName="OperationTradeExamineSupplierBaseMapper">
+        <table tableName="operation_trade_examine_supplier" domainObjectName="OperationTradeExamineSupplier">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_user_profit" domainObjectName="OperationUserProfit"
-               mapperName="OperationUserProfitBaseMapper">
+        <table tableName="operation_user_profit" domainObjectName="OperationUserProfit">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_evaluation_record" domainObjectName="ShoppingmallOrderEvaluationRecord"
-               mapperName="ShoppingmallOrderEvaluationRecordBaseMapper">
+        <table tableName="shoppingmall_order_evaluation_record" domainObjectName="ShoppingmallOrderEvaluationRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_money_cash" domainObjectName="SellerCitymanagerMoneyCash"
-               mapperName="SellerCitymanagerMoneyCashBaseMapper">
+        <table tableName="seller_citymanager_money_cash" domainObjectName="SellerCitymanagerMoneyCash">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_account_trade_examine" domainObjectName="SupplierAccountTradeExamine"
-               mapperName="SupplierAccountTradeExamineBaseMapper">
+        <table tableName="supplier_account_trade_examine" domainObjectName="SupplierAccountTradeExamine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_trade_examine" domainObjectName="SellerShopTradeExamine"
-               mapperName="SellerShopTradeExamineBaseMapper">
+        <table tableName="seller_shop_trade_examine" domainObjectName="SellerShopTradeExamine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_notice_ids" domainObjectName="OperationNoticeIds"
-               mapperName="OperationNoticeIdsBaseMapper">
+        <table tableName="operation_notice_ids" domainObjectName="OperationNoticeIds">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_message_notification" domainObjectName="OperationMessageNotification"
-               mapperName="OperationMessageNotificationBaseMapper">
+        <table tableName="operation_message_notification" domainObjectName="OperationMessageNotification">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_activity_mall_car" domainObjectName="SellerActivityMallCar"
-               mapperName="SellerActivityMallCarBaseMapper">
+        <table tableName="seller_activity_mall_car" domainObjectName="SellerActivityMallCar">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_platform_money_business" domainObjectName="OperationPlatformMoneyBusiness"
-               mapperName="OperationPlatformMoneyBusinessBaseMapper">
+        <table tableName="operation_platform_money_business" domainObjectName="OperationPlatformMoneyBusiness">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_trade_examine" domainObjectName="SellerCitymanagerTradeExamine"
-               mapperName="SellerCitymanagerTradeExamineBaseMapper">
+        <table tableName="seller_citymanager_trade_examine" domainObjectName="SellerCitymanagerTradeExamine">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_marketing_order_info" domainObjectName="SellerMarketingOrderInfo"
-               mapperName="SellerMarketingOrderInfoBaseMapper">
+        <table tableName="seller_marketing_order_info" domainObjectName="SellerMarketingOrderInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_marketing_order_product_info" domainObjectName="SellerMarketingOrderProductInfo"
-               mapperName="SellerMarketingOrderProductInfoBaseMapper">
+        <table tableName="seller_marketing_order_product_info" domainObjectName="SellerMarketingOrderProductInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_marketing_goods_info" domainObjectName="OperationMarketingGoodsInfo"
-               mapperName="OperationMarketingGoodsInfoBaseMapper">
+        <table tableName="operation_marketing_goods_info" domainObjectName="OperationMarketingGoodsInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_marketing_goods_descrip" domainObjectName="OperationMarketingGoodsDescrip"
-               mapperName="OperationMarketingGoodsDescripBaseMapper">
+        <table tableName="operation_marketing_goods_descrip" domainObjectName="OperationMarketingGoodsDescrip">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_marketing_cdk" domainObjectName="OperationMarketingCdk"
-               mapperName="OperationMarketingCdkBaseMapper">
+        <table tableName="operation_marketing_cdk" domainObjectName="OperationMarketingCdk">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_shop_profit" domainObjectName="SellerShopProfit"
-               mapperName="SellerShopProfitBaseMapper">
+        <table tableName="seller_shop_profit" domainObjectName="SellerShopProfit">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_citymanager_user_token" domainObjectName="SellerCitymanagerUserToken"
-               mapperName="SellerCitymanagerUserTokenBaseMapper">
+        <table tableName="seller_citymanager_user_token" domainObjectName="SellerCitymanagerUserToken">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_marketing_activity" domainObjectName="OperationMarketingActivity"
-               mapperName="OperationMarketingActivityBaseMapper">
+        <table tableName="operation_marketing_activity" domainObjectName="OperationMarketingActivity">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_marketing_order_info" domainObjectName="ShoppingmallMarketingOrderInfo"
-               mapperName="ShoppingmallMarketingOrderInfoBaseMapper">
+        <table tableName="shoppingmall_marketing_order_info" domainObjectName="ShoppingmallMarketingOrderInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_snowflake_datacenter" domainObjectName="MallSnowflakeDatacenter"
-               mapperName="MallSnowflakeDatacenterBaseMapper">
+        <table tableName="mall_snowflake_datacenter" domainObjectName="MallSnowflakeDatacenter">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_activity_order" domainObjectName="SellerActivityOrder"
-               mapperName="SellerActivityOrderBaseMapper">
+        <table tableName="seller_activity_order" domainObjectName="SellerActivityOrder">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_seller_product_profit" domainObjectName="OperationSellerProductProfit"
-               mapperName="OperationSellerProductProfitBaseMapper">
+        <table tableName="operation_seller_product_profit" domainObjectName="OperationSellerProductProfit">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="seller_my_activity" domainObjectName="SellerMyActivity"
-               mapperName="SellerMyActivityBaseMapper">
+        <table tableName="seller_my_activity" domainObjectName="SellerMyActivity">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_shop_banner_show" domainObjectName="OperationShopBannerShow"
-               mapperName="OperationShopBannerShowBaseMapper">
+        <table tableName="operation_shop_banner_show" domainObjectName="OperationShopBannerShow">
             <property name="module" value="defaultGroup"/>
         </table>
         <table tableName="shoppingmall_marketing_order_returngoods_info"
-               domainObjectName="ShoppingmallMarketingOrderReturngoodsInfo"
-               mapperName="ShoppingmallMarketingOrderReturngoodsInfoBaseMapper">
+               domainObjectName="ShoppingmallMarketingOrderReturngoodsInfo">
             <property name="module" value="defaultGroup"/>
         </table>
 
-        <table tableName="shoppingmall_marketing_order_returngoods_info"
-               mapperName="ShoppingmallMarketingOrderReturngoodsInfoBaseMapper">
+        <table tableName="shoppingmall_marketing_order_returngoods_info">
             <property name="module" value="defaultGroup"/>
         </table>
 
 
-        <table tableName="mall_money_settlement_detail" mapperName="MallMoneySettlementDetailBaseMapper">
+        <table tableName="mall_money_settlement_detail">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_money_user" mapperName="MallMoneyUserBaseMapper">
+        <table tableName="mall_money_user">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_money_delay" mapperName="MallMoneyDelayBaseMapper">
+        <table tableName="mall_money_delay">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_money_flow" mapperName="MallMoneyFlowBaseMapper">
+        <table tableName="mall_money_flow">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_money_settlement" mapperName="MallMoneySettlementBaseMapper">
+        <table tableName="mall_money_settlement">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_money_settlement_fail_rec" mapperName="MallMoneySettlementFailRecBaseMapper">
+        <table tableName="mall_money_settlement_fail_rec">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_money_settlement_job_rec" mapperName="MallMoneySettlementJobRecBaseMapper">
+        <table tableName="mall_money_settlement_job_rec">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_system_cash_rules" mapperName="OperationSystemCashRulesBaseMapper">
+        <table tableName="operation_system_cash_rules">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_shop_setting" domainObjectName="OperationShopSetting"
-               mapperName="OperationShopSettingBaseMapper">
+        <table tableName="operation_shop_setting" domainObjectName="OperationShopSetting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_discount_order_t" domainObjectName="ShopDiscountOrderT"
-               mapperName="ShopDiscountOrderTBaseMapper">
+        <table tableName="shop_discount_order_t" domainObjectName="ShopDiscountOrderT">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_cut_order_t" domainObjectName="ShopCutOrderT" mapperName="ShopCutOrderTBaseMapper">
+        <table tableName="shop_cut_order_t" domainObjectName="ShopCutOrderT">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_full_order_t" domainObjectName="ShopFullOrderT" mapperName="ShopFullOrderTBaseMapper">
+        <table tableName="shop_full_order_t" domainObjectName="ShopFullOrderT">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_spellgroup_order_t" domainObjectName="ShopSpellgroupOrderT"
-               mapperName="ShopFullOrderTBaseMapper">
+        <table tableName="shop_spellgroup_order_t" domainObjectName="ShopSpellgroupOrderT">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_pack_order_t" domainObjectName="ShopPackOrderT" mapperName="ShopPackOrderTBaseMapper">
+        <table tableName="shop_pack_order_t" domainObjectName="ShopPackOrderT">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_team_order_t" domainObjectName="ShopTeamOrderT" mapperName="ShopTeamOrderTBaseMapper">
+        <table tableName="shop_team_order_t" domainObjectName="ShopTeamOrderT">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shop_team_order_t" domainObjectName="ShopTeamOrderT" mapperName="ShopTeamOrderTBaseMapper">
+        <table tableName="shop_team_order_t" domainObjectName="ShopTeamOrderT">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="weapp_user" domainObjectName="WeappUser" mapperName="WeappUserBaseMapper">
+        <table tableName="weapp_user" domainObjectName="WeappUser">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_icon_manage" domainObjectName="OperationIconManage"
-               mapperName="OperationIconManageBaseMapper">
+        <table tableName="operation_icon_manage" domainObjectName="OperationIconManage">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="webapp_help_center" domainObjectName="WebappHelpCenter"
-               mapperName="WebappHelpCenterBaseMapper">
+        <table tableName="webapp_help_center" domainObjectName="WebappHelpCenter">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="weapp_user_address" domainObjectName="WeappUserAddress"
-               mapperName="WeappUserAddressBaseMapper">
+        <table tableName="weapp_user_address" domainObjectName="WeappUserAddress">
             <property name="module" value="defaultGroup"/>
         </table>
 
-        <table tableName="operation_goods_setting" domainObjectName="OperationGoodsSetting"
-               mapperName="OperationGoodsSettingBaseMapper">
+        <table tableName="operation_goods_setting" domainObjectName="OperationGoodsSetting">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_third_user_info" domainObjectName="ShoppingmallThirdUserInfo"
-               mapperName="ShoppingmallThirdUserInfoBaseMapper">
+        <table tableName="shoppingmall_third_user_info" domainObjectName="ShoppingmallThirdUserInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_qyf_callbak_info" domainObjectName="ShoppingmallQyfCallbakInfo"
-               mapperName="ShoppingmallQyfCallbakInfoBaseMapper">
+        <table tableName="shoppingmall_qyf_callbak_info" domainObjectName="ShoppingmallQyfCallbakInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="shoppingmall_order_pay_union" domainObjectName="ShoppingmallOrderPayUnion"
-               mapperName="ShoppingmallOrderPayUnionBaseMapper">
+        <table tableName="shoppingmall_order_pay_union" domainObjectName="ShoppingmallOrderPayUnion">
             <property name="module" value="defaultGroup"/>
         </table>
         <table tableName="shoppingmall_qyf_platform_transfer_info"
-               domainObjectName="ShoppingmallQyfPlatformTransferInfo"
-               mapperName="ShoppingmallQyfPlatformTransferInfoBaseMapper">
+               domainObjectName="ShoppingmallQyfPlatformTransferInfo">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="mall_money_qyf_draw_cash_record" domainObjectName="MallMoneyQyfDrawCashRecord"
-               mapperName="MallMoneyQyfDrawCashRecordBaseMapper">
+        <table tableName="mall_money_qyf_draw_cash_record" domainObjectName="MallMoneyQyfDrawCashRecord">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="goods_category_relation" domainObjectName="GoodsCategoryRelation"
-               mapperName="GoodsCategoryRelationBaseMapper">
+        <table tableName="goods_category_relation" domainObjectName="GoodsCategoryRelation">
             <property name="module" value="defaultGroup"/>
         </table>
 
-        <table tableName="mall_area_address" domainObjectName="MallAreaAddress" mapperName="MallAreaAddressBaseMapper">
+        <table tableName="mall_area_address" domainObjectName="MallAreaAddress">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_postage_config_area" domainObjectName="SupplierPostageConfigArea"
-               mapperName="SupplierPostageConfigAreaBaseMapper">
+        <table tableName="supplier_postage_config_area" domainObjectName="SupplierPostageConfigArea">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_postage_config" domainObjectName="SupplierPostageConfig"
-               mapperName="SupplierPostageConfigBaseMapper">
+        <table tableName="supplier_postage_config" domainObjectName="SupplierPostageConfig">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="supplier_postage_template" domainObjectName="SupplierPostageTemplate"
-               mapperName="SupplierPostageTemplateBaseMapper">
+        <table tableName="supplier_postage_template" domainObjectName="SupplierPostageTemplate">
             <property name="module" value="defaultGroup"/>
         </table>
-
-        <table tableName="seller_shop_goods_recommend" domainObjectName="SellerShopGoodsRecommend"
-               mapperName="SellerShopGoodsRecommendBaseMapper">
+        <table tableName="seller_shop_goods_recommend" domainObjectName="SellerShopGoodsRecommend">
             <property name="module" value="defaultGroup"/>
         </table>
-
-        <table tableName="operation_activity_management" domainObjectName="OperationActivityManagement"
-               mapperName="OperationActivityManagementBaseMapper">
+        <table tableName="operation_activity_management" domainObjectName="OperationActivityManagement">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_active_commodities" domainObjectName="OperationActiveCommodities"
-               mapperName="OperationActiveCommoditiesBaseMapper">
+        <table tableName="operation_active_commodities" domainObjectName="OperationActiveCommodities">
             <property name="module" value="defaultGroup"/>
         </table>
-        <table tableName="operation_recommend_position" domainObjectName="OperationRecommendPosition"
-               mapperName="OperationRecommendPositionBaseMapper">
+        <table tableName="operation_recommend_position" domainObjectName="OperationRecommendPosition">
             <property name="module" value="defaultGroup"/>
         </table>
 
