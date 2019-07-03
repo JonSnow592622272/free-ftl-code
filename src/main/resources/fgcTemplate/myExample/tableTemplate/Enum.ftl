@@ -17,7 +17,7 @@
     import java.util.LinkedHashMap;
     import java.util.Map;
 
-    public class ${introspectedTable.tableConfiguration.domainObjectName}Const implements Serializable {
+    public class ${tuofengTableName?cap_first}Const implements Serializable {
 
 <#-- ----------  BEGIN 字段循环遍历  ---------->
     <#list introspectedTable.allColumns as allColumns>

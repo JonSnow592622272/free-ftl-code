@@ -1,6 +1,6 @@
 package com.my.haha;
 
-import com.my.haha.${introspectedTable.tableConfiguration.domainObjectName};
+import com.my.haha.${tuofengTableName?cap_first};
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-public class ${introspectedTable.tableConfiguration.domainObjectName}ServiceImpl extends ServiceImpl<${introspectedTable.tableConfiguration.domainObjectName}Mapper, ${introspectedTable.tableConfiguration.domainObjectName}> implements ${introspectedTable.tableConfiguration.domainObjectName}Service {
+public class ${tuofengTableName?cap_first}ServiceImpl extends ServiceImpl<${tuofengTableName?cap_first}Mapper, ${tuofengTableName?cap_first}> implements ${tuofengTableName?cap_first}Service {
 
 
 }

@@ -128,6 +128,8 @@ public class FgcPlugin extends BasePlugin {
         commonMap.put("modelClassType", modelClassType);
         commonMap.put("anInterface", anInterface);
 
+        //设置驼峰表名
+        commonMap.put("tuofengTableName", FileUtils.lineToHump(introspectedTable.getFullyQualifiedTableNameAtRuntime()));
         try {
 
             Configuration cfg;

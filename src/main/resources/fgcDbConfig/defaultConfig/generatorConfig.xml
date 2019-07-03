@@ -48,7 +48,7 @@
 
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table tableName="test_student" domainObjectName="TestStudent">
+        <table tableName="test_student" domainObjectName="TestStudent666666">
             <!--以下属性可以传递到ftl模板文件中，可以自由定义-->
             <property name="module" value="userModule模块"/>
         </table>
