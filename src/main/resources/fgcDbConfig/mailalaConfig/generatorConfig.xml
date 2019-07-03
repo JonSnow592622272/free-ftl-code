@@ -10,7 +10,7 @@
 
     <context id="fgc_contex" targetRuntime="MyBatis3" defaultModelType="flat">
 
-<!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓以下property能够传递到ftl模板中↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  -->
+        <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓以下property能够传递到ftl模板中↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  -->
 
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓fgc框架必有参数，勿动↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
         <!--设置表触发ftl模板文件夹-->
@@ -47,7 +47,6 @@
         <property name="diy_enum_targetProject" value="${diy_enum_targetProject}"/>
 
 
-
         <!--↑↑↑↑↑↑↑↑自定义ftl全局属性，如果用不到可以不用关注↑↑↑↑↑↑↑↑-->
 
         <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑以下property能够传递到ftl模板中↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑  -->
@@ -72,18 +71,664 @@
 
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-<!--
-        <table tableName="test_student" domainObjectName="TestStudent">
-            &lt;!&ndash;以下属性可以传递到ftl模板文件中，可以自由定义&ndash;&gt;
-            <property name="module" value="userModule模块"/>
+        <!--
+                <table tableName="test_student" domainObjectName="TestStudent">
+                    &lt;!&ndash;以下属性可以传递到ftl模板文件中，可以自由定义&ndash;&gt;
+                    <property name="module" value="userModule模块"/>
+                </table>
+
+                <table tableName="test_scores" domainObjectName="TestScores">
+                    <property name="module" value="study模块"/>
+                </table>
+        -->
+
+        <table tableName="operation_perm" domainObjectName="OperationPerm" mapperName="OperationPermBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_role" domainObjectName="OperationRole" mapperName="OperationRoleBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_role_perm" domainObjectName="OperationRolePerm"
+               mapperName="OperationRolePermBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_user" domainObjectName="OperationUser" mapperName="OperationUserBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_user_role" domainObjectName="OperationUserRole"
+               mapperName="OperationUserRoleBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_user_token" domainObjectName="OperationUserToken"
+               mapperName="OperationUserTokenBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_perm" domainObjectName="SellerPerm" mapperName="SellerPermBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_role" domainObjectName="SellerRole" mapperName="SellerRoleBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_role_perm" domainObjectName="SellerRolePerm" mapperName="SellerRolePermBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop" domainObjectName="SellerShop" mapperName="SellerShopBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_bank_info" domainObjectName="SellerShopBankInfo"
+               mapperName="SellerShopBankInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_bank_info_log" domainObjectName="SellerShopBankInfoLog"
+               mapperName="SellerShopBankInfoLogBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_customize" domainObjectName="SellerShopCustomize"
+               mapperName="SellerShopCustomizeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_renovation" domainObjectName="SellerShopRenovation"
+               mapperName="SellerShopRenovationBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_template" domainObjectName="SellerTemplate" mapperName="SellerTemplateBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_user" domainObjectName="SellerUser" mapperName="SellerUserBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_user_role" domainObjectName="SellerUserRole" mapperName="SellerUserRoleBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_user_token" domainObjectName="SellerUserToken" mapperName="SellerUserTokenBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_aftersale_info" domainObjectName="ShoppingmallOrderAftersaleInfo"
+               mapperName="ShoppingmallOrderAftersaleInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_info" domainObjectName="ShoppingmallOrderInfo"
+               mapperName="ShoppingmallOrderInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_product_info" domainObjectName="ShoppingmallOrderProductInfo"
+               mapperName="ShoppingmallOrderProductInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_user" domainObjectName="ShoppingmallUser"
+               mapperName="ShoppingmallUserBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_user_address" domainObjectName="ShoppingmallUserAddress"
+               mapperName="ShoppingmallUserAddressBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_user_token" domainObjectName="ShoppingmallUserToken"
+               mapperName="ShoppingmallUserTokenBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_goods_category" domainObjectName="SupplierGoodsCategory"
+               mapperName="SupplierGoodsCategoryBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_goods_descrip" domainObjectName="SupplierGoodsDescrip"
+               mapperName="SupplierGoodsDescripBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_goods_info" domainObjectName="SupplierGoodsInfo"
+               mapperName="SupplierGoodsInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_user" domainObjectName="SupplierUser" mapperName="SupplierUserBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_user_token" domainObjectName="SupplierUserToken"
+               mapperName="SupplierUserTokenBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_registration_code" domainObjectName="SellerRegistrationCode"
+               mapperName="SellerRegistrationCodeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_survey_statistics" domainObjectName="SellerSurveyStatistics"
+               mapperName="SellerSurveyStatisticsBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_members" domainObjectName="SellerShopMembers"
+               mapperName="SellerShopMembersBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_user_bak" domainObjectName="SellerUserBak" mapperName="SellerUserBakBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_money_business" domainObjectName="SellerShopMoneyBusiness"
+               mapperName="SellerShopMoneyBusinessBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_money_cash" domainObjectName="SellerShopMoneyCash"
+               mapperName="SellerShopMoneyCashBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_advice" domainObjectName="SellerAdvice" mapperName="SellerAdviceBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_advice_type" domainObjectName="SellerAdviceType"
+               mapperName="SellerAdviceTypeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_user_business_log" domainObjectName="SellerUserBusinessLog"
+               mapperName="SellerUserBusinessLogBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_aftersale_voucher" domainObjectName="ShoppingmallOrderAftersaleVoucher"
+               mapperName="ShoppingmallOrderAftersaleVoucherBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_product_logistics" domainObjectName="ShoppingmallOrderProductLogistics"
+               mapperName="ShoppingmallOrderProductLogisticsBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_goods_analysis" domainObjectName="SellerGoodsAnalysis"
+               mapperName="SellerGoodsAnalysisBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_customer_retain_analysis" domainObjectName="SellerCustomerRetainAnalysis"
+               mapperName="SellerCustomerRetainAnalysisBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_customer_order_analysis" domainObjectName="SellerCustomerOrderAnalysis"
+               mapperName="SellerCustomerOrderAnalysisBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_settlement" domainObjectName="SellerShopSettlement"
+               mapperName="SellerShopSettlementBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_message_notification" domainObjectName="SellerMessageNotification"
+               mapperName="SellerMessageNotificationBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_notice_ids" domainObjectName="SellerNoticeIds" mapperName="SellerNoticeIdsBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_aftersale_examine" domainObjectName="ShoppingmallOrderAftersaleExamine"
+               mapperName="ShoppingmallOrderAftersaleExamineBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_shopping_car" domainObjectName="ShoppingmallShoppingCar"
+               mapperName="ShoppingmallShoppingCarBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_proxy_apply" domainObjectName="ShoppingmallProxyApply"
+               mapperName="ShoppingmallProxyApplyBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_coupon" domainObjectName="SellerCoupon" mapperName="SellerCouponBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_coupon_receive" domainObjectName="SellerCouponReceive"
+               mapperName="SellerCouponReceiveBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_user_advice" domainObjectName="ShoppingmallUserAdvice"
+               mapperName="ShoppingmallUserAdviceBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_user_advice_type" domainObjectName="ShoppingmallUserAdviceType"
+               mapperName="ShoppingmallUserAdviceTypeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_notice_ids" domainObjectName="ShoppingmallNoticeIds"
+               mapperName="ShoppingmallNoticeIdsBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_message_notification" domainObjectName="ShoppingmallMessageNotification"
+               mapperName="ShoppingmallMessageNotificationBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_super_snowflake_datacenter" domainObjectName="MallSuperSnowflakeDatacenter"
+               mapperName="MallSuperSnowflakeDatacenterBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_code_manage" domainObjectName="ShoppingmallCodeManage"
+               mapperName="ShoppingmallCodeManageBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_pay_back_notice" domainObjectName="ShoppingmallOrderPayBackNotice"
+               mapperName="ShoppingmallOrderPayBackNoticeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_pay" domainObjectName="ShoppingmallOrderPay"
+               mapperName="ShoppingmallOrderPayBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_appeal_info" domainObjectName="ShoppingmallOrderAppealInfo"
+               mapperName="ShoppingmallOrderAppealInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_nopay_record" domainObjectName="ShoppingmallNopayRecord"
+               mapperName="ShoppingmallNopayRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_agent_pay_back_notice" domainObjectName="ShoppingmallAgentPayBackNotice"
+               mapperName="ShoppingmallAgentPayBackNoticeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_trade_examine" domainObjectName="OperationTradeExamine"
+               mapperName="OperationTradeExamineBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_banner_setting" domainObjectName="OperationBannerSetting"
+               mapperName="OperationBannerSettingBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_goods_info_sku" domainObjectName="SupplierGoodsInfoSku"
+               mapperName="SupplierGoodsInfoSkuBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_goods_info_spu" domainObjectName="SupplierGoodsInfoSpu"
+               mapperName="SupplierGoodsInfoSpuBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_goods_attribute_name" domainObjectName="SupplierGoodsAttributeName"
+               mapperName="SupplierGoodsAttributeNameBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_goods_attribute_detail" domainObjectName="SupplierGoodsAttributeDetail"
+               mapperName="SupplierGoodsAttributeDetailBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_coupon_setting" domainObjectName="OperationCouponSetting"
+               mapperName="OperationCouponSettingBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_system_divided_rules" domainObjectName="OperationSystemDividedRules"
+               mapperName="OperationSystemDividedRulesBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_system_msg" domainObjectName="OperationSystemMsg"
+               mapperName="OperationSystemMsgBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_system_tariff_setting" domainObjectName="OperationSystemTariffSetting"
+               mapperName="OperationSystemTariffSettingBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_shop_status_info" domainObjectName="OperationShopStatusInfo"
+               mapperName="OperationShopStatusInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_system_pay_type" domainObjectName="OperationSystemPayType"
+               mapperName="OperationSystemPayTypeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_coupon_giftbag" domainObjectName="SellerCouponGiftbag"
+               mapperName="SellerCouponGiftbagBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_logistics" domainObjectName="SupplierLogistics"
+               mapperName="SupplierLogisticsBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_user_account" domainObjectName="SupplierUserAccount"
+               mapperName="SupplierUserAccountBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_account_bank_info" domainObjectName="SupplierAccountBankInfo"
+               mapperName="SupplierAccountBankInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_account_money_business" domainObjectName="SupplierAccountMoneyBusiness"
+               mapperName="SupplierAccountMoneyBusinessBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_account_money_cash" domainObjectName="SupplierAccountMoneyCash"
+               mapperName="SupplierAccountMoneyCashBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_notice_ids" domainObjectName="SupplierNoticeIds"
+               mapperName="SupplierNoticeIdsBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_message_notification" domainObjectName="Suppliermessagenotification"
+               mapperName="SuppliermessagenotificationBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_shopview_record" domainObjectName="ShoppingmallShopviewRecord"
+               mapperName="ShoppingmallShopviewRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_goodsview_record" domainObjectName="ShoppingmallGoodsviewRecord"
+               mapperName="ShoppingmallGoodsviewRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_stock_record" domainObjectName="SupplierStockRecord"
+               mapperName="SupplierStockRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_supplier_code" domainObjectName="SellerSupplierCode"
+               mapperName="SellerSupplierCodeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_user_authen" domainObjectName="SupplierUserAuthen"
+               mapperName="SupplierUserAuthenBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_qualification_audit_record" domainObjectName="OperationQualificationAuditRecord"
+               mapperName="OperationQualificationAuditRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_contract_audit_record" domainObjectName="OperationContractAuditRecord"
+               mapperName="OperationContractAuditRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_express_contract" domainObjectName="SupplierExpressContract"
+               mapperName="SupplierExpressContractBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_category_fee" domainObjectName="SupplierCategoryFee"
+               mapperName="SupplierCategoryFeeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_im_keyword" domainObjectName="SellerImKeyword" mapperName="SellerImKeywordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_im_keyword_reply" domainObjectName="SellerImKeywordReply"
+               mapperName="SellerImKeywordReplyBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_im_keyword_matching" domainObjectName="SellerImKeywordMatching"
+               mapperName="SellerImKeywordMatchingBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_user_login_record" domainObjectName="ShoppingmallUserLoginRecord"
+               mapperName="ShoppingmallUserLoginRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_im_chatting_user" domainObjectName="SellerImChattingUser"
+               mapperName="SellerImChattingUserBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_im_picture_record" domainObjectName="OperationImPictureRecord"
+               mapperName="OperationImPictureRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_im_chat_goals" domainObjectName="SellerImChatGoals"
+               mapperName="SellerImChatGoalsBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_im_report" domainObjectName="ShoppingmallImReport"
+               mapperName="ShoppingmallImReportBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_im_report_type" domainObjectName="ShoppingmallImReportType"
+               mapperName="ShoppingmallImReportTypeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_im_favorite" domainObjectName="SellerImFavorite"
+               mapperName="SellerImFavoriteBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_citymanager_code" domainObjectName="OperationCitymanagerCode"
+               mapperName="OperationCitymanagerCodeBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_citymanager_perm" domainObjectName="SellerCitymanagerPerm"
+               mapperName="SellerCitymanagerPermBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_citymanager_user" domainObjectName="SellerCitymanagerUser"
+               mapperName="SellerCitymanagerUserBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_extension_link" domainObjectName="SellerExtensionLink"
+               mapperName="SellerExtensionLinkBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_app_version" domainObjectName="OperationAppVersion"
+               mapperName="OperationAppVersionBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_trade_examine_supplier" domainObjectName="OperationTradeExamineSupplier"
+               mapperName="OperationTradeExamineSupplierBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_user_profit" domainObjectName="OperationUserProfit"
+               mapperName="OperationUserProfitBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_evaluation_record" domainObjectName="ShoppingmallOrderEvaluationRecord"
+               mapperName="ShoppingmallOrderEvaluationRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_citymanager_money_cash" domainObjectName="SellerCitymanagerMoneyCash"
+               mapperName="SellerCitymanagerMoneyCashBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_account_trade_examine" domainObjectName="SupplierAccountTradeExamine"
+               mapperName="SupplierAccountTradeExamineBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_trade_examine" domainObjectName="SellerShopTradeExamine"
+               mapperName="SellerShopTradeExamineBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_notice_ids" domainObjectName="OperationNoticeIds"
+               mapperName="OperationNoticeIdsBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_message_notification" domainObjectName="OperationMessageNotification"
+               mapperName="OperationMessageNotificationBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_activity_mall_car" domainObjectName="SellerActivityMallCar"
+               mapperName="SellerActivityMallCarBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_platform_money_business" domainObjectName="OperationPlatformMoneyBusiness"
+               mapperName="OperationPlatformMoneyBusinessBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_citymanager_trade_examine" domainObjectName="SellerCitymanagerTradeExamine"
+               mapperName="SellerCitymanagerTradeExamineBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_marketing_order_info" domainObjectName="SellerMarketingOrderInfo"
+               mapperName="SellerMarketingOrderInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_marketing_order_product_info" domainObjectName="SellerMarketingOrderProductInfo"
+               mapperName="SellerMarketingOrderProductInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_marketing_goods_info" domainObjectName="OperationMarketingGoodsInfo"
+               mapperName="OperationMarketingGoodsInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_marketing_goods_descrip" domainObjectName="OperationMarketingGoodsDescrip"
+               mapperName="OperationMarketingGoodsDescripBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_marketing_cdk" domainObjectName="OperationMarketingCdk"
+               mapperName="OperationMarketingCdkBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_shop_profit" domainObjectName="SellerShopProfit"
+               mapperName="SellerShopProfitBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_citymanager_user_token" domainObjectName="SellerCitymanagerUserToken"
+               mapperName="SellerCitymanagerUserTokenBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_marketing_activity" domainObjectName="OperationMarketingActivity"
+               mapperName="OperationMarketingActivityBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_marketing_order_info" domainObjectName="ShoppingmallMarketingOrderInfo"
+               mapperName="ShoppingmallMarketingOrderInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_snowflake_datacenter" domainObjectName="MallSnowflakeDatacenter"
+               mapperName="MallSnowflakeDatacenterBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_activity_order" domainObjectName="SellerActivityOrder"
+               mapperName="SellerActivityOrderBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_seller_product_profit" domainObjectName="OperationSellerProductProfit"
+               mapperName="OperationSellerProductProfitBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="seller_my_activity" domainObjectName="SellerMyActivity"
+               mapperName="SellerMyActivityBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_shop_banner_show" domainObjectName="OperationShopBannerShow"
+               mapperName="OperationShopBannerShowBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_marketing_order_returngoods_info"
+               domainObjectName="ShoppingmallMarketingOrderReturngoodsInfo"
+               mapperName="ShoppingmallMarketingOrderReturngoodsInfoBaseMapper">
+            <property name="module" value="capital"/>
         </table>
 
-        <table tableName="test_scores" domainObjectName="TestScores">
-            <property name="module" value="study模块"/>
+        <table tableName="shoppingmall_marketing_order_returngoods_info"
+               mapperName="ShoppingmallMarketingOrderReturngoodsInfoBaseMapper">
+            <property name="module" value="capital"/>
         </table>
--->
 
-        <table tableName="mall_money_user" domainObjectName="MallMoneyUser">
+
+        <table tableName="mall_money_settlement_detail" mapperName="MallMoneySettlementDetailBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_money_user" mapperName="MallMoneyUserBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_money_delay" mapperName="MallMoneyDelayBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_money_flow" mapperName="MallMoneyFlowBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_money_settlement" mapperName="MallMoneySettlementBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_money_settlement_fail_rec" mapperName="MallMoneySettlementFailRecBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_money_settlement_job_rec" mapperName="MallMoneySettlementJobRecBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_system_cash_rules" mapperName="OperationSystemCashRulesBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_shop_setting" domainObjectName="OperationShopSetting"
+               mapperName="OperationShopSettingBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shop_discount_order_t" domainObjectName="ShopDiscountOrderT"
+               mapperName="ShopDiscountOrderTBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shop_cut_order_t" domainObjectName="ShopCutOrderT" mapperName="ShopCutOrderTBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shop_full_order_t" domainObjectName="ShopFullOrderT" mapperName="ShopFullOrderTBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shop_spellgroup_order_t" domainObjectName="ShopSpellgroupOrderT"
+               mapperName="ShopFullOrderTBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shop_pack_order_t" domainObjectName="ShopPackOrderT" mapperName="ShopPackOrderTBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shop_team_order_t" domainObjectName="ShopTeamOrderT" mapperName="ShopTeamOrderTBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shop_team_order_t" domainObjectName="ShopTeamOrderT" mapperName="ShopTeamOrderTBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="weapp_user" domainObjectName="WeappUser" mapperName="WeappUserBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_icon_manage" domainObjectName="OperationIconManage"
+               mapperName="OperationIconManageBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="webapp_help_center" domainObjectName="WebappHelpCenter"
+               mapperName="WebappHelpCenterBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="weapp_user_address" domainObjectName="WeappUserAddress"
+               mapperName="WeappUserAddressBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+
+        <table tableName="operation_goods_setting" domainObjectName="OperationGoodsSetting"
+               mapperName="OperationGoodsSettingBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_third_user_info" domainObjectName="ShoppingmallThirdUserInfo"
+               mapperName="ShoppingmallThirdUserInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_qyf_callbak_info" domainObjectName="ShoppingmallQyfCallbakInfo"
+               mapperName="ShoppingmallQyfCallbakInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_order_pay_union" domainObjectName="ShoppingmallOrderPayUnion"
+               mapperName="ShoppingmallOrderPayUnionBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="shoppingmall_qyf_platform_transfer_info"
+               domainObjectName="ShoppingmallQyfPlatformTransferInfo"
+               mapperName="ShoppingmallQyfPlatformTransferInfoBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="mall_money_qyf_draw_cash_record" domainObjectName="MallMoneyQyfDrawCashRecord"
+               mapperName="MallMoneyQyfDrawCashRecordBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="goods_category_relation" domainObjectName="GoodsCategoryRelation"
+               mapperName="GoodsCategoryRelationBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+
+        <table tableName="mall_area_address" domainObjectName="MallAreaAddress" mapperName="MallAreaAddressBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_postage_config_area" domainObjectName="SupplierPostageConfigArea"
+               mapperName="SupplierPostageConfigAreaBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_postage_config" domainObjectName="SupplierPostageConfig"
+               mapperName="SupplierPostageConfigBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="supplier_postage_template" domainObjectName="SupplierPostageTemplate"
+               mapperName="SupplierPostageTemplateBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+
+        <table tableName="seller_shop_goods_recommend" domainObjectName="SellerShopGoodsRecommend"
+               mapperName="SellerShopGoodsRecommendBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+
+        <table tableName="operation_activity_management" domainObjectName="OperationActivityManagement"
+               mapperName="OperationActivityManagementBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_active_commodities" domainObjectName="OperationActiveCommodities"
+               mapperName="OperationActiveCommoditiesBaseMapper">
+            <property name="module" value="capital"/>
+        </table>
+        <table tableName="operation_recommend_position" domainObjectName="OperationRecommendPosition"
+               mapperName="OperationRecommendPositionBaseMapper">
             <property name="module" value="capital"/>
         </table>
 
