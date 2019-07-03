@@ -46,7 +46,7 @@
 
                 private  String  text;
 
-                private ${allColumns.actualColumnName?upper_case}(${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} value, String text){
+                ${allColumns.actualColumnName?upper_case}(${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} value, String text){
                 this.value = value;
                 this.text = text;
                 }
