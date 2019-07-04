@@ -109,12 +109,14 @@ public class FgcPlugin extends BasePlugin {
 
     @Override
     public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+//        System.out.println("执行字段：" + introspectedTable.getFullyQualifiedTableNameAtRuntime() + "::" + introspectedColumn.getActualColumnName());
         readyGo(PluginTypeEnum.FIELD, field, topLevelClass, introspectedColumn, introspectedTable, modelClassType, null);
         return false;
     }
 
     @Override
     public boolean clientGenerated(Interface anInterface, TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+        System.out.println("执行表：" + introspectedTable.getFullyQualifiedTableNameAtRuntime());
         readyGo(PluginTypeEnum.TABLE, null, topLevelClass, null, introspectedTable, null, anInterface);
         return false;
     }
@@ -129,7 +131,8 @@ public class FgcPlugin extends BasePlugin {
         commonMap.put("anInterface", anInterface);
 
         //设置驼峰表名
-        commonMap.put("tuofengTableName", FileUtils.lineToHump(introspectedTable.getFullyQualifiedTableNameAtRuntime()));
+        commonMap
+                .put("tuofengTableName", FileUtils.lineToHump(introspectedTable.getFullyQualifiedTableNameAtRuntime()));
         try {
 
             Configuration cfg;
