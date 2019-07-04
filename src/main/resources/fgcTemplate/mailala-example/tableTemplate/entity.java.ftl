@@ -19,6 +19,7 @@ import ${allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParamete
 </#list>
 
 /**
+* 表名：${introspectedTable.fullyQualifiedTable.introspectedTableName}
 * ${introspectedTable.remarks}
 *
 */

@@ -9,6 +9,7 @@
     package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.consts;
     /**
     * <p>
+    * 表名：${introspectedTable.fullyQualifiedTable.introspectedTableName}
     * ${introspectedTable.remarks}
     * </p>
     *
