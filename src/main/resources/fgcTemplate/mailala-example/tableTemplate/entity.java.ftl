@@ -25,15 +25,17 @@ import ${allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParamete
 */
 public class ${tuofengTableName?cap_first} implements Serializable {
 
-private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
 <#-- ----------  BEGIN 字段循环遍历  ---------->
 <#-- 主键字段属性 -->
 <#list introspectedTable.primaryKeyColumns as primaryKey>
+    /** ${primaryKey.remarks} */
     private ${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty};
 </#list>
 <#-- 非主键字段属性 -->
 <#list introspectedTable.nonPrimaryKeyColumns as baseColumns>
+    /** ${baseColumns.remarks} */
     private ${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty};
 </#list>
 

@@ -662,6 +662,10 @@
         <table tableName="webapp_help_center">
             <property name="module" value="defaultGroup"/>
         </table>
+        <table tableName="shoppingmall_fault_tolerant_task">
+            <property name="module" value="defaultGroup"/>
+        </table>
+
 
     </context>
 </generatorConfiguration>
