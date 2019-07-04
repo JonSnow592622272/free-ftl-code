@@ -7,17 +7,17 @@
 </#list>
 <#if isHaveEnum >
     package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.consts;
+
+    import java.io.Serializable;
+    import java.util.LinkedHashMap;
+    import java.util.Map;
+
     /**
     * <p>
     * 表名：${introspectedTable.fullyQualifiedTable.introspectedTableName}
     * ${introspectedTable.remarks}
     * </p>
-    *
     */
-    import java.io.Serializable;
-    import java.util.LinkedHashMap;
-    import java.util.Map;
-
     public class ${tuofengTableName?cap_first}Const implements Serializable {
 
 <#-- ----------  BEGIN 字段循环遍历  ---------->
