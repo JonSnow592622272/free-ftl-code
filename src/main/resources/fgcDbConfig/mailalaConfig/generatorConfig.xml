@@ -663,7 +663,7 @@
             <property name="module" value="defaultGroup"/>
         </table>
         <table tableName="shoppingmall_fault_tolerant_task">
-            <property name="module" value="defaultGroup"/>
+            <property name="module" value="sys"/>
         </table>
 
 
