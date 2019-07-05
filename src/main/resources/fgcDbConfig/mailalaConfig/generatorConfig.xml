@@ -665,6 +665,11 @@
         <table tableName="shoppingmall_fault_tolerant_task">
             <property name="module" value="sys"/>
         </table>
+        <table tableName="operation_coupon_manager">
+            <property name="module" value="defaultGroup"/>
+        </table>
+
+
 
 
     </context>
