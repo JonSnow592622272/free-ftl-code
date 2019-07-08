@@ -1,4 +1,4 @@
-package com.my.fgc;
+package com.my.fgc.startup.quickstart;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
@@ -9,7 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StartUpDefault {
+public class StartUpQuickstart {
     public static void main(String[] args) throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;

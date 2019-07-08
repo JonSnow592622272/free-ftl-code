@@ -1,4 +1,4 @@
-package com.my.fgc;
+package com.my.fgc.startup.mailala;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
