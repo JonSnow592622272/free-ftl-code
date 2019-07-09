@@ -8,6 +8,7 @@
 <#if isHaveEnum >
     package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.baseConsts;
 
+    import com.yunyihenkey.common.commonEnum.ViewEnum;
     import java.io.Serializable;
     import java.util.LinkedHashMap;
     import java.util.Map;
@@ -27,7 +28,7 @@
                 /**
                 * ${allColumns.remarks?substring(0,allColumns.remarks?index_of("#"))}
                 **/
-                public enum  ${allColumns.javaProperty?cap_first}Enum{
+                public enum  ${allColumns.javaProperty?cap_first}Enum implements ViewEnum{
 
                 <#assign _isNumber=(allColumns.jdbcTypeName=="INTEGER"||allColumns.jdbcTypeName=="INT"||allColumns.jdbcTypeName=="NUMBER")?string("1","0")/>
                 <#assign _consts=allColumns.remarks?substring(allColumns.remarks?index_of("#")+1)/>
@@ -82,7 +83,16 @@
                 }
 
                 }
+
+                @Override
+                public String getShowText() {
+                return this.text;
                 }
+
+                @Override
+                public String getShowValue() {
+                return String.valueOf(this.value);
+                }}
             </#if>
         </#if>
     </#list>
