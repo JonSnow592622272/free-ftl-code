@@ -27,7 +27,7 @@
                 /**
                 * ${allColumns.remarks?substring(0,allColumns.remarks?index_of("#"))}
                 **/
-                public enum  ${allColumns.actualColumnName?upper_case}{
+                public enum  ${allColumns.javaProperty?cap_first}Enum{
 
                 <#assign _isNumber=(allColumns.jdbcTypeName=="INTEGER"||allColumns.jdbcTypeName=="INT"||allColumns.jdbcTypeName=="NUMBER")?string("1","0")/>
                 <#assign _consts=allColumns.remarks?substring(allColumns.remarks?index_of("#")+1)/>
@@ -47,7 +47,7 @@
 
                 private  String  text;
 
-                ${allColumns.actualColumnName?upper_case}(${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} value, String text){
+                ${allColumns.javaProperty?cap_first}Enum(${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} value, String text){
                 this.value = value;
                 this.text = text;
                 }
@@ -70,13 +70,13 @@
 
                 public static Map<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}, String> valueMap = new LinkedHashMap<>();
 
-                public static Map<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}, ${allColumns.actualColumnName?upper_case}> enumMap = new LinkedHashMap<>();
+                public static Map<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}, ${allColumns.javaProperty?cap_first}Enum> enumMap = new LinkedHashMap<>();
 
                 static {
 
-                ${allColumns.actualColumnName?upper_case}[] values = ${allColumns.actualColumnName?upper_case}.values();
+                ${allColumns.javaProperty?cap_first}Enum[] values = ${allColumns.javaProperty?cap_first}Enum.values();
 
-                for (${allColumns.actualColumnName?upper_case} val : values) {
+                for (${allColumns.javaProperty?cap_first}Enum val : values) {
                 valueMap.put(val.value, val.text);
                 enumMap.put(val.value, val);
                 }
