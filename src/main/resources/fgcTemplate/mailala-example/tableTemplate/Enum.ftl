@@ -6,7 +6,7 @@
     </#if>
 </#list>
 <#if isHaveEnum >
-    package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.consts;
+    package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.baseConsts;
 
     import java.io.Serializable;
     import java.util.LinkedHashMap;
