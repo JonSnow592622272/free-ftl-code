@@ -21,6 +21,8 @@
 
 
         <!--↓↓↓↓↓↓↓↓自定义ftl全局属性，如果用不到可以不用关注↓↓↓↓↓↓↓↓-->
+        <!--自定义项目路径-->
+        <property name="project_path" value="${project_path}"/>
 
         <!--model生成路径-->
         <property name="diy_model_targetPackage" value="${diy_model_targetPackage}"/>
@@ -668,7 +670,9 @@
         <table tableName="operation_coupon_manager">
             <property name="module" value="defaultGroup"/>
         </table>
-
+        <table tableName="shoppingmall_user_coupon">
+            <property name="module" value="defaultGroup"/>
+        </table>
 
 
 
