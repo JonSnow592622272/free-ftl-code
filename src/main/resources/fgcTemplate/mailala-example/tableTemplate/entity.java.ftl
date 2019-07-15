@@ -53,7 +53,6 @@ public class ${tuofengTableName?cap_first} implements Serializable {
         this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
         return this;
     }
-
 </#list>
 
 <#-- 非主键get、set方法 -->
