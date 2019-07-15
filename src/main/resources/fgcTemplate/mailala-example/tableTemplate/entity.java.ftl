@@ -53,8 +53,8 @@ public class ${tuofengTableName?cap_first} implements Serializable {
         this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
         return this;
     }
-</#list>
 
+</#list>
 <#-- 非主键get、set方法 -->
 <#list introspectedTable.nonPrimaryKeyColumns as baseColumns>
     public ${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} get${baseColumns.javaProperty?cap_first}() {
@@ -71,5 +71,4 @@ public class ${tuofengTableName?cap_first} implements Serializable {
     }
 
 </#list>
-
 }
