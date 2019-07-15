@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <properties resource="fgcDbConfig/mailalaConfig/generatorConfig.properties"/>
+    <properties resource="fgcDbConfig/mailalaConfig/mallCore/generatorConfig.properties"/>
     <!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
     <classPathEntry location="${MYSQL.JAR.LOCATION}"/>
 

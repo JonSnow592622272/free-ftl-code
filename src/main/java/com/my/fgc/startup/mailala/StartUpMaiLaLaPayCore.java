@@ -9,11 +9,11 @@ import org.springframework.core.io.ClassPathResource;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StartUpMaiLaLa {
+public class StartUpMaiLaLaPayCore {
     public static void main(String[] args) throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        ClassPathResource generatorConfigResource = new ClassPathResource("fgcDbConfig/mailalaConfig/generatorConfig.xml");
+        ClassPathResource generatorConfigResource = new ClassPathResource("fgcDbConfig/mailalaConfig/payCore/generatorConfig.xml");
 //		File configFile = new File("generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(generatorConfigResource.getInputStream());
