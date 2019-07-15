@@ -45,10 +45,15 @@ public class ${tuofengTableName?cap_first} implements Serializable {
         return ${primaryKey.javaProperty};
     }
 
-    public ${tuofengTableName?cap_first} set${primaryKey.javaProperty?cap_first}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
+    public void set${primaryKey.javaProperty?cap_first}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
+        this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
+    }
+
+    public ${tuofengTableName?cap_first} with${primaryKey.javaProperty?cap_first}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
         this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
         return this;
     }
+
 </#list>
 
 <#-- 非主键get、set方法 -->
@@ -65,7 +70,7 @@ public class ${tuofengTableName?cap_first} implements Serializable {
         this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
         return this;
     }
-</#list>
 
+</#list>
 
 }
