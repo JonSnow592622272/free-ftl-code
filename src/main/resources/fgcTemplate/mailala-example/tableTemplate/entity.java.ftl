@@ -57,7 +57,11 @@ public class ${tuofengTableName?cap_first} implements Serializable {
         return ${baseColumns.javaProperty};
     }
 
-    public ${tuofengTableName?cap_first} set${baseColumns.javaProperty?cap_first}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
+    public void set${baseColumns.javaProperty?cap_first}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
+        this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
+    }
+
+    public ${tuofengTableName?cap_first} with${baseColumns.javaProperty?cap_first}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
         this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
         return this;
     }
