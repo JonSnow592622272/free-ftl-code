@@ -19,10 +19,10 @@ import ${allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParamete
 </#list>
 
 /**
-* 表名：${introspectedTable.fullyQualifiedTable.introspectedTableName}
-* ${introspectedTable.remarks}
-*
-*/
+ * 表名：${introspectedTable.fullyQualifiedTable.introspectedTableName}
+ * ${introspectedTable.remarks}
+ *
+ */
 public class ${tuofengTableName?cap_first} implements Serializable {
 
     private static final long serialVersionUID = 1L;
