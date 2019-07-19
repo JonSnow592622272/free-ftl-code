@@ -12,5 +12,3 @@ import org.springframework.web.bind.annotation.RestController;
 public class ${tuofengTableName?cap_first}Controller {
 
 }
-
-//${nishizhuma}
