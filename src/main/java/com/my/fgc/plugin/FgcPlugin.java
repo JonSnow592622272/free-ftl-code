@@ -163,7 +163,7 @@ public class FgcPlugin extends BasePlugin {
                     try {
                         String s = templatePath.toAbsolutePath()
                                 .toString();
-                        Path templateConfigFilePath = new File(s + "configXxx.properties").toPath();
+                        Path templateConfigFilePath = new File(s + "config.properties").toPath();
 
                         //从ftl模板生成properties内容
                         byte[] baoBytesProperties = loadFtlTemplate(commonMap, cfg, templateConfigFilePath);
