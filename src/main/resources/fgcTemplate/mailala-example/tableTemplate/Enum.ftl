@@ -33,12 +33,12 @@
                 <#assign _isNumber=(allColumns.jdbcTypeName=="INTEGER"||allColumns.jdbcTypeName=="INT"||allColumns.jdbcTypeName=="NUMBER")?string("1","0")/>
                 <#assign _consts=allColumns.remarks?substring(allColumns.remarks?index_of("#")+1)/>
                 <#list _consts?split(";") as item>
-                    <#assign _subItem = ((item?trim)?replace("|",","))?split(",") />
+                    <#assign _subItem = item?split(",") />
                     <#if _subItem?size ==3>
                         <#if _isNumber=="1">
-                            ${_subItem[2]}(${_subItem[0]},"${_subItem[1]}"),
+                            ${_subItem[0]}(${_subItem[1]},"${_subItem[2]}"),
                         <#else>
-                            ${_subItem[2]}("${_subItem[0]}","${_subItem[1]}"),
+                            ${_subItem[0]}("${_subItem[1]}","${_subItem[2]}"),
                         </#if>
 
                     </#if>

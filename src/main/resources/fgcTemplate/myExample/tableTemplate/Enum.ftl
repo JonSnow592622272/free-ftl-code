@@ -6,17 +6,19 @@
     </#if>
 </#list>
 <#if isHaveEnum >
-    package com.yunyihenkey.mall.core.capital.baseConsts;
-    /**
-    * <p>
-    * ${introspectedTable.remarks}
-    * </p>
-    *
-    */
+    package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.baseConsts;
+
+    import com.yunyihenkey.common.commonEnum.ViewEnum;
     import java.io.Serializable;
     import java.util.LinkedHashMap;
     import java.util.Map;
 
+    /**
+    * <p>
+    * 表名：${introspectedTable.fullyQualifiedTable.introspectedTableName}
+    * ${introspectedTable.remarks}
+    * </p>
+    */
     public class ${tuofengTableName?cap_first}Const implements Serializable {
 
 <#-- ----------  BEGIN 字段循环遍历  ---------->
@@ -26,17 +28,17 @@
                 /**
                 * ${allColumns.remarks?substring(0,allColumns.remarks?index_of("#"))}
                 **/
-                public enum  ${allColumns.actualColumnName?upper_case}{
+                public enum  ${allColumns.javaProperty?cap_first}Enum implements ViewEnum{
 
                 <#assign _isNumber=(allColumns.jdbcTypeName=="INTEGER"||allColumns.jdbcTypeName=="INT"||allColumns.jdbcTypeName=="NUMBER")?string("1","0")/>
                 <#assign _consts=allColumns.remarks?substring(allColumns.remarks?index_of("#")+1)/>
                 <#list _consts?split(";") as item>
-                    <#assign _subItem = ((item?trim)?replace("|",","))?split(",") />
+                    <#assign _subItem = item?split(",") />
                     <#if _subItem?size ==3>
                         <#if _isNumber=="1">
-                            ${_subItem[2]}(${_subItem[0]},"${_subItem[1]}"),
+                            ${_subItem[0]}(${_subItem[1]},"${_subItem[2]}"),
                         <#else>
-                            ${_subItem[2]}("${_subItem[0]}","${_subItem[1]}"),
+                            ${_subItem[0]}("${_subItem[1]}","${_subItem[2]}"),
                         </#if>
 
                     </#if>
@@ -46,7 +48,7 @@
 
                 private  String  text;
 
-                private ${allColumns.actualColumnName?upper_case}(${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} value, String text){
+                ${allColumns.javaProperty?cap_first}Enum(${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} value, String text){
                 this.value = value;
                 this.text = text;
                 }
@@ -63,30 +65,36 @@
                 return text;
                 }
 
-
                 public void setText(String text) {
                 this.text = text;
                 }
 
                 public static Map<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}, String> valueMap = new LinkedHashMap<>();
 
-                public static Map<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}, ${allColumns.actualColumnName?upper_case}> enumMap = new LinkedHashMap<>();
+                public static Map<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}, ${allColumns.javaProperty?cap_first}Enum> enumMap = new LinkedHashMap<>();
 
                 static {
 
-                ${allColumns.actualColumnName?upper_case}[] values = ${allColumns.actualColumnName?upper_case}.values();
+                ${allColumns.javaProperty?cap_first}Enum[] values = ${allColumns.javaProperty?cap_first}Enum.values();
 
-                for (${allColumns.actualColumnName?upper_case} val : values) {
+                for (${allColumns.javaProperty?cap_first}Enum val : values) {
                 valueMap.put(val.value, val.text);
                 enumMap.put(val.value, val);
                 }
 
                 }
+
+                @Override
+                public String getShowText() {
+                return this.text;
                 }
+
+                @Override
+                public String getShowValue() {
+                return String.valueOf(this.value);
+                }}
             </#if>
         </#if>
     </#list>
     }
-
-
-</#if>
+<#else >//空文件占位，防止枚举在数据库全部删除之后无法同步到代码中</#if>
