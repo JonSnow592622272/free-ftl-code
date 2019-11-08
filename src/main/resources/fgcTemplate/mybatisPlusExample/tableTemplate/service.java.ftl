@@ -1,6 +1,6 @@
-package com.my.haha;
+package com.shotgun.my.haha;
 
-import com.my.haha.${tuofengTableName?cap_first};
+import com.shotgun.my.haha.${tuofengTableName?cap_first};
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

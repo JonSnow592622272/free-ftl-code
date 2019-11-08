@@ -54,7 +54,7 @@
         <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑以下property能够传递到ftl模板中↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑  -->
 
         <!-- 增加fgc插件 -->
-        <plugin type="com.my.fgc.plugin.FgcPlugin"/>
+        <plugin type="com.shotgun.my.fgc.plugin.FgcPlugin"/>
 
         <!-- 数据库连接 -->
         <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}"

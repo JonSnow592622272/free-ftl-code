@@ -1,4 +1,4 @@
-package com.my.fgc.util;
+package com.shotgun.my.fgc.util;
 
 import org.springframework.util.StringUtils;
 import sun.security.action.GetPropertyAction;

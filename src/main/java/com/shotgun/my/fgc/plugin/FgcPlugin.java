@@ -1,7 +1,7 @@
-package com.my.fgc.plugin;
+package com.shotgun.my.fgc.plugin;
 
-import com.my.fgc.util.FileUtils;
-import com.my.fgc.xml.IgnoreDTDEntityResolver;
+import com.shotgun.my.fgc.util.FileUtils;
+import com.shotgun.my.fgc.xml.IgnoreDTDEntityResolver;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;

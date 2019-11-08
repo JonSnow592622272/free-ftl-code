@@ -1,4 +1,4 @@
-package com.my.fgc.startup;
+package com.shotgun.my.fgc.startup;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;

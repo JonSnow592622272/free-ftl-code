@@ -1,4 +1,4 @@
-package com.my.fgc.xml;
+package com.shotgun.my.fgc.xml;
 
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;

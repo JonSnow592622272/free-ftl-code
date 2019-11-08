@@ -1,4 +1,4 @@
-package com.my.haha;
+package com.shotgun.my.haha;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

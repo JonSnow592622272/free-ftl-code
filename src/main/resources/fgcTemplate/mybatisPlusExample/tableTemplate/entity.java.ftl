@@ -1,4 +1,4 @@
-package com.my.haha;
+package com.shotgun.my.haha;
 
 import java.io.Serializable;
 <#-- 导入包，去除重复包 -->

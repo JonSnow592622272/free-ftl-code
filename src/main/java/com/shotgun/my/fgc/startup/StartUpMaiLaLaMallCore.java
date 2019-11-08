@@ -1,4 +1,4 @@
-package com.my.fgc.startup;
+package com.shotgun.my.fgc.startup;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
@@ -9,12 +9,11 @@ import org.springframework.core.io.ClassPathResource;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StartUpMybatisPlus {
+public class StartUpMaiLaLaMallCore {
     public static void main(String[] args) throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
-        ClassPathResource generatorConfigResource = new ClassPathResource(
-                "fgcDbConfig/mybatisPlusConfig/generatorConfig.xml");
+        ClassPathResource generatorConfigResource = new ClassPathResource("fgcDbConfig/mailalaConfig/mallCore/generatorConfig.xml");
 //		File configFile = new File("generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(generatorConfigResource.getInputStream());
