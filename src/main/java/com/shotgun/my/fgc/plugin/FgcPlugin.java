@@ -206,7 +206,9 @@ public class FgcPlugin extends BasePlugin {
 
                         if (baoBytesCode.length == 0) {
                             //生成的代码内容为空，清除文件
-                            Files.delete(createFilePath);
+                            if (Files.exists(createFilePath)) {
+                                Files.delete(createFilePath);
+                            }
                         } else {
 
                             //创建文件
