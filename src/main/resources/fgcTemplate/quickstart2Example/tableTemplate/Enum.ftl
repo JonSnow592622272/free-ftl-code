@@ -8,7 +8,7 @@
 <#if isHaveEnum >
     package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
-    import com.yunyihenkey.common.commonEnum.ViewEnum;
+    import com.shotgun.mycommon.base.base.ViewEnum;
     import java.io.Serializable;
     import java.util.LinkedHashMap;
     import java.util.Map;
@@ -85,12 +85,12 @@
                 }
 
                 @Override
-                public String getShowText() {
+                public String text() {
                 return this.text;
                 }
 
                 @Override
-                public String getShowValue() {
+                public String value() {
                 return String.valueOf(this.value);
                 }}
             </#if>
