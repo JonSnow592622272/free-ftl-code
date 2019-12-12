@@ -38,19 +38,18 @@ public class FgcPlugin extends BasePlugin {
     private boolean isEnableFieldPlugin = true;
     private Configuration cfgTable = new Configuration(Configuration.VERSION_2_3_23);
     private Configuration cfgField = new Configuration(Configuration.VERSION_2_3_23);
-    /** 建立数据模型（Map），用于传递到模板文件中*/
+    /**
+     * 建立数据模型（Map），用于传递到模板文件中
+     */
     Map commonMap = new HashMap<>();
 
     /**
      * @author wulm
-     * @date 2019/5/26 21:06
      * @version 1.0.0
+     * @date 2019/5/26 21:06
      * @desc 插件类型枚举
      */
-    public enum PluginTypeEnum {
-        TABLE,
-        FIELD
-    }
+    public enum PluginTypeEnum {TABLE, FIELD}
 
     @Override
     public void setContext(Context context) {
@@ -71,9 +70,8 @@ public class FgcPlugin extends BasePlugin {
                     //使用绝对路径
                     tableTemplatePackageFile = new File(tableTemplatePackage);
                 }
-                Assert.isTrue(Files
-                        .isDirectory(tableTemplatePackageFile
-                                .toPath()), "确保tableTemplatePackage存在且为文件夹！tableTemplatePackage=" + tableTemplatePackage);
+                Assert.isTrue(Files.isDirectory(tableTemplatePackageFile.toPath()),
+                        "确保tableTemplatePackage存在且为文件夹！tableTemplatePackage=" + tableTemplatePackage);
                 cfgTable.setDirectoryForTemplateLoading(tableTemplatePackageFile);
             }
 
@@ -89,9 +87,8 @@ public class FgcPlugin extends BasePlugin {
                     fieldTemplatePackageFile = new File(fieldTemplatePackage);
                 }
 
-                Assert.isTrue(Files
-                        .isDirectory(fieldTemplatePackageFile
-                                .toPath()), "确保fieldTemplatePackage存在且为文件夹！fieldTemplatePackage=" + fieldTemplatePackage);
+                Assert.isTrue(Files.isDirectory(fieldTemplatePackageFile.toPath()),
+                        "确保fieldTemplatePackage存在且为文件夹！fieldTemplatePackage=" + fieldTemplatePackage);
                 cfgField.setDirectoryForTemplateLoading(fieldTemplatePackageFile);
 
             }
@@ -108,20 +105,27 @@ public class FgcPlugin extends BasePlugin {
     }
 
     @Override
-    public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
-//        System.out.println("执行字段：" + introspectedTable.getFullyQualifiedTableNameAtRuntime() + "::" + introspectedColumn.getActualColumnName());
-        readyGo(PluginTypeEnum.FIELD, field, topLevelClass, introspectedColumn, introspectedTable, modelClassType, null);
+    public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass,
+            IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable,
+            ModelClassType modelClassType) {
+//        System.out.println("执行字段：" + introspectedTable.getFullyQualifiedTableNameAtRuntime() + "::" +
+//        introspectedColumn.getActualColumnName());
+        readyGo(PluginTypeEnum.FIELD, field, topLevelClass, introspectedColumn, introspectedTable,
+                modelClassType, null);
         return false;
     }
 
     @Override
-    public boolean clientGenerated(Interface anInterface, TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+    public boolean clientGenerated(Interface anInterface, TopLevelClass topLevelClass,
+            IntrospectedTable introspectedTable) {
         System.out.println("执行表：" + introspectedTable.getFullyQualifiedTableNameAtRuntime());
         readyGo(PluginTypeEnum.TABLE, null, topLevelClass, null, introspectedTable, null, anInterface);
         return false;
     }
 
-    private void readyGo(PluginTypeEnum pluginTypeEnum, Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType, Interface anInterface) {
+    private void readyGo(PluginTypeEnum pluginTypeEnum, Field field, TopLevelClass topLevelClass,
+            IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable,
+            ModelClassType modelClassType, Interface anInterface) {
 
         commonMap.put("field", field);
         commonMap.put("topLevelClass", topLevelClass);
@@ -131,8 +135,8 @@ public class FgcPlugin extends BasePlugin {
         commonMap.put("anInterface", anInterface);
 
         //设置驼峰表名
-        commonMap
-                .put("tuofengTableName", FileUtils.lineToHump(introspectedTable.getFullyQualifiedTableNameAtRuntime()));
+        commonMap.put("tuofengTableName",
+                FileUtils.lineToHump(introspectedTable.getFullyQualifiedTableNameAtRuntime()));
         try {
 
             Configuration cfg;
@@ -161,15 +165,15 @@ public class FgcPlugin extends BasePlugin {
                 if (templatePath.toAbsolutePath().toString().endsWith(".ftl")) {
 
                     try {
-                        String s = templatePath.toAbsolutePath()
-                                .toString();
+                        String s = templatePath.toAbsolutePath().toString();
                         Path templateConfigFilePath = new File(s + "config.properties").toPath();
 
                         //从ftl模板生成properties内容
                         byte[] baoBytesProperties = loadFtlTemplate(commonMap, cfg, templateConfigFilePath);
                         //生成properties
                         Properties ftlProperties = new Properties();
-                        ftlProperties.load(new StringReader(new String(baoBytesProperties, StandardCharsets.UTF_8)));
+                        ftlProperties.load(new StringReader(
+                                new String(baoBytesProperties, StandardCharsets.UTF_8)));
 
                         String filePath = "filePath";
                         String fileCreateType = "fileCreateType";
@@ -177,8 +181,8 @@ public class FgcPlugin extends BasePlugin {
 
                         //properties配置属性
                         String filePathProp = ftlProperties.getProperty(filePath);
-                        Assert.isTrue(!StringUtils.isEmpty(filePathProp), templateConfigFilePath.toAbsolutePath()
-                                .toString() + "文件中filePath不能为空");
+                        Assert.isTrue(!StringUtils.isEmpty(filePathProp),
+                                templateConfigFilePath.toAbsolutePath().toString() + "文件中filePath不能为空");
 
                         String fileCreateTypeProp = ftlProperties.getProperty(fileCreateType);
                         if (fileCreateTypeProp == null || "".equals(fileCreateTypeProp.trim())) {
@@ -194,50 +198,60 @@ public class FgcPlugin extends BasePlugin {
 
                         boolean isExistsOldFile = Files.exists(createFilePath);
                         //原始文件数据
-                        byte[] oldFileBytes = isExistsOldFile ? Files.readAllBytes(createFilePath) : new byte[0];
+                        byte[] oldFileBytes = isExistsOldFile ? Files
+                                .readAllBytes(createFilePath) : new byte[0];
 
                         //创建目录
                         Files.createDirectories(createFilePath.getParent());
-                        //创建文件
-                        if ("0".equals(fileCreateTypeProp)) {
-                            //不重写模式（文件不存在则创建，存在则不覆盖）
-                            if ((!isExistsOldFile || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
-                                Files.write(createFilePath, baoBytesCode);
-                            }
-                        } else if ("1".equals(fileCreateTypeProp)) {
-                            //重写模式
-                            if (isExistsOldFile && oldFileBytes.length > 0) {
-                                //检查文件内容是否一致，如果完全一致则不需要再覆盖了
-                                if (!new String(oldFileBytes, StandardCharsets.UTF_8)
-                                        .equals(new String(baoBytesCode, StandardCharsets.UTF_8))) {
-                                    //文件存在且内容不同!!!!!!!!!!替换！！！！！！
-                                    Files.write(createFilePath, baoBytesCode);
-                                }
-                            } else {
-                                //文件不存在或者为空文件则创建
-                                if (baoBytesCode.length > 0) {
-                                    Files.write(createFilePath, baoBytesCode);
-                                }
-                            }
-                        } else if ("2".equals(fileCreateTypeProp)) {
-                            //替换模式。只支持xml。对“标签”和属性匹配的进行替换（无则创建，存在则替换）
-//                            Assert.isTrue(createFilePath.endsWith(".xml"), "警告！！！该模式只支持xml格式文件！" + createFilePath
-//                                    .toAbsolutePath().toString());
-                            if ((!isExistsOldFile || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
-                                Files.write(createFilePath, baoBytesCode);
-                            } else {
-                                //文件存在，进行匹配替换
 
-                                String rmcaProp = ftlProperties.getProperty(rmca);
-                                if (rmcaProp == null || "".equals(rmcaProp.trim())) {
-                                    rmcaProp = "id";
-                                }
-                                replaceXmlAndWriteFile(createFilePath, oldFileBytes, templatePath, baoBytesCode, rmcaProp
-                                        .split(","));
-                            }
-
+                        if (baoBytesCode.length == 0) {
+                            //生成的代码内容为空，清除文件
+                            Files.delete(createFilePath);
                         } else {
-                            throw new IllegalArgumentException("该模式尚未开发！！！");
+
+                            //创建文件
+                            if ("0".equals(fileCreateTypeProp)) {
+                                //不重写模式（文件不存在则创建，存在则不覆盖）
+                                if ((!isExistsOldFile || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
+                                    Files.write(createFilePath, baoBytesCode);
+                                }
+                            } else if ("1".equals(fileCreateTypeProp)) {
+                                //重写模式
+                                if (isExistsOldFile && oldFileBytes.length > 0) {
+                                    //检查文件内容是否一致，如果完全一致则不需要再覆盖了
+                                    if (!new String(oldFileBytes, StandardCharsets.UTF_8)
+                                            .equals(new String(baoBytesCode, StandardCharsets.UTF_8))) {
+                                        //文件存在且内容不同!!!!!!!!!!替换！！！！！！
+                                        Files.write(createFilePath, baoBytesCode);
+                                    }
+                                } else {
+                                    //文件不存在或者为空文件则创建
+                                    if (baoBytesCode.length > 0) {
+                                        Files.write(createFilePath, baoBytesCode);
+                                    }
+                                }
+                            } else if ("2".equals(fileCreateTypeProp)) {
+                                //替换模式。只支持xml。对“标签”和属性匹配的进行替换（无则创建，存在则替换）
+//                            Assert.isTrue(createFilePath.endsWith(".xml"), "警告！！！该模式只支持xml格式文件！" +
+//                            createFilePath
+//                                    .toAbsolutePath().toString());
+                                if ((!isExistsOldFile || oldFileBytes.length == 0) && baoBytesCode.length > 0) {
+                                    Files.write(createFilePath, baoBytesCode);
+                                } else {
+                                    //文件存在，进行匹配替换
+
+                                    String rmcaProp = ftlProperties.getProperty(rmca);
+                                    if (rmcaProp == null || "".equals(rmcaProp.trim())) {
+                                        rmcaProp = "id";
+                                    }
+                                    replaceXmlAndWriteFile(createFilePath, oldFileBytes, templatePath,
+                                            baoBytesCode, rmcaProp.split(","));
+                                }
+
+                            } else {
+                                throw new IllegalArgumentException("该模式尚未开发！！！");
+                            }
+
                         }
 
                     } catch (Exception e) {
@@ -256,10 +270,10 @@ public class FgcPlugin extends BasePlugin {
 
     }
 
-    private byte[] loadFtlTemplate(Map<String, Object> commonMap, Configuration cfg, Path configFilePath) throws IOException, TemplateException {
-        Assert.isTrue(Files.exists(configFilePath) && !Files
-                .isDirectory(configFilePath), "确保文件存在且不是文件夹!!!!!" + configFilePath.toAbsolutePath()
-                .toString());
+    private byte[] loadFtlTemplate(Map<String, Object> commonMap, Configuration cfg,
+            Path configFilePath) throws IOException, TemplateException {
+        Assert.isTrue(Files.exists(configFilePath) && !Files.isDirectory(configFilePath),
+                "确保文件存在且不是文件夹!!!!!" + configFilePath.toAbsolutePath().toString());
         Template template = cfg.getTemplate(configFilePath.getFileName().toString());
         ByteArrayOutputStream bao = new ByteArrayOutputStream(1024);
         Writer out = new OutputStreamWriter(bao);
@@ -270,16 +284,17 @@ public class FgcPlugin extends BasePlugin {
     }
 
     /**
+     * @param oldFilePath                老的xml文件路径
+     * @param oldXmlBytes
+     * @param templatePath               xml模板文件路径
+     * @param newXmlBytes                新的xml内容
+     * @param replaceModeCheckAttributes 替换模式要检查标签的属性
      * @desc 替换xml，在新的xml内容在老的xml内容中，无则创建，存在则匹配替换。
      * @author wulm
      * @date 2019/6/17 17:43
-     * @param oldFilePath 老的xml文件路径
-     * @param oldXmlBytes
-     * @param templatePath xml模板文件路径
-     * @param newXmlBytes 新的xml内容
-     * @param replaceModeCheckAttributes 替换模式要检查标签的属性
      **/
-    private void replaceXmlAndWriteFile(Path oldFilePath, byte[] oldXmlBytes, Path templatePath, byte[] newXmlBytes, String[] replaceModeCheckAttributes) throws IOException {
+    private void replaceXmlAndWriteFile(Path oldFilePath, byte[] oldXmlBytes, Path templatePath,
+            byte[] newXmlBytes, String[] replaceModeCheckAttributes) throws IOException {
 
         SAXReader reader = new SAXReader(false);
         // 忽略DTD，降低延迟
@@ -289,8 +304,8 @@ public class FgcPlugin extends BasePlugin {
         try {
             oldDocument = reader.read(new ByteArrayInputStream(oldXmlBytes));
         } catch (DocumentException e) {
-            throw new RuntimeException("原文件必须是xml文件内容！！！！！！！！！！！！！！！！oldFilePath=" + oldFilePath.toAbsolutePath()
-                    .toString(), e);
+            throw new RuntimeException(
+                    "原文件必须是xml文件内容！！！！！！！！！！！！！！！！oldFilePath=" + oldFilePath.toAbsolutePath().toString(), e);
         }
         Element oldRootElement = oldDocument.getRootElement();
 
@@ -298,8 +313,9 @@ public class FgcPlugin extends BasePlugin {
         try {
             newDocument = reader.read(new ByteArrayInputStream(newXmlBytes));
         } catch (DocumentException e) {
-            throw new RuntimeException("新文件必须是xml文件内容！！！！！！！！！！！！！！！！templatePath=" + templatePath.toAbsolutePath()
-                    .toString(), e);
+            throw new RuntimeException(
+                    "新文件必须是xml文件内容！！！！！！！！！！！！！！！！templatePath=" + templatePath.toAbsolutePath().toString(),
+                    e);
         }
         Element newRootElement = newDocument.getRootElement();
 
@@ -323,7 +339,8 @@ public class FgcPlugin extends BasePlugin {
                 .trimLine(FileUtils.readAllLines(oldNewXmlBaos.toByteArray()), true, false);
 
         //检查文件内容是否一致，如果完全一致则不需要再覆盖了
-        if (!new String(oldXmlBytes, StandardCharsets.UTF_8).equals(FileUtils.stringsToString(oldNewXmlStrs))) {
+        if (!new String(oldXmlBytes, StandardCharsets.UTF_8)
+                .equals(FileUtils.stringsToString(oldNewXmlStrs))) {
             Files.write(oldFilePath, oldNewXmlStrs);
         }
 
@@ -369,7 +386,8 @@ public class FgcPlugin extends BasePlugin {
                     boolean isAllAttrEquals = true;
                     for (Attribute newAttribute : newCheckAttributes) {
                         Attribute oldAttribute = oldChild.attribute(newAttribute.getName());
-                        if (oldAttribute == null || !oldAttribute.getValue().equals(newAttribute.getValue())) {
+                        if (oldAttribute == null || !oldAttribute.getValue()
+                                .equals(newAttribute.getValue())) {
                             isAllAttrEquals = false;
                             break;
                         }
@@ -381,7 +399,8 @@ public class FgcPlugin extends BasePlugin {
 //                        Element copy = newChild.createCopy();
 //                        System.out.println("::::::::::::::::::::" + copy.asXML());
                         oldIt.add(newChild.createCopy());
-                        //continue  newWhile;///////////////////////////////////////////////////////////这里可以考虑以后要不要标签属性匹配过成功一次就跳过。
+                        //continue  newWhile;
+                        // /////////////////////////////////////////////////////////这里可以考虑以后要不要标签属性匹配过成功一次就跳过。
                     }
 
                 }
