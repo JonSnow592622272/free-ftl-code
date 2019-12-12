@@ -6,7 +6,7 @@
     </#if>
 </#list>
 <#if isHaveEnum >
-    package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.baseConsts;
+    package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
     import com.yunyihenkey.common.commonEnum.ViewEnum;
     import java.io.Serializable;
