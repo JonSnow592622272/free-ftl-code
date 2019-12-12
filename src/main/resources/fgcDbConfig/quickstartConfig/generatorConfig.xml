@@ -48,16 +48,16 @@
 
 
         <!-- 数据表进行生成操作 -->
-        <table tableName="test_student">
+        <table tableName="my_teacher">
             <!--以下属性可以传递到ftl模板文件中，可以自由定义-->
             <property name="module" value="userModule模块.xxx子模块"/>
         </table>
 
-        <table tableName="test_scores">
+        <table tableName="my_student_scores">
             <property name="module" value="study模块"/>
         </table>
 
-        <table tableName="mall_money_user">
+        <table tableName="my_student">
             <property name="module" value="userModule模块.xxx子模块"/>
         </table>
 
