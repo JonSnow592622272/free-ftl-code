@@ -1,9 +1,9 @@
-package ${diy_serviceImpl_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.service.impl;
+package ${diy_serviceImpl_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first};
-import ${diy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.mapper.${tuofengTableName?cap_first}Mapper;
-import ${diy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.service.I${tuofengTableName?cap_first}Service;
+import ${diy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}Mapper;
+import ${diy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.I${tuofengTableName?cap_first}Service;
 import org.springframework.stereotype.Service;
 
 /**

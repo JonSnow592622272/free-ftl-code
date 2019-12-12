@@ -1,4 +1,4 @@
-package ${diy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.service;
+package ${diy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first};
