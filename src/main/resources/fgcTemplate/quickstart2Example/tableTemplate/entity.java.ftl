@@ -1,4 +1,4 @@
-package ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.baseDo;
+package ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
 import java.io.Serializable;
 <#-- 导入包，去除重复包 -->
