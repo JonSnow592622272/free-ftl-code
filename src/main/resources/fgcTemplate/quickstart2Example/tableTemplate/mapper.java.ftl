@@ -1,4 +1,4 @@
-package ${diy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.mapper;
+package ${diy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first};
