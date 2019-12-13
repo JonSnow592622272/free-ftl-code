@@ -2,13 +2,12 @@ package ${diy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.p
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first};
-import org.springframework.stereotype.Repository;
+import com.shotgun.mycommon.service.base.MyBaseMapper;
 
 /**
 * ${introspectedTable.remarks}-Mapper 接口
 *
 */
-@Repository(value = "i${tuofengTableName?cap_first}Mapper")
-public interface ${tuofengTableName?cap_first}Mapper extends BaseMapper<${tuofengTableName?cap_first}> {
+public interface ${tuofengTableName?cap_first}Mapper extends MyBaseMapper<${tuofengTableName?cap_first}> {
 
 }
