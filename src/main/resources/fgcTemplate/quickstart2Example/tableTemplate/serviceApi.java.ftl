@@ -2,7 +2,7 @@ package ${diy_serviceApi_targetPackage}.${introspectedTable.tableConfiguration.p
 
 import com.shotgun.my.api.consts.CommonConstant;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient(name = CommonConstant.APPLICATION_NAME)
 @RequestMapping(MyStudentServiceApi.PATH)

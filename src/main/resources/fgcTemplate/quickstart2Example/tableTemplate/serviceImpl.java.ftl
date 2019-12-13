@@ -3,15 +3,13 @@ package ${diy_serviceImpl_targetPackage}.${introspectedTable.tableConfiguration.
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first};
 import ${diy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}Mapper;
-import ${diy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.I${tuofengTableName?cap_first}Service;
-import org.springframework.stereotype.Service;
+import ${diy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-/**
- * ${introspectedTable.remarks}-服务实现类
- *
- */
-@Service("i${tuofengTableName?cap_first}ServiceImpl")
-public class ${tuofengTableName?cap_first}ServiceImpl extends ServiceImpl<${tuofengTableName?cap_first}Mapper, ${tuofengTableName?cap_first}> implements I${tuofengTableName?cap_first}Service {
+@RestController
+@RequestMapping("/xxx")
+public class ${tuofengTableName?cap_first}ServiceImpl extends ServiceImpl<${tuofengTableName?cap_first}Mapper, ${tuofengTableName?cap_first}> implements ${tuofengTableName?cap_first}Service {
 
 
 }
