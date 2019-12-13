@@ -40,6 +40,10 @@
         <property name="diy_service_targetPackage" value="${diy_service_targetPackage}"/>
         <property name="diy_service_targetProject" value="${diy_service_targetProject}"/>
 
+        <!--serviceApi文件生成路径-->
+        <property name="diy_serviceApi_targetPackage" value="${diy_serviceApi_targetPackage}"/>
+        <property name="diy_serviceApi_targetProject" value="${diy_serviceApi_targetProject}"/>
+
         <!--serviceImp实现类文件生成路径-->
         <property name="diy_serviceImpl_targetPackage" value="${diy_serviceImpl_targetPackage}"/>
         <property name="diy_serviceImpl_targetProject" value="${diy_serviceImpl_targetProject}"/>
