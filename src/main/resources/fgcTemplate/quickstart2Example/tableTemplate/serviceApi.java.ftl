@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @FeignClient(name = CommonConstant.APPLICATION_NAME)
-@RequestMapping(MyStudentServiceApi.PATH)
+@RequestMapping(${tuofengTableName?cap_first}ServiceApi.PATH)
 public interface ${tuofengTableName?cap_first}ServiceApi {
     String PATH = "/${introspectedTable.fullyQualifiedTable.introspectedTableName}";
 
