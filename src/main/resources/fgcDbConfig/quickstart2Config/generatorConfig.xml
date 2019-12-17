@@ -84,6 +84,7 @@
             <property name="module" value="defaultGroup"/>
         </table>
 
+<!--
         <table tableName="my_student_scores">
             <property name="module" value="defaultGroup"/>
         </table>
@@ -91,6 +92,7 @@
         <table tableName="my_student">
             <property name="module" value="defaultGroup"/>
         </table>
+-->
 
 
     </context>
