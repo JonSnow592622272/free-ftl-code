@@ -6,7 +6,7 @@ import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.propert
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = CommonConstant.APPLICATION_NAME, contextId = "${tuofengTableName}ServiceApi", path = ${tuofengTableName?cap_first}ServiceApi.PATH)
+@FeignClient(name = CommonConstant.APPLICATION_NAME, contextId = "${tuofengTableName}ServiceApi", path = CommonConstant.APPLICATION_SERVLET_CONTEXT_PATH + ${tuofengTableName?cap_first}ServiceApi.PATH)
 public interface ${tuofengTableName?cap_first}ServiceApi {
     String PATH = "/${introspectedTable.fullyQualifiedTable.introspectedTableName}";
 

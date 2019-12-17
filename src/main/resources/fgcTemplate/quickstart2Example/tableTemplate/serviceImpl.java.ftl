@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(${tuofengTableName?cap_first}ServiceApi.PATH)
 public class ${tuofengTableName?cap_first}ServiceImpl extends MyServiceImpl<${tuofengTableName?cap_first}Mapper, ${tuofengTableName?cap_first}> implements ${tuofengTableName?cap_first}Service {
 
+    /**
+     * 暴露接口
+     **/
     @Override
     public IPage<${tuofengTableName?cap_first}> testGet10() {
         return super.testGet10();
