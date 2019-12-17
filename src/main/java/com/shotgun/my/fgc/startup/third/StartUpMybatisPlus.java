@@ -1,4 +1,4 @@
-package com.shotgun.my.fgc.startup;
+package com.shotgun.my.fgc.startup.third;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
@@ -14,7 +14,7 @@ public class StartUpMybatisPlus {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
         ClassPathResource generatorConfigResource = new ClassPathResource(
-                "fgcDbConfig/mybatisPlusConfig/generatorConfig.xml");
+                "fgcDbConfig/third/mybatisPlusConfig/generatorConfig.xml");
 //		File configFile = new File("generatorConfig.xml");
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(generatorConfigResource.getInputStream());
