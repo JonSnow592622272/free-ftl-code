@@ -1,6 +1,7 @@
 package ${diy_serviceApi_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.shotgun.my.api.config.FeignConfig;
 import com.shotgun.my.api.consts.CommonConstant;
 import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first};
 import org.springframework.cloud.openfeign.FeignClient;
