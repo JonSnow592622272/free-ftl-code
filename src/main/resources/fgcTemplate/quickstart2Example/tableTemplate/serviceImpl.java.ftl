@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ${tuofengTableName?cap_first}ServiceImpl extends MyServiceImpl<${tuofengTableName?cap_first}Mapper, ${tuofengTableName?cap_first}> implements ${tuofengTableName?cap_first}Service {
 
     @Autowired
-    private MyTeacherServiceApi testServiceApi;//http接口调用
+    private ${tuofengTableName?cap_first}ServiceApi testServiceApi;//http接口调用
 
     @Autowired
-    private MyTeacherService testService;//内部方法直接调用
+    private ${tuofengTableName?cap_first}Service testService;//内部方法直接调用
 
 
     /**
