@@ -73,36 +73,20 @@
 
 
         <!-- 数据表进行生成操作 -->
-        <!--
-                <table tableName="test_student">
-                    &lt;!&ndash;以下属性可以传递到ftl模板文件中，可以自由定义&ndash;&gt;
-                    <property name="module" value="userModule模块.xxx子模块"/>
-                </table>
 
-                <table tableName="test_scores">
-                    <property name="module" value="study模块"/>
-                </table>
-        -->
+        <table tableName="my_teacher">
+            <!--以下属性可以传递到ftl模板文件中，可以自由定义-->
+            <property name="module" value="a模块.b子模块"/>
+        </table>
 
+        <table tableName="my_student_scores">
+            <property name="module" value="a模块.b子模块"/>
+        </table>
 
-        <table tableName="p_lianpay_callback_info">
-            <property name="module" value="defaultGroup"/>
+        <table tableName="my_student">
+            <property name="module" value="a模块.b子模块"/>
         </table>
-        <table tableName="p_lianpay_refund_callback_info">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="p_wxpay_callback_info">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="p_wxpay_prepay_info">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="pay_fault_tolerant_task">
-            <property name="module" value="defaultGroup"/>
-        </table>
-        <table tableName="snowflake_datacenter">
-            <property name="module" value="defaultGroup"/>
-        </table>
+
 
     </context>
 </generatorConfiguration>

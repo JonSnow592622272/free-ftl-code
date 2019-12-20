@@ -81,19 +81,19 @@
 
         <table tableName="my_teacher">
             <!--以下属性可以传递到ftl模板文件中，可以自由定义-->
-            <property name="module" value="defaultGroup"/>
+            <property name="module" value="defaultGroup.subGroup"/>
         </table>
 
 <!--
         <table tableName="my_student_scores">
-            <property name="module" value="defaultGroup"/>
+            <property name="module" value="defaultGroup.subGroup"/>
         </table>
 
         <table tableName="my_student">
-            <property name="module" value="defaultGroup"/>
+            <property name="module" value="defaultGroup.subGroup"/>
         </table>
--->
 
+-->
 
     </context>
 </generatorConfiguration>
