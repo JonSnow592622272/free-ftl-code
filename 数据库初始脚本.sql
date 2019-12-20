@@ -31,27 +31,27 @@ CREATE TABLE `my_student_scores` (
 
 
 
-INSERT INTO `nimei`.`my_teacher`(`id`, `name`, `age`) VALUES (1, '猪老师', 30);
-INSERT INTO `nimei`.`my_teacher`(`id`, `name`, `age`) VALUES (2, '肥仔老师', 31);
+INSERT INTO `my_teacher`(`id`, `name`, `age`) VALUES (1, '猪老师', 30);
+INSERT INTO `my_teacher`(`id`, `name`, `age`) VALUES (2, '肥仔老师', 31);
 
 
-INSERT INTO `nimei`.`my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (1, '张三', 10, 1);
-INSERT INTO `nimei`.`my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (2, '李四', 10, 1);
-INSERT INTO `nimei`.`my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (3, '王五', 11, 1);
-INSERT INTO `nimei`.`my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (4, '赵六', 12, 2);
-INSERT INTO `nimei`.`my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (5, '田七', 13, 2);
-INSERT INTO `nimei`.`my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (6, '王八', 14, 2);
+INSERT INTO `my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (1, '张三', 10, 1);
+INSERT INTO `my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (2, '李四', 10, 1);
+INSERT INTO `my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (3, '王五', 11, 1);
+INSERT INTO `my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (4, '赵六', 12, 2);
+INSERT INTO `my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (5, '田七', 13, 2);
+INSERT INTO `my_student`(`id`, `name`, `age`, `teacher_id`) VALUES (6, '王八', 14, 2);
 
 
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (1, 1, 1, 60);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (2, 1, 2, 70);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (3, 2, 1, 80);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (4, 2, 2, 90);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (5, 3, 1, 50);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (6, 3, 2, 40);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (7, 4, 1, 80);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (8, 4, 2, 80);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (9, 5, 1, 69);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (10, 5, 2, 90);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (11, 6, 1, 100);
-INSERT INTO `nimei`.`my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (12, 6, 2, 100);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (1, 1, 1, 60);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (2, 1, 2, 70);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (3, 2, 1, 80);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (4, 2, 2, 90);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (5, 3, 1, 50);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (6, 3, 2, 40);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (7, 4, 1, 80);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (8, 4, 2, 80);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (9, 5, 1, 69);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (10, 5, 2, 90);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (11, 6, 1, 100);
+INSERT INTO `my_student_scores`(`id`, `student_id`, `type`, `scores`) VALUES (12, 6, 2, 100);
