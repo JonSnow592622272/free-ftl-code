@@ -24,9 +24,10 @@
         <!--自定义项目路径-->
         <property name="project_path" value="${project_path}"/>
 
-        <!--model生成路径-->
-<!--        <property name="diy_model_targetPackage" value="${diy_model_targetPackage}"/>
-        <property name="diy_model_targetProject" value="${diy_model_targetProject}"/>-->
+        <!--controller文件生成路径-->
+        <property name="diy_controller_targetPackage" value="${diy_controller_targetPackage}"/>
+        <property name="diy_controller_targetProject" value="${work_path}/${project}/${project}-${diy_controller_targetProject}"/>
+
 
         <!--service文件生成路径-->
         <property name="diy_service_targetPackage" value="${diy_service_targetPackage}"/>
@@ -62,10 +63,8 @@
         <!-- 数据表进行生成操作 -->
 
 
-        <table tableName="my_teacher">
-            <!--以下属性可以传递到ftl模板文件中，可以自由定义-->
-            <property name="module" value="defaultGroup.subGroup"/>
-        </table>
+        <table tableName="t_quota_subject"/>
+<!--        <table tableName="t_quota_brand"/>-->
 
 <!--
         <table tableName="my_student_scores">
