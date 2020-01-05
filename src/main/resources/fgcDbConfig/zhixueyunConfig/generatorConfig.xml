@@ -63,7 +63,10 @@
         <!-- 数据表进行生成操作 -->
 
 
-        <table tableName="t_quota_subject"/>
+        <table tableName="t_quota_subject">
+            <property name="module" value=""/>
+        </table>
+
 <!--        <table tableName="t_quota_brand"/>-->
 
 <!--
