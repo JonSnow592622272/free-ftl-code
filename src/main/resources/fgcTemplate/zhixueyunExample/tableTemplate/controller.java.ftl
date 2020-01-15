@@ -1,4 +1,4 @@
-package ${diy_controller_targetPackage}<#if introspectedTable.tableConfiguration.properties.module??&& introspectedTable.tableConfiguration.properties.module!="">.${introspectedTable.tableConfiguration.properties.module}<#else></#if>;
+package ${zxy_controller_package}<#if introspectedTable.tableConfiguration.properties.module??&& introspectedTable.tableConfiguration.properties.module!="">.${introspectedTable.tableConfiguration.properties.module}<#else></#if>;
 
 import com.zxy.common.base.helper.PagedResult;
 import com.zxy.common.restful.RequestContext;

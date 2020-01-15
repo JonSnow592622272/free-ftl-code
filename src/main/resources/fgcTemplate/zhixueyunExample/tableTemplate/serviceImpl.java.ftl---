@@ -1,10 +1,10 @@
-package ${diy_serviceImpl_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
+package ${zxy_serviceImpl_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import ${diy_serviceApi_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}ServiceApi;
-import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first};
-import ${diy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}Mapper;
-import ${diy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}Service;
+import ${zxy_serviceApi_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}ServiceApi;
+import ${zxy_model_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first};
+import ${zxy_mapperJava_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}Mapper;
+import ${zxy_service_targetPackage}.${introspectedTable.tableConfiguration.properties.module}.${tuofengTableName?cap_first}Service;
 import com.shotgun.mycommon.service.base.MyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

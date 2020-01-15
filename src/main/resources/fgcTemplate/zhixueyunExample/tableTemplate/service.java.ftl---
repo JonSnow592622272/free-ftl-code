@@ -1,4 +1,4 @@
-package ${diy_controller_targetPackage};
+package ${zxy_controller_package};
 
 import com.zxy.common.base.helper.PagedResult;
 import com.zxy.common.restful.RequestContext;

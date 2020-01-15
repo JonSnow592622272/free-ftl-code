@@ -21,21 +21,16 @@
 
 
         <!--↓↓↓↓↓↓↓↓自定义ftl全局属性，如果用不到可以不用关注↓↓↓↓↓↓↓↓-->
+
         <!--自定义项目路径-->
-        <property name="project_path" value="${project_path}"/>
 
-        <!--controller文件生成路径-->
-        <property name="diy_controller_targetPackage" value="${diy_controller_targetPackage}"/>
-        <property name="diy_controller_targetProject" value="${work_path}/${project}/${project}-${diy_controller_targetProject}"/>
+        <property name="zxy_path_open" value="${zxy_work_path}/${zxy_project}"/>
+
+        <!--controller文件生成路径--><!--同一个标签下，相同的占位符不能超过2个，否则无法替换,mybatis-generator的bug-->
+        <property name="zxy_path_close_controller" value="${zxy_project}-web-server/src/main/java"/>
+        <property name="zxy_controller_package" value="com.zxy.product.${zxy_java_package}.web.controller"/>
 
 
-        <!--service文件生成路径-->
-        <property name="diy_service_targetPackage" value="${diy_service_targetPackage}"/>
-        <property name="diy_service_targetProject" value="${diy_service_targetProject}"/>
-
-        <!--serviceImp实现类文件生成路径-->
-        <property name="diy_serviceImpl_targetPackage" value="${diy_serviceImpl_targetPackage}"/>
-        <property name="diy_serviceImpl_targetProject" value="${diy_serviceImpl_targetProject}"/>
 
         <!--↑↑↑↑↑↑↑↑自定义ftl全局属性，如果用不到可以不用关注↑↑↑↑↑↑↑↑-->
 
