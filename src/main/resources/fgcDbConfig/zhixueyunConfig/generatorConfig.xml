@@ -64,25 +64,22 @@
 
         <!-- 数据表进行生成操作 -->
 
-
         <table tableName="t_quota_subject" >
             <property name="module" value=""/><!--设置分类-->
-            <domainObjectRenamingRule searchString="^T" replaceString=""/><!--替换类名前缀-->
-            <columnRenamingRule searchString="^f" replaceString=""/><!--替换字段属性名称前缀-->
         </table>
 
-<!--        <table tableName="t_quota_brand"/>-->
 
 <!--
-        <table tableName="my_student_scores">
-            <property name="module" value="defaultGroup.subGroup"/>
-        </table>
+        domainObjectRenamingRule:::替换类名前缀(不建议使用，无法在ftl中使用，除非在插件中设置)
+        columnRenamingRule:::替换字段属性名称前缀(不建议使用，无法在ftl中使用，除非在插件中设置)
 
-        <table tableName="my_student">
-            <property name="module" value="defaultGroup.subGroup"/>
+        <table tableName="t_quota_subject" >
+            <property name="module" value=""/>&lt;!&ndash;设置分类&ndash;&gt;
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+            <columnRenamingRule searchString="^f" replaceString=""/>
         </table>
-
 -->
+
 
     </context>
 </generatorConfiguration>

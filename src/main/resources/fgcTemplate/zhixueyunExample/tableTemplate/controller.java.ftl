@@ -1,3 +1,6 @@
+<#include "config/tableConfig.ftl">
+
+//名人:${linkman}
 package ${zxy_controller_package}<#if introspectedTable.tableConfiguration.properties.module??&& introspectedTable.tableConfiguration.properties.module!="">.${introspectedTable.tableConfiguration.properties.module}<#else></#if>;
 
 import com.google.common.collect.ImmutableMap;

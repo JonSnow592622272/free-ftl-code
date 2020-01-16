@@ -1,3 +1,4 @@
+<#include "config/tableConfig.ftl">
 package com.zxy.product.training.service.support;
 
 import com.zxy.common.dao.support.CommonDao;
