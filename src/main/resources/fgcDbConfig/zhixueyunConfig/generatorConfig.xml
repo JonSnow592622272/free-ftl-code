@@ -34,6 +34,10 @@
         <property name="zxy_path_close_service" value="${zxy_project}-api/src/main/java"/>
         <property name="zxy_service_package" value="com.zxy.product.${zxy_java_package}.api"/>
 
+        <!--serviceImpl文件生成路径--><!--同一个标签下，相同的占位符不能超过2个，否则无法替换,mybatis-generator的bug-->
+        <property name="zxy_path_close_service_impl" value="${zxy_project}-service/src/main/java"/>
+        <property name="zxy_service_impl_package" value="com.zxy.product.${zxy_java_package}.service.support"/>
+
 
         <!--↑↑↑↑↑↑↑↑自定义ftl全局属性，如果用不到可以不用关注↑↑↑↑↑↑↑↑-->
 
