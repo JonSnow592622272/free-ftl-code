@@ -15,10 +15,10 @@ public interface ${tuofengTableName?substring(1)}Service {
     /**
      * 删除
      *
-     * @param id id
+     * @param ${introspectedTable.primaryKeyColumns[0].javaProperty} ${introspectedTable.primaryKeyColumns[0].remarks}
      **/
     @Transactional
-    void delete(String id);
+    void delete(${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${introspectedTable.primaryKeyColumns[0].javaProperty});
 
 
 }

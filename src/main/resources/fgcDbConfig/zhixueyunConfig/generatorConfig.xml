@@ -61,8 +61,10 @@
         <!-- 数据表进行生成操作 -->
 
 
-        <table tableName="t_quota_subject">
-            <property name="module" value=""/>
+        <table tableName="t_quota_subject" >
+            <property name="module" value=""/><!--设置分类-->
+            <domainObjectRenamingRule searchString="^T" replaceString=""/><!--替换类名前缀-->
+            <columnRenamingRule searchString="^f" replaceString=""/><!--替换字段属性名称前缀-->
         </table>
 
 <!--        <table tableName="t_quota_brand"/>-->

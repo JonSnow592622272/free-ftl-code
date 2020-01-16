@@ -31,12 +31,12 @@ public class ${tuofengTableName?substring(1)}Controller {
     /**
      * 删除
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @Permitted//xx
+    @RequestMapping(value = "/{${introspectedTable.primaryKeyColumns[0].javaProperty}}", method = RequestMethod.DELETE)
+    @Permitted
     @Param(name = "${introspectedTable.primaryKeyColumns[0].javaProperty}", type = ${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class, required = true)
     @JSON("*")
     public Map<String, Integer> delete(RequestContext requestContext) {
-        quotaSubjectService.delete(requestContext.getString("id"));
+        quotaSubjectService.delete(requestContext.getString("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
         return ImmutableMap.of("count", 1);
     }
 
