@@ -12,4 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 @RemoteService
 public interface ${tuofengTableName?substring(1)}Service {
 
+    /**
+     * 删除
+     *
+     * @param id id
+     **/
+    @Transactional
+    void delete(String id);
+
+
 }
