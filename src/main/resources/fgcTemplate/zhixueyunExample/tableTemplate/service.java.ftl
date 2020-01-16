@@ -3,7 +3,7 @@ package ${zxy_service_package}<#if introspectedTable.tableConfiguration.properti
 
 import com.zxy.common.base.annotation.RemoteService;
 import com.zxy.common.base.helper.PagedResult;
-import com.zxy.product.training.entity.QuotaSubject;
+import com.zxy.product.training.entity.${tuofengTableName?substring(1)};
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 

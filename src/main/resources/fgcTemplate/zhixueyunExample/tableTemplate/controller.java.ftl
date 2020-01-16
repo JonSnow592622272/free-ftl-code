@@ -39,7 +39,7 @@ public class ${tuofengTableName?substring(1)}Controller {
     @Param(name = "${introspectedTable.primaryKeyColumns[0].javaProperty}", type = ${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class, required = true)
     @JSON("*")
     public Map<String, Integer> delete(RequestContext requestContext) {
-        quotaSubjectService.delete(requestContext.getString("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
+        ${tuofengTableName?substring(1)?uncap_first}Service.delete(requestContext.getString("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
         return ImmutableMap.of("count", 1);
     }
 

@@ -57,7 +57,7 @@
 
         <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
         <javaModelGenerator targetPackage="xxx" targetProject="/"/>
-        <sqlMapGenerator targetPackage="xxx" targetProject="xxx"/>
+        <sqlMapGenerator targetPackage="xxx" targetProject="/"/>
         <javaClientGenerator type="XMLMAPPER" targetPackage="xxx" targetProject="/"/>
         <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
 
@@ -66,12 +66,14 @@
 
         <table tableName="t_quota_subject" >
             <property name="module" value=""/><!--设置分类-->
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+            <columnRenamingRule searchString="^f" replaceString=""/>
         </table>
 
 
 <!--
-        domainObjectRenamingRule:::替换类名前缀(不建议使用，无法在ftl中使用，除非在插件中设置)
-        columnRenamingRule:::替换字段属性名称前缀(不建议使用，无法在ftl中使用，除非在插件中设置)
+        domainObjectRenamingRule:::替换类名前缀
+        columnRenamingRule:::替换字段属性名称前缀
 
         <table tableName="t_quota_subject" >
             <property name="module" value=""/>&lt;!&ndash;设置分类&ndash;&gt;
