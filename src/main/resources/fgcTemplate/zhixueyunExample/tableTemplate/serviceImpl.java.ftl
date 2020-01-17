@@ -24,5 +24,10 @@ public class ${tuofengTableName?substring(1)}ServiceSupport implements ${tuofeng
         ${tuofengTableName?substring(1)?uncap_first}Dao.delete(${introspectedTable.fullyQualifiedTable.introspectedTableName?substring(2)?upper_case}.${introspectedTable.primaryKeyColumns[0].actualColumnName?substring(2)?upper_case}.eq(${introspectedTable.primaryKeyColumns[0].javaProperty}));
     }
 
+    @Override
+    public ${tuofengTableName?substring(1)} findById(${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${introspectedTable.primaryKeyColumns[0].javaProperty}) {
+        return ${tuofengTableName?substring(1)?uncap_first}Dao.getOptional(${introspectedTable.primaryKeyColumns[0].javaProperty}).orElse(null);
+    }
+
 
 }

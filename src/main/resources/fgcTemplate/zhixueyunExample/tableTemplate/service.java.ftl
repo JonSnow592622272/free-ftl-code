@@ -21,5 +21,13 @@ public interface ${tuofengTableName?substring(1)}Service {
     @Transactional
     void delete(${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${introspectedTable.primaryKeyColumns[0].javaProperty});
 
+    /**
+     * 查询单条
+     *
+     * @param ${introspectedTable.primaryKeyColumns[0].javaProperty} ${introspectedTable.primaryKeyColumns[0].remarks}
+     * @return ${introspectedTable.remarks}
+     **/
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    ${tuofengTableName?substring(1)} findById(${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${introspectedTable.primaryKeyColumns[0].javaProperty});
 
 }

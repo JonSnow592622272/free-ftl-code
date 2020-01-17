@@ -69,8 +69,8 @@
 
         <!-- 数据表进行生成操作 -->
 
-        <table tableName="t_course_category" >
-            <property name="controller_module" value="course"/><!--设置分类-->
+        <table tableName="t_quota_subject" >
+            <property name="controller_module" value=""/><!--设置分类-->
             <property name="service_module" value=""/><!--设置分类-->
             <property name="serviceImpl_module" value=""/><!--设置分类-->
 

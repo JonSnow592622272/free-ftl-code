@@ -42,4 +42,16 @@ public class ${tuofengTableName?substring(1)}Controller {
     }
 
 
+    /**
+     * 查询单条
+     **/
+    @RequestMapping(value = "/{${introspectedTable.primaryKeyColumns[0].javaProperty}}", method = RequestMethod.GET)
+    @Permitted
+    @Param(name = "${introspectedTable.primaryKeyColumns[0].javaProperty}", type = ${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class, required = true)
+    @JSON("<#list introspectedTable.allColumns as allColumns>${allColumns.javaProperty}<#if allColumns_has_next>,</#if></#list>")
+    public ${tuofengTableName?substring(1)} find(RequestContext requestContext) {
+        return ${tuofengTableName?substring(1)?uncap_first}Service.findById(requestContext.getString("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
+    }
+
+
 }
