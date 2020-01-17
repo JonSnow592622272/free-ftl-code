@@ -30,4 +30,9 @@ public interface ${tuofengTableName?substring(1)}Service {
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     ${tuofengTableName?substring(1)} findById(${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${introspectedTable.primaryKeyColumns[0].javaProperty});
 
+    /**
+     * 查询分页
+     **/
+    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    PagedResult<${tuofengTableName?substring(1)}> findPage(Integer page, Integer pageSize);
 }

@@ -2,6 +2,7 @@
 package ${zxy_controller_package}<#if introspectedTable.tableConfiguration.properties.controller_module??&& introspectedTable.tableConfiguration.properties.controller_module!="">.${introspectedTable.tableConfiguration.properties.controller_module}<#else></#if>;
 
 import com.google.common.collect.ImmutableMap;
+import com.zxy.common.base.helper.PagedResult;
 import com.zxy.common.restful.RequestContext;
 import com.zxy.common.restful.annotation.Param;
 import com.zxy.common.restful.json.JSON;
@@ -37,7 +38,7 @@ public class ${tuofengTableName?substring(1)}Controller {
     @Param(name = "${introspectedTable.primaryKeyColumns[0].javaProperty}", type = ${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class, required = true)
     @JSON("*")
     public Map<String, Integer> delete(RequestContext requestContext) {
-        ${tuofengTableName?substring(1)?uncap_first}Service.delete(requestContext.getString("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
+        ${tuofengTableName?substring(1)?uncap_first}Service.delete(requestContext.get${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
         return ImmutableMap.of("count", 1);
     }
 
@@ -50,7 +51,20 @@ public class ${tuofengTableName?substring(1)}Controller {
     @Param(name = "${introspectedTable.primaryKeyColumns[0].javaProperty}", type = ${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class, required = true)
     @JSON("<#list introspectedTable.allColumns as allColumns>${allColumns.javaProperty}<#if allColumns_has_next>,</#if></#list>")
     public ${tuofengTableName?substring(1)} find(RequestContext requestContext) {
-        return ${tuofengTableName?substring(1)?uncap_first}Service.findById(requestContext.getString("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
+        return ${tuofengTableName?substring(1)?uncap_first}Service.findById(requestContext.get${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
+    }
+
+    /**
+     * 查询分页
+     **/
+    @RequestMapping(method = RequestMethod.GET)
+    @Permitted
+    @Param(name = "page", type = Integer.class, required = true)
+    @Param(name = "pageSize", type = Integer.class, required = true)
+    @JSON("recordCount")
+    @JSON("items.(<#list introspectedTable.allColumns as allColumns>${allColumns.javaProperty}<#if allColumns_has_next>,</#if></#list>)")
+    public PagedResult<${tuofengTableName?substring(1)}> findPage(RequestContext requestContext) {
+        return ${tuofengTableName?substring(1)?uncap_first}Service.findPage(requestContext.getInteger("page"), requestContext.getInteger("pageSize"));
     }
 
 
