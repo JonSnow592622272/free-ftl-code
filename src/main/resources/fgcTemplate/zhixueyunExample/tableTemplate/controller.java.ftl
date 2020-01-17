@@ -1,6 +1,4 @@
 <#include "config/tableConfig.ftl">
-
-//名人:${linkman}
 package ${zxy_controller_package}<#if introspectedTable.tableConfiguration.properties.controller_module??&& introspectedTable.tableConfiguration.properties.controller_module!="">.${introspectedTable.tableConfiguration.properties.controller_module}<#else></#if>;
 
 import com.google.common.collect.ImmutableMap;
@@ -8,8 +6,8 @@ import com.zxy.common.restful.RequestContext;
 import com.zxy.common.restful.annotation.Param;
 import com.zxy.common.restful.json.JSON;
 import com.zxy.common.restful.security.Permitted;
-import com.zxy.product.training.api.${tuofengTableName?substring(1)}Service;
-import com.zxy.product.training.entity.${tuofengTableName?substring(1)};
+import ${zxy_service_package}<#if introspectedTable.tableConfiguration.properties.service_module??&& introspectedTable.tableConfiguration.properties.service_module!="">.${introspectedTable.tableConfiguration.properties.service_module}<#else></#if>.${tuofengTableName?substring(1)}Service;
+import com.zxy.product.${zxy_java_package}.entity.${tuofengTableName?substring(1)};
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

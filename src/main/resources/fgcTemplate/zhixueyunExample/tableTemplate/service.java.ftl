@@ -1,9 +1,9 @@
 <#include "config/tableConfig.ftl">
-package ${zxy_service_package}<#if introspectedTable.tableConfiguration.properties.controller_module??&& introspectedTable.tableConfiguration.properties.controller_module!="">.${introspectedTable.tableConfiguration.properties.controller_module}<#else></#if>;
+package ${zxy_service_package}<#if introspectedTable.tableConfiguration.properties.service_module??&& introspectedTable.tableConfiguration.properties.service_module!="">.${introspectedTable.tableConfiguration.properties.service_module}<#else></#if>;
 
 import com.zxy.common.base.annotation.RemoteService;
 import com.zxy.common.base.helper.PagedResult;
-import com.zxy.product.training.entity.${tuofengTableName?substring(1)};
+import com.zxy.product.${zxy_java_package}.entity.${tuofengTableName?substring(1)};
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 

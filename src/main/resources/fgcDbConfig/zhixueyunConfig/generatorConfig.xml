@@ -24,6 +24,11 @@
 
         <!--自定义项目路径-->
 
+
+        <!--项目名（java包名）-->
+        <property name="zxy_java_package" value="${zxy_java_package}"/>
+
+        <!--生成文件路径前缀-->
         <property name="zxy_path_open" value="${zxy_work_path}/${zxy_project}"/>
 
         <!--controller文件生成路径--><!--同一个标签下，相同的占位符不能超过2个，否则无法替换,mybatis-generator的bug-->
@@ -64,12 +69,14 @@
 
         <!-- 数据表进行生成操作 -->
 
-        <table tableName="t_quota_subject" >
-            <property name="controller_module" value=""/><!--设置分类-->
+        <table tableName="t_course_category" >
+            <property name="controller_module" value="course"/><!--设置分类-->
+            <property name="service_module" value=""/><!--设置分类-->
+            <property name="serviceImpl_module" value=""/><!--设置分类-->
+
             <domainObjectRenamingRule searchString="^T" replaceString=""/>
             <columnRenamingRule searchString="^f" replaceString=""/>
         </table>
-
 
 <!--
         domainObjectRenamingRule:::替换类名前缀
