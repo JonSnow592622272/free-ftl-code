@@ -1,5 +1,5 @@
 <#include "config/tableConfig.ftl">
-package ${zxy_service_package}<#if introspectedTable.tableConfiguration.properties.module??&& introspectedTable.tableConfiguration.properties.module!="">.${introspectedTable.tableConfiguration.properties.module}<#else></#if>;
+package ${zxy_service_package}<#if introspectedTable.tableConfiguration.properties.controller_module??&& introspectedTable.tableConfiguration.properties.controller_module!="">.${introspectedTable.tableConfiguration.properties.controller_module}<#else></#if>;
 
 import com.zxy.common.base.annotation.RemoteService;
 import com.zxy.common.base.helper.PagedResult;

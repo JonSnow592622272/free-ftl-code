@@ -65,7 +65,7 @@
         <!-- 数据表进行生成操作 -->
 
         <table tableName="t_quota_subject" >
-            <property name="module" value=""/><!--设置分类-->
+            <property name="controller_module" value=""/><!--设置分类-->
             <domainObjectRenamingRule searchString="^T" replaceString=""/>
             <columnRenamingRule searchString="^f" replaceString=""/>
         </table>
@@ -76,7 +76,7 @@
         columnRenamingRule:::替换字段属性名称前缀
 
         <table tableName="t_quota_subject" >
-            <property name="module" value=""/>&lt;!&ndash;设置分类&ndash;&gt;
+            <property name="controller_module" value=""/>&lt;!&ndash;设置分类&ndash;&gt;
             <domainObjectRenamingRule searchString="^T" replaceString=""/>
             <columnRenamingRule searchString="^f" replaceString=""/>
         </table>
