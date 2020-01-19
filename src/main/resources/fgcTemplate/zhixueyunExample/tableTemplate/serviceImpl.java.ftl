@@ -66,12 +66,24 @@ public class ${tuofengTableName?substring(1)}ServiceSupport implements ${tuofeng
     }
 
     @Override
-    public ${tuofengTableName?substring(1)} insert(Optional<Integer> year) {
+    public ${tuofengTableName?substring(1)} insert(
+<#assign isHave=false><#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
+        <#if isHave>,</#if>Optional<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}> ${allColumns.javaProperty}
+        <#assign isHave=true>
+    </#if>
+</#list>
+    ) {
         QuotaSubject quotaSubject = new QuotaSubject();
         quotaSubject.forInsert();
-        year.ifPresent(quotaSubject::setYear);
 
-        return quotaSubjectDao.insert(quotaSubject);
+<#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
+        ${allColumns.javaProperty}.ifPresent(${tuofengTableName?substring(1)?uncap_first}::set${allColumns.javaProperty?cap_first});
+    </#if>
+</#list>
+
+        return ${tuofengTableName?substring(1)?uncap_first}Dao.insert(quotaSubject);
     }
 
 }

@@ -42,9 +42,8 @@ public interface ${tuofengTableName?substring(1)}Service {
      * 新增
      **/
     @Transactional
-<#assign isHave=false>
     ${tuofengTableName?substring(1)} insert(
-<#list introspectedTable.allColumns as allColumns>
+<#assign isHave=false><#list introspectedTable.allColumns as allColumns>
     <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
         <#if isHave>,</#if>Optional<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}> ${allColumns.javaProperty}
         <#assign isHave=true>
