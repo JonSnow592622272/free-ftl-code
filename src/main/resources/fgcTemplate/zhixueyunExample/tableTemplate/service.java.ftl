@@ -7,6 +7,8 @@ import com.zxy.product.${zxy_java_package}.entity.${tuofengTableName?substring(1
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 /**
  * @desc ${introspectedTable.remarks}-Service
  **/
@@ -35,4 +37,21 @@ public interface ${tuofengTableName?substring(1)}Service {
      **/
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     PagedResult<${tuofengTableName?substring(1)}> findPage(Integer page, Integer pageSize);
+
+    /**
+     * 新增
+     **/
+    @Transactional
+<#assign isHave=false>
+    ${tuofengTableName?substring(1)} insert(
+<#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
+        <#if isHave>,</#if>Optional<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}> ${allColumns.javaProperty}
+        <#assign isHave=true>
+    </#if>
+</#list>
+    );
+
+
+
 }

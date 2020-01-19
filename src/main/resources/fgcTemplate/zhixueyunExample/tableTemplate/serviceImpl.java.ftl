@@ -65,4 +65,13 @@ public class ${tuofengTableName?substring(1)}ServiceSupport implements ${tuofeng
         });
     }
 
+    @Override
+    public ${tuofengTableName?substring(1)} insert(Optional<Integer> year) {
+        QuotaSubject quotaSubject = new QuotaSubject();
+        quotaSubject.forInsert();
+        year.ifPresent(quotaSubject::setYear);
+
+        return quotaSubjectDao.insert(quotaSubject);
+    }
+
 }
