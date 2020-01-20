@@ -61,7 +61,8 @@ public class ${tuofengTableName?substring(1)}ServiceSupport implements ${tuofeng
                     .fetchOne().getValue(0, Integer.class);
 
             List<${tuofengTableName?substring(1)}> ${tuofengTableName?substring(1)?uncap_first}s = count == 0 ? new ArrayList<>() : stepFunc.apply(context
-                    .select(Fields.start()<#list introspectedTable.allColumns as allColumns>.add(${introspectedTable.fullyQualifiedTable.introspectedTableName?substring(2)?upper_case}.${allColumns.actualColumnName?substring(2)?upper_case})</#list>
+                    .select(Fields.start()<#list introspectedTable.allColumns as allColumns>
+                            .add(${introspectedTable.fullyQualifiedTable.introspectedTableName?substring(2)?upper_case}.${allColumns.actualColumnName?substring(2)?upper_case})</#list>
                             .end())).limit((page - 1) * pageSize, pageSize).fetchInto(${tuofengTableName?substring(1)}.class);
 
             return PagedResult.create(count, ${tuofengTableName?substring(1)?uncap_first}s);
