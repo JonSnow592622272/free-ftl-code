@@ -51,6 +51,22 @@ public interface ${tuofengTableName?substring(1)}Service {
 </#list>
     );
 
+    /**
+     * 修改
+     **/
+    @Transactional
+    int update(
+<#assign isHave=false><#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.javaProperty!="createTime" >
+        <#if allColumns.javaProperty=="id">
+            <#if isHave>,</#if>${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${allColumns.javaProperty}
+        <#else>
+            <#if isHave>,</#if>Optional<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}> ${allColumns.javaProperty}
+        </#if>
+        <#assign isHave=true>
+    </#if>
+</#list>
+    );
 
 
 }

@@ -7,6 +7,7 @@ import com.zxy.common.dao.support.CommonDao;
 import ${zxy_service_package}<#if introspectedTable.tableConfiguration.properties.service_module??&& introspectedTable.tableConfiguration.properties.service_module!="">.${introspectedTable.tableConfiguration.properties.service_module}<#else></#if>.${tuofengTableName?substring(1)}Service;
 import com.zxy.product.${zxy_java_package}.entity.${tuofengTableName?substring(1)};
 import org.jooq.Condition;
+import org.jooq.Field;
 import org.jooq.Record;
 import org.jooq.SelectConditionStep;
 import org.jooq.SelectSelectStep;
@@ -15,7 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -74,8 +77,8 @@ public class ${tuofengTableName?substring(1)}ServiceSupport implements ${tuofeng
     </#if>
 </#list>
     ) {
-        QuotaSubject quotaSubject = new QuotaSubject();
-        quotaSubject.forInsert();
+        ${tuofengTableName?substring(1)} ${tuofengTableName?substring(1)?uncap_first} = new ${tuofengTableName?substring(1)}();
+        ${tuofengTableName?substring(1)?uncap_first}.forInsert();
 
 <#list introspectedTable.allColumns as allColumns>
     <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
@@ -83,7 +86,37 @@ public class ${tuofengTableName?substring(1)}ServiceSupport implements ${tuofeng
     </#if>
 </#list>
 
-        return ${tuofengTableName?substring(1)?uncap_first}Dao.insert(quotaSubject);
+        return ${tuofengTableName?substring(1)?uncap_first}Dao.insert(${tuofengTableName?substring(1)?uncap_first});
     }
+
+    @Override
+    public int update(
+<#assign isHave=false><#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.javaProperty!="createTime" >
+        <#if allColumns.javaProperty=="id">
+            <#if isHave>,</#if>${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${allColumns.javaProperty}
+        <#else>
+            <#if isHave>,</#if>Optional<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}> ${allColumns.javaProperty}
+        </#if>
+        <#assign isHave=true>
+    </#if>
+</#list>
+    ) {
+        return ${tuofengTableName?substring(1)?uncap_first}Dao.execute(context -> {
+            //设值封装
+            Map<Field<?>, Object> setMap = new HashMap<>();
+
+<#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
+            ${allColumns.javaProperty}.ifPresent(v -> setMap.put(${introspectedTable.fullyQualifiedTable.introspectedTableName?substring(2)?upper_case}.${allColumns.actualColumnName?substring(2)?upper_case}, v));
+    </#if>
+</#list>
+
+            return setMap.size() == 0 ? 0 : context.update(${introspectedTable.fullyQualifiedTable.introspectedTableName?substring(2)?upper_case}).set(setMap)
+                    .where(${introspectedTable.fullyQualifiedTable.introspectedTableName?substring(2)?upper_case}.${introspectedTable.primaryKeyColumns[0].actualColumnName?substring(2)?upper_case}.eq(${introspectedTable.primaryKeyColumns[0].javaProperty})).execute();
+
+        });
+    }
+
 
 }

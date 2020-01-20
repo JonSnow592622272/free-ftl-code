@@ -80,15 +80,42 @@ public class ${tuofengTableName?substring(1)}Controller {
     @JSON("<#list introspectedTable.allColumns as allColumns>${allColumns.javaProperty}<#if allColumns_has_next>,</#if></#list>")
     public ${tuofengTableName?substring(1)} insert(RequestContext context) {
         return ${tuofengTableName?substring(1)?uncap_first}Service.insert(
-<#assign isHave=false>
-<#list introspectedTable.allColumns as allColumns>
+<#assign isHave=false><#list introspectedTable.allColumns as allColumns>
     <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
-        <#if isHave>,</#if><#if allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="String"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Integer"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Long"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Boolean"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Byte">context.getOptional${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${allColumns.javaProperty}")<#else>context.getOptional("${allColumns.javaProperty}", ${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class)</#if>
+                <#if isHave>,</#if><#if allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="String"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Integer"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Long"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Boolean"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Byte">context.getOptional${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${allColumns.javaProperty}")<#else>context.getOptional("${allColumns.javaProperty}", ${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class)</#if>
         <#assign isHave=true>
     </#if>
 </#list>
         );
 
     }
+
+    /**
+     * 修改
+     **/
+    @RequestMapping(value ="/{${introspectedTable.primaryKeyColumns[0].javaProperty}}", method = RequestMethod.PUT)
+    @Permitted
+<#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.javaProperty!="createTime" >
+    @Param(name = "${allColumns.javaProperty}", type = ${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class)
+    </#if>
+</#list>
+    @JSON("*")
+    public Map<String, Integer> update(RequestContext context) {
+        return ImmutableMap.of("count", ${tuofengTableName?substring(1)?uncap_first}Service.update(
+<#assign isHave=false><#list introspectedTable.allColumns as allColumns>
+    <#if allColumns.javaProperty!="createTime" >
+        <#if allColumns.javaProperty=="id">
+                <#if isHave>,</#if><#if allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="String"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Integer"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Long"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Boolean"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Byte">context.get${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${allColumns.javaProperty}")<#else>context.get("${allColumns.javaProperty}", ${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class)</#if>
+        <#else>
+                <#if isHave>,</#if><#if allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="String"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Integer"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Long"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Boolean"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Byte">context.getOptional${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${allColumns.javaProperty}")<#else>context.getOptional("${allColumns.javaProperty}", ${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class)</#if>
+        </#if>
+        <#assign isHave=true>
+    </#if>
+</#list>
+        ));
+
+    }
+
 
 }
