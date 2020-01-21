@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("${introspectedTable.fullyQualifiedTable.introspectedTableName}")
-public class ${tuofengTableName?cap_first}Controller {
+public class ${className}Controller {
 
 }

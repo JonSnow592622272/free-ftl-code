@@ -69,25 +69,30 @@
 
         <!-- 数据表进行生成操作 -->
 
-        <table tableName="t_quota_subject" >
+<!--
+
+        domainObjectName:::手动定义className
+        <table tableName="t_quota_subject" domainObjectName="QuotaSubject" >
+            <property name="controller_module" value=""/>
+
+            domainObjectRenamingRule:::替换类名前缀
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+
+            columnRenamingRule:::替换字段属性名称前缀
+            <columnRenamingRule searchString="^f" replaceString=""/>
+        </table>
+-->
+
+
+        <table tableName="t_lecturer" domainObjectName="LecturerDealer">
             <property name="controller_module" value=""/><!--设置分类-->
             <property name="service_module" value=""/><!--设置分类-->
             <property name="serviceImpl_module" value=""/><!--设置分类-->
 
-            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+            <!--<domainObjectRenamingRule searchString="^T" replaceString=""/>-->
             <columnRenamingRule searchString="^f" replaceString=""/>
         </table>
 
-<!--
-        domainObjectRenamingRule:::替换类名前缀
-        columnRenamingRule:::替换字段属性名称前缀
-
-        <table tableName="t_quota_subject" >
-            <property name="controller_module" value=""/>&lt;!&ndash;设置分类&ndash;&gt;
-            <domainObjectRenamingRule searchString="^T" replaceString=""/>
-            <columnRenamingRule searchString="^f" replaceString=""/>
-        </table>
--->
 
 
     </context>

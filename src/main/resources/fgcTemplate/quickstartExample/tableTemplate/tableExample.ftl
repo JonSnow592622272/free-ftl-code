@@ -14,7 +14,7 @@ ${replaceModeCheckAttributes}
 !!!!!
 
 表名字：${introspectedTable.fullyQualifiedTable.introspectedTableName}
-表驼峰命名：${tuofengTableName}:::::::首字母大写驼峰：${tuofengTableName?cap_first}
+表驼峰命名：${className?uncap_first}:::::::首字母大写驼峰：${className}
 表备注: ${introspectedTable.remarks}
 xml传递属性（从generatorConfig.xml的table标签传递过来）：module:${introspectedTable.tableConfiguration.properties.module}
 

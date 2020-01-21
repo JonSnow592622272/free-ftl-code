@@ -19,7 +19,7 @@
     * ${introspectedTable.remarks}
     * </p>
     */
-    public class ${tuofengTableName?cap_first}Const implements Serializable {
+    public class ${className}Const implements Serializable {
 
 <#-- ----------  BEGIN 字段循环遍历  ---------->
     <#list introspectedTable.allColumns as allColumns>

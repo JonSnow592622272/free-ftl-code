@@ -7,8 +7,8 @@ import com.zxy.common.restful.RequestContext;
 import com.zxy.common.restful.annotation.Param;
 import com.zxy.common.restful.json.JSON;
 import com.zxy.common.restful.security.Permitted;
-import ${zxy_service_package}<#if introspectedTable.tableConfiguration.properties.service_module??&& introspectedTable.tableConfiguration.properties.service_module!="">.${introspectedTable.tableConfiguration.properties.service_module}<#else></#if>.${tuofengTableName?substring(1)}Service;
-import com.zxy.product.${zxy_java_package}.entity.${tuofengTableName?substring(1)};
+import ${zxy_service_package}<#if introspectedTable.tableConfiguration.properties.service_module??&& introspectedTable.tableConfiguration.properties.service_module!="">.${introspectedTable.tableConfiguration.properties.service_module}<#else></#if>.${className}Service;
+import com.zxy.product.${zxy_java_package}.entity.${className};
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +21,13 @@ import java.util.Map;
  **/
 @Controller
 @RequestMapping("/${introspectedTable.fullyQualifiedTable.introspectedTableName?substring(2)?replace("_","-")}")
-public class ${tuofengTableName?substring(1)}Controller {
+public class ${className}Controller {
 
-    private ${tuofengTableName?substring(1)}Service ${tuofengTableName?substring(1)?uncap_first}Service;
+    private ${className}Service ${className?uncap_first}Service;
 
     @Autowired
-    public void set${tuofengTableName?substring(1)}Service(${tuofengTableName?substring(1)}Service ${tuofengTableName?substring(1)?uncap_first}Service) {
-        this.${tuofengTableName?substring(1)?uncap_first}Service = ${tuofengTableName?substring(1)?uncap_first}Service;
+    public void set${className}Service(${className}Service ${className?uncap_first}Service) {
+        this.${className?uncap_first}Service = ${className?uncap_first}Service;
     }
 
     /**
@@ -38,7 +38,7 @@ public class ${tuofengTableName?substring(1)}Controller {
     @Param(name = "${introspectedTable.primaryKeyColumns[0].javaProperty}", type = ${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class, required = true)
     @JSON("*")
     public Map<String, Integer> delete(RequestContext requestContext) {
-        ${tuofengTableName?substring(1)?uncap_first}Service.delete(requestContext.get${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
+        ${className?uncap_first}Service.delete(requestContext.get${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
         return ImmutableMap.of("count", 1);
     }
 
@@ -50,8 +50,8 @@ public class ${tuofengTableName?substring(1)}Controller {
     @Permitted
     @Param(name = "${introspectedTable.primaryKeyColumns[0].javaProperty}", type = ${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class, required = true)
     @JSON("<#list introspectedTable.allColumns as allColumns>${allColumns.javaProperty}<#if allColumns_has_next>,</#if></#list>")
-    public ${tuofengTableName?substring(1)} find(RequestContext requestContext) {
-        return ${tuofengTableName?substring(1)?uncap_first}Service.findById(requestContext.get${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
+    public ${className} find(RequestContext requestContext) {
+        return ${className?uncap_first}Service.findById(requestContext.get${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${introspectedTable.primaryKeyColumns[0].javaProperty}"));
     }
 
     /**
@@ -63,8 +63,8 @@ public class ${tuofengTableName?substring(1)}Controller {
     @Param(name = "pageSize", type = Integer.class, required = true)
     @JSON("recordCount")
     @JSON("items.(<#list introspectedTable.allColumns as allColumns>${allColumns.javaProperty}<#if allColumns_has_next>,</#if></#list>)")
-    public PagedResult<${tuofengTableName?substring(1)}> findPage(RequestContext requestContext) {
-        return ${tuofengTableName?substring(1)?uncap_first}Service.findPage(requestContext.getInteger("page"), requestContext.getInteger("pageSize"));
+    public PagedResult<${className}> findPage(RequestContext requestContext) {
+        return ${className?uncap_first}Service.findPage(requestContext.getInteger("page"), requestContext.getInteger("pageSize"));
     }
 
     /**
@@ -78,8 +78,8 @@ public class ${tuofengTableName?substring(1)}Controller {
     </#if>
 </#list>
     @JSON("<#list introspectedTable.allColumns as allColumns>${allColumns.javaProperty}<#if allColumns_has_next>,</#if></#list>")
-    public ${tuofengTableName?substring(1)} insert(RequestContext context) {
-        return ${tuofengTableName?substring(1)?uncap_first}Service.insert(
+    public ${className} insert(RequestContext context) {
+        return ${className?uncap_first}Service.insert(
 <#assign isHave=false><#list introspectedTable.allColumns as allColumns>
     <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
                 <#if isHave>,</#if><#if allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="String"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Integer"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Long"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Boolean"||allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments=="Byte">context.getOptional${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}("${allColumns.javaProperty}")<#else>context.getOptional("${allColumns.javaProperty}", ${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}.class)</#if>
@@ -102,7 +102,7 @@ public class ${tuofengTableName?substring(1)}Controller {
 </#list>
     @JSON("*")
     public Map<String, Integer> update(RequestContext context) {
-        return ImmutableMap.of("count", ${tuofengTableName?substring(1)?uncap_first}Service.update(
+        return ImmutableMap.of("count", ${className?uncap_first}Service.update(
 <#assign isHave=false><#list introspectedTable.allColumns as allColumns>
     <#if allColumns.javaProperty!="createTime" >
         <#if allColumns.javaProperty=="id">

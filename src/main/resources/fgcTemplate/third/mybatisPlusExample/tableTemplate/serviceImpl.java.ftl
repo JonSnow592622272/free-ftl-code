@@ -1,6 +1,6 @@
 package com.shotgun.my.haha;
 
-import com.shotgun.my.haha.${tuofengTableName?cap_first};
+import com.shotgun.my.haha.${className};
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
  *
  */
 @Service
-public class ${tuofengTableName?cap_first}ServiceImpl extends ServiceImpl<${tuofengTableName?cap_first}Mapper, ${tuofengTableName?cap_first}> implements ${tuofengTableName?cap_first}Service {
+public class ${className}ServiceImpl extends ServiceImpl<${className}Mapper, ${className}> implements ${className}Service {
 
 
 }

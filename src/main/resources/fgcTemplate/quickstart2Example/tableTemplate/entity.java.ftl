@@ -23,7 +23,7 @@ import ${allColumns.fullyQualifiedJavaType.fullyQualifiedNameWithoutTypeParamete
  * ${introspectedTable.remarks}
  *
  */
-public class ${tuofengTableName?cap_first} implements Serializable {
+public class ${className} implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -49,7 +49,7 @@ public class ${tuofengTableName?cap_first} implements Serializable {
         this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
     }
 
-    public ${tuofengTableName?cap_first} with${primaryKey.javaProperty?cap_first}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
+    public ${className} with${primaryKey.javaProperty?cap_first}(${primaryKey.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${primaryKey.javaProperty}) {
         this.${primaryKey.javaProperty} = ${primaryKey.javaProperty};
         return this;
     }
@@ -65,7 +65,7 @@ public class ${tuofengTableName?cap_first} implements Serializable {
         this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
     }
 
-    public ${tuofengTableName?cap_first} with${baseColumns.javaProperty?cap_first}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
+    public ${className} with${baseColumns.javaProperty?cap_first}(${baseColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${baseColumns.javaProperty}) {
         this.${baseColumns.javaProperty} = ${baseColumns.javaProperty};
         return this;
     }

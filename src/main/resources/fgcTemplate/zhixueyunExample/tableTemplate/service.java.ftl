@@ -3,7 +3,7 @@ package ${zxy_service_package}<#if introspectedTable.tableConfiguration.properti
 
 import com.zxy.common.base.annotation.RemoteService;
 import com.zxy.common.base.helper.PagedResult;
-import com.zxy.product.${zxy_java_package}.entity.${tuofengTableName?substring(1)};
+import com.zxy.product.${zxy_java_package}.entity.${className};
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +13,7 @@ import java.util.Optional;
  * @desc ${introspectedTable.remarks}-Service
  **/
 @RemoteService
-public interface ${tuofengTableName?substring(1)}Service {
+public interface ${className}Service {
 
     /**
      * 删除
@@ -30,19 +30,19 @@ public interface ${tuofengTableName?substring(1)}Service {
      * @return ${introspectedTable.remarks}
      **/
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    ${tuofengTableName?substring(1)} findById(${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${introspectedTable.primaryKeyColumns[0].javaProperty});
+    ${className} findById(${introspectedTable.primaryKeyColumns[0].fullyQualifiedJavaType.shortNameWithoutTypeArguments} ${introspectedTable.primaryKeyColumns[0].javaProperty});
 
     /**
      * 查询分页
      **/
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    PagedResult<${tuofengTableName?substring(1)}> findPage(Integer page, Integer pageSize);
+    PagedResult<${className}> findPage(Integer page, Integer pageSize);
 
     /**
      * 新增
      **/
     @Transactional
-    ${tuofengTableName?substring(1)} insert(
+    ${className} insert(
 <#assign isHave=false><#list introspectedTable.allColumns as allColumns>
     <#if allColumns.javaProperty!="id"&&allColumns.javaProperty!="createTime" >
         <#if isHave>,</#if>Optional<${allColumns.fullyQualifiedJavaType.shortNameWithoutTypeArguments}> ${allColumns.javaProperty}
