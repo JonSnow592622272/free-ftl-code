@@ -134,6 +134,10 @@ public class FgcPlugin extends BasePlugin {
         commonMap.put("modelClassType", modelClassType);
         commonMap.put("anInterface", anInterface);
 
+        String className = introspectedTable.getBaseRecordType().substring(
+                introspectedTable.getContext().getJavaModelGeneratorConfiguration().getTargetPackage()
+                        .length() + 1);
+
         //设置驼峰表名
         commonMap.put("tuofengTableName",
                 FileUtils.lineToHump(introspectedTable.getFullyQualifiedTableNameAtRuntime()));
