@@ -50,7 +50,7 @@ public class ${tuofengTableName?substring(1)}ServiceSupport implements ${tuofeng
     public PagedResult<${tuofengTableName?substring(1)}> findPage(Integer page, Integer pageSize){
         return ${tuofengTableName?substring(1)?uncap_first}Dao.execute(context -> {
             //组装条件
-            List<Condition> conditions = Stream.of(Optional.of(DSL.trueCondition())/*....*/)
+            List<Condition> conditions = Stream.of(Optional.of(DSL.trueCondition())/*TODO ....*/)
                     .filter(Optional::isPresent).map(Optional::get).collect(Collectors.toList());
 
             //组装from
