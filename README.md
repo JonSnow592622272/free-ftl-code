@@ -9,11 +9,11 @@
 
 ##!!!参考案例!!!
 + 案例1：StartUpQuickstart.java
-  + 配置目录：resources\fgcDbConfig\quickstartConfig
-  + 模板目录：resources\fgcTemplate\quickstartExample
+  + 配置所在目录：resources\fgcDbConfig\quickstartConfig
+  + 模板所在目录：resources\fgcTemplate\quickstartExample
 + 案例2：StartUpQuickstart2.java
-  + 配置目录：resources\fgcDbConfig\quickstart2Config
-  + 模板目录：resources\fgcTemplate\quickstart2Example
+  + 配置所在目录：resources\fgcDbConfig\quickstart2Config
+  + 模板所在目录：resources\fgcTemplate\quickstart2Example
 + ....
 
 ----------------
