@@ -8,12 +8,12 @@
 + **数据库初始脚本（数据库名为：nimei）.sql**
 
 ##!!!参考案例!!!
-+ 案例：StartUpQuickstart.java
-  + 配置目录：resources\fgcDbConfig\quickstartConfig
-  + 模板目录：resources\fgcTemplate\quickstartExample
-+ 案例：StartUpQuickstart2.java
-  + 配置目录：resources\fgcDbConfig\quickstart2Config
-  + 模板目录：resources\fgcTemplate\quickstart2Example
++ 案例1：StartUpQuickstart.java
+  + 配置所在目录：resources\fgcDbConfig\quickstartConfig
+  + 模板所在目录：resources\fgcTemplate\quickstartExample
++ 案例2：StartUpQuickstart2.java
+  + 配置所在目录：resources\fgcDbConfig\quickstart2Config
+  + 模板所在目录：resources\fgcTemplate\quickstart2Example
 + ....
 
 ----------------
