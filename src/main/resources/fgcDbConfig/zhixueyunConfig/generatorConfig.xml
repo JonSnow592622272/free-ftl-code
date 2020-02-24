@@ -84,12 +84,12 @@
 -->
 
 
-        <table tableName="t_lecturer" domainObjectName="LecturerDealer">
+        <table tableName="t_lecturer">
             <property name="controller_module" value=""/><!--设置分类-->
             <property name="service_module" value=""/><!--设置分类-->
             <property name="serviceImpl_module" value=""/><!--设置分类-->
 
-            <!--<domainObjectRenamingRule searchString="^T" replaceString=""/>-->
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
             <columnRenamingRule searchString="^f" replaceString=""/>
         </table>
 
