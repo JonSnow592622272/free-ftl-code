@@ -9,7 +9,7 @@ ${replaceModeCheckAttributes}
 !!!!!
 !!!!!mybatis-generator部分属性和get方法没有提供，可以找到其他方法代替
 !!!!!比如：primaryKeyColumns属性——>有提供getPrimaryKeyColumns()
-!!!!!        getNonPrimaryKeyColumns()方法可以获取主键字段。
+!!!!!        getNonPrimaryKeyColumns()方法可以获取非主键字段。
 !!!!!
 !!!!!
 
