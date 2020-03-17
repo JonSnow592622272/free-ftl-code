@@ -22,3 +22,6 @@ find ./ -type f -name '.gitxxx' -delete
 
 #####使能够上传空文件夹（用Git Bash Here打开执行）
 find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitxxx \;
+
+案例1效果图：
+![image](https://github.com/JonSnow592622272/my-image/blob/master/FWXI%24WW31R5B%40%5D%5B%25P9%7BSYS9.png)
