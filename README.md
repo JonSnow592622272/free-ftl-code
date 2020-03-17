@@ -24,4 +24,6 @@ find ./ -type f -name '.gitxxx' -delete
 find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitxxx \;
 
 + 案例1效果图：
-  +   ![image](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1.jpg)
+  + 图1  ![image](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1.jpg)
+  + 图2  ![image](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1-2.jpg)
+  
