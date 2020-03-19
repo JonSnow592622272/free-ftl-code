@@ -19,10 +19,9 @@
 + ....
 
 
-+ 案例1效果图：
-  + 图1  ![image](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1.jpg)
 
 <hr>
+
 # 版本更新内容：
 + 3.0.1
   + 增加达梦数据库生成代码案例
