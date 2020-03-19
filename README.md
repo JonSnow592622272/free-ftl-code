@@ -23,7 +23,7 @@
 
 
 + 案例1效果图：
-  + 图1  ![image--------](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1.jpg)
+  + 图1  ![image](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1.jpg)
 
 <hr>
 
