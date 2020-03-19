@@ -33,6 +33,10 @@
   + 完善现有模板
 + 2.0.0
   + 移除“tuofengTableName”，使用className代替。如需使用可以在1.0.0的tag版本使用。
++ 1.0.0
+  + 适配mybatis-plus模板（启动类为StartUpMybatisPlus.java，默认生成路径为“D:/fgc_test_ftl”，每个模板可以单独设置路径。未做包名相对路径，可参考“quickstart2”简单改造即可实现）
+  + 增加许多模板
+  
 
 <hr>
   
