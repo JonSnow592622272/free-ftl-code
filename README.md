@@ -16,6 +16,9 @@
 + 案例2：StartUpQuickstart2.java
   + 配置所在目录：resources\fgcDbConfig\quickstart2Config
   + 模板所在目录：resources\fgcTemplate\quickstart2Example
++ 案例3：StartUpMybatisPlus.java（原mybatis-plus模板进行迁移适配）
+  + 配置所在目录：resources\fgcDbConfig\third\mybatisPlusConfig
+  + 模板所在目录：resources\fgcTemplate\third\mybatisPlusExample\tableTemplate
 + ....
 
 
