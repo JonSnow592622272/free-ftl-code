@@ -23,8 +23,18 @@
   + 图1  ![image](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1.jpg)
 
 <hr>
+# 版本更新内容：
++ 3.0.1
+  + 增加达梦数据库生成代码案例
++ 3.0.0
+  + 适配升级mybatis-generator最新版（1.4.0）
++ 2.0.1
+  + 完善现有模板
++ 2.0.0
+  + 移除“tuofengTableName”，使用className代替。如需使用可以在1.0.0的tag版本使用。
+
+<hr>
   
-----------------
 #####清除空文件夹下的“.gitxxx”文件（用Git Bash Here打开执行）
 find ./ -type f -name '.gitxxx' -delete
 
