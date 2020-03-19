@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="fgcDbConfig/quickstartConfig/generatorConfig.properties"/>
+    <!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
+    <classPathEntry location="${MYSQL.JAR.LOCATION}"/>
+
+    <context id="fgc_contex" targetRuntime="" defaultModelType="flat">
+
+
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}"
+                        password="${jdbc.password}">
+            <!-- 针对oracle数据库 -->
+            <property name="remarksReporting" value="true"/>
+            <!-- 针对mysql数据库 -->
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator
+			targetPackage="com.yunyihenkey.basedao.localdb.basevo"
+			targetProject="my/my-web/src/main/java">
+		</javaModelGenerator>
+
+		<!--生成的xml映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="com.yunyihenkey.basedao.localdb.basemapperxml"
+			targetProject="my/my-web/src/main/java">
+			<!-- <property name="enableSubPackages" value="true" /> -->
+		</sqlMapGenerator>
+
+		<!--生成Mapper的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.yunyihenkey.basedao.localdb.basemapper"
+			targetProject="my/my-web/src/main/java">
+			<!-- <property name="enableSubPackages" value="true" /> -->
+		</javaClientGenerator>
+
+
+
+        <!-- 数据表进行生成操作 -->
+<table tableName="my_teacher" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+<!--
+<table tableName="my_student_scores" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+<table tableName="my_student" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+-->
+
+
+
+
+
+
+    </context>
+</generatorConfiguration>

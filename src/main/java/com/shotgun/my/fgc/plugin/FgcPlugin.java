@@ -116,10 +116,10 @@ public class FgcPlugin extends BasePlugin {
     }
 
     @Override
-    public boolean clientGenerated(Interface anInterface, TopLevelClass topLevelClass,
+    public boolean clientGenerated(Interface anInterface,
             IntrospectedTable introspectedTable) {
         System.out.println("执行表：" + introspectedTable.getFullyQualifiedTableNameAtRuntime());
-        readyGo(PluginTypeEnum.TABLE, null, topLevelClass, null, introspectedTable, null, anInterface);
+        readyGo(PluginTypeEnum.TABLE, null, null, null, introspectedTable, null, anInterface);
         return false;
     }
 
