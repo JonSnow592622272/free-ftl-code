@@ -4,11 +4,22 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <properties resource="fgcDbConfig/quickstartConfig/generatorConfig.properties"/>
+    <properties resource="fgcDbConfig/primeval/dameng/generatorConfig.properties"/>
     <!-- 配置mysql 驱动jar包路径.用了绝对路径 -->
     <classPathEntry location="${MYSQL.JAR.LOCATION}"/>
 
-    <context id="fgc_contex" targetRuntime="" defaultModelType="flat">
+    <context id="fgc_contex" targetRuntime="MyBatis3" defaultModelType="flat">
+
+
+		<!-- 实体增加tostring方法 -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+		<!-- 对实体类增加属性注释 -->
+		<commentGenerator
+			type="com.shotgun.my.fgc.commentGenerator.MyCommentGenerator">
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
 
 
         <!-- 数据库连接 -->
@@ -42,7 +53,7 @@
 
 
         <!-- 数据表进行生成操作 -->
-<table tableName="my_teacher" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+<table tableName="MY_TEACHER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 <!--
 <table tableName="my_student_scores" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 <table tableName="my_student" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
