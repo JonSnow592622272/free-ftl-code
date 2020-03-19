@@ -18,14 +18,15 @@
   + 模板所在目录：resources\fgcTemplate\quickstart2Example
 + ....
 
+
++ 案例1效果图：
+  + 图1  ![image](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1.jpg)
+
+<hr>
+  
 ----------------
 #####清除空文件夹下的“.gitxxx”文件（用Git Bash Here打开执行）
 find ./ -type f -name '.gitxxx' -delete
 
 #####使能够上传空文件夹（用Git Bash Here打开执行）
 find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitxxx \;
-
-+ 案例1效果图：
-  + 图1  ![image](https://github.com/JonSnow592622272/my-image/blob/master/free-generator-code/anli1.jpg)
-
-  
