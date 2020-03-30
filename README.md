@@ -34,7 +34,7 @@
   + 增加mybatis-plus模板包名相对路径处理
   + 完善内容
 + 3.0.1
-  + 增加达梦数据库生成代码案例（启动类为DaMengGenerator.java）
+  + 增加达梦数据库生成原生mybatis-generator代码案例（启动类为DaMengGenerator.java）
 + 3.0.0
   + 适配升级mybatis-generator最新版（1.4.0）
   + 支持原生mybatis-generator模板生成，原生启动类都存放在primeval目录
