@@ -29,7 +29,9 @@
 <hr>
 
 # 版本更新内容：
-+ master
++ 下一版本计划更新内容
+  + 完善quickstart模板（将quickstartExample.tableTemplate目录下tableXmlExample.ftl改为动态字段，目前是写死的假字段数据）
+  + 增加mybatis-plus包名相对路径处理
   + 完善内容
 + 3.0.1
   + 增加达梦数据库生成代码案例（启动类为DaMengGenerator.java）
