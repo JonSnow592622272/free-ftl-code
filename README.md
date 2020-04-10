@@ -29,9 +29,9 @@
 <hr>
 
 # 版本更新内容：
-+ 下一版本计划更新内容
-  + 完善quickstart模板（将quickstartExample.tableTemplate目录下tableXmlExample.ftl改为动态字段，目前是写死的假字段数据）
-  + 增加mybatis-plus模板包名相对路径处理
++ 3.1.0
+  + 完善quickstart模板（将quickstartExample.tableTemplate目录下tableXmlExample.ftl改为动态字段）
+  + 增加mybatis-plus模板包名相对路径处理(启动类StartUpMybatisPlus.java)
   + 完善内容
 + 3.0.1
   + 增加达梦数据库生成原生mybatis-generator代码案例（启动类为DaMengGenerator.java）
@@ -43,7 +43,7 @@
 + 2.0.0
   + 移除“tuofengTableName”，使用className代替。如需使用可以在1.0.0的tag版本使用。
 + 1.0.0
-  + 适配mybatis-plus模板（启动类为StartUpMybatisPlus.java，默认生成路径为“D:/fgc_test_ftl”，每个模板可以单独设置路径。未做包名相对路径，可参考“quickstart2”简单改造即可实现）
+  + 适配mybatis-plus模板（启动类为StartUpMybatisPlus.java，默认生成路径为“D:/fgc_test_ftl”，每个模板可以单独设置路径。~~未做包名相对路径，可参考“quickstart2”简单改造即可实现~~，3.1.0版本开始支持相对路径）
   + 增加许多模板
   
 
