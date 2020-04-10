@@ -21,8 +21,33 @@
 
 
         <!--↓↓↓↓↓↓↓↓自定义ftl全局属性，如果用不到可以不用关注↓↓↓↓↓↓↓↓-->
-        <property name="nishizhuma" value="shia"/>
 
+
+        <!--项目工作空间-->
+        <property name="diy_project_path" value="${diy_project_path}"/>
+
+        <!--model生成路径-->
+        <property name="diy_model_java_dir" value="${diy_model_java_dir}"/>
+        <property name="diy_model_java_package" value="${diy_model_java_package}"/>
+
+        <!--controller文件生成路径-->
+        <property name="diy_controller_java_dir" value="${diy_controller_java_dir}"/>
+        <property name="diy_controller_java_package" value="${diy_controller_java_package}"/>
+
+        <!--service文件生成路径-->
+        <property name="diy_service_java_dir" value="${diy_service_java_dir}"/>
+        <property name="diy_service_java_package" value="${diy_service_java_package}"/>
+
+        <!--serviceImp实现类文件生成路径-->
+        <property name="diy_serviceImpl_java_dir" value="${diy_serviceImpl_java_dir}"/>
+        <property name="diy_serviceImpl_java_package" value="${diy_serviceImpl_java_package}"/>
+
+        <!--mapper接口JAVA文件生成路径-->
+        <property name="diy_mapper_java_dir" value="${diy_mapper_java_dir}"/>
+        <property name="diy_mapper_java_package" value="${diy_mapper_java_package}"/>
+
+        <!--mapper的XML文件生成路径-->
+        <property name="diy_mapperXml_dir" value="${diy_mapperXml_dir}"/>
 
         <!--↑↑↑↑↑↑↑↑自定义ftl全局属性，如果用不到可以不用关注↑↑↑↑↑↑↑↑-->
 
@@ -40,27 +65,26 @@
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
 
-        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓这些内容不用修改，请忽略，对代码生成无影响，是原来mybatis-generator的配置↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
         <javaModelGenerator targetPackage="xxx" targetProject="/"/>
         <sqlMapGenerator targetPackage="xxx" targetProject="xxx"/>
         <javaClientGenerator type="XMLMAPPER" targetPackage="xxx" targetProject="/"/>
-        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑这些内容不用修改，请忽略，对代码生成无影响，是原来mybatis-generator的配置↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
 
 
         <!-- 数据表进行生成操作 -->
         <table tableName="my_teacher">
-            <!--以下属性可以传递到ftl模板文件中，可以自由定义-->
-            <property name="module" value="a模块.b子模块"/>
-        </table>
-
-        <table tableName="my_student_scores">
-            <property name="module" value="a模块.b子模块"/>
+            <!--为表分模块-->
+            <property name="module" value="a.b"/>
         </table>
 
         <table tableName="my_student">
-            <property name="module" value="a模块.b子模块"/>
+            <property name="module" value="a.b"/>
         </table>
 
+        <table tableName="my_student_scores">
+            <property name="module" value="a.c"/>
+        </table>
 
 
     </context>

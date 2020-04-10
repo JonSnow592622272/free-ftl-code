@@ -1,4 +1,4 @@
-package com.shotgun.my.haha;
+package ${diy_model_java_package}.${introspectedTable.tableConfiguration.properties.module};
 
 import java.io.Serializable;
 <#-- 导入包，去除重复包 -->

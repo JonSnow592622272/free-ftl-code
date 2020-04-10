@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.shotgun.my.haha.${className}Mapper">
+<mapper namespace="${diy_mapper_java_package}.${introspectedTable.tableConfiguration.properties.module}.${className}Mapper">
 
         <#--生成主键排在第一位，非主键排在后面，这里缩为一行是为了避免替换之后出现换行问题-->
-    <resultMap id="BaseResultMap" type="com.shotgun.my.haha.${className}"><#list introspectedTable.primaryKeyColumns as primaryKey><id column="${primaryKey.actualColumnName}" jdbcType="${primaryKey.jdbcTypeName}" property="${primaryKey.javaProperty}"/></#list><#list introspectedTable.nonPrimaryKeyColumns as baseColumns><result column="${baseColumns.actualColumnName}" jdbcType="${baseColumns.jdbcTypeName}" property="${baseColumns.javaProperty}"/></#list></resultMap>
+    <resultMap id="BaseResultMap" type="${diy_model_java_package}.${introspectedTable.tableConfiguration.properties.module}.${className}"><#list introspectedTable.primaryKeyColumns as primaryKey><id column="${primaryKey.actualColumnName}" jdbcType="${primaryKey.jdbcTypeName}" property="${primaryKey.javaProperty}"/></#list><#list introspectedTable.nonPrimaryKeyColumns as baseColumns><result column="${baseColumns.actualColumnName}" jdbcType="${baseColumns.jdbcTypeName}" property="${baseColumns.javaProperty}"/></#list></resultMap>
 
     <sql id="Base_Column_List">
         <#list introspectedTable.primaryKeyColumns as primaryKey>${primaryKey.actualColumnName},</#list><#list introspectedTable.nonPrimaryKeyColumns as baseColumns>${baseColumns.actualColumnName}<#if baseColumns_has_next>,</#if></#list>

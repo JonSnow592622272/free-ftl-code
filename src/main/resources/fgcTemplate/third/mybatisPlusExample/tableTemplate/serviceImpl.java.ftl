@@ -1,6 +1,9 @@
-package com.shotgun.my.haha;
+package ${diy_serviceImpl_java_package}.${introspectedTable.tableConfiguration.properties.module};
 
-import com.shotgun.my.haha.${className};
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ${diy_model_java_package}.${introspectedTable.tableConfiguration.properties.module}.${className};
+import ${diy_mapper_java_package}.${introspectedTable.tableConfiguration.properties.module}.${className}Mapper;
+import ${diy_service_java_package}.${introspectedTable.tableConfiguration.properties.module}.${className}Service;
 import org.springframework.stereotype.Service;
 
 /**

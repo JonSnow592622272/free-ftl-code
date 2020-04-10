@@ -1,4 +1,4 @@
-package com.shotgun.my.haha;
+package ${diy_controller_java_package}.${introspectedTable.tableConfiguration.properties.module};
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

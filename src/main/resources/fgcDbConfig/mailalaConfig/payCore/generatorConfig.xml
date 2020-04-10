@@ -65,11 +65,11 @@
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
 
-        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
+        <!--↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓这些内容不用修改，请忽略，对代码生成无影响，是原来mybatis-generator的配置↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓-->
         <javaModelGenerator targetPackage="xxx" targetProject="/"/>
         <sqlMapGenerator targetPackage="xxx" targetProject="xxx"/>
         <javaClientGenerator type="XMLMAPPER" targetPackage="xxx" targetProject="/"/>
-        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑这些内容不用修改，无需关注，对代码生成无影响，是原来mybatis-generator的配置↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
+        <!--↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑这些内容不用修改，请忽略，对代码生成无影响，是原来mybatis-generator的配置↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑-->
 
 
         <!-- 数据表进行生成操作 -->

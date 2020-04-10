@@ -1,6 +1,6 @@
-package com.shotgun.my.haha;
+package ${diy_service_java_package}.${introspectedTable.tableConfiguration.properties.module};
 
-import com.shotgun.my.haha.${className};
+import ${diy_model_java_package}.${introspectedTable.tableConfiguration.properties.module}.${className};
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
