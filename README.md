@@ -28,6 +28,20 @@
 
 <hr>
 
+# 项目内容介绍：
++ **文件类型分类：**
+  + FgcPlugin.java 生成器核心插件，由mybatis-generator加载
+  + StartUpXXX.java 代码生成启动类
+  + generatorConfig.xml 配置文件（设置要生成的表、设置自定义属性）
+  + xxx.xxx.ftl 代码模板文件
+  + xxx.xxx.ftlconfig.properties 模板配置文件（文件名为：“代码模板文件”+config.properties），每个模板都可配置生成的文件路径
+  
+  
+  
+
+
+<hr>
+
 # 版本更新内容：
 + 3.1.0
   + 完善quickstart模板（将quickstartExample.tableTemplate目录下tableXmlExample.ftl改为动态字段）
