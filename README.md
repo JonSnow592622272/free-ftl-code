@@ -28,7 +28,7 @@
 
 <hr>
 
-# 项目内容介绍：
+# 结构介绍：
 + **文件类型分类：**
   + FgcPlugin.java 生成器核心插件，由mybatis-generator加载
   + StartUpXXX.java 代码生成启动类
