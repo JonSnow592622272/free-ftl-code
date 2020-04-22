@@ -34,8 +34,8 @@
   + StartUpXXX.java 代码生成启动类
   + generatorConfig.xml 配置文件（设置要生成的表、设置自定义属性）
   + generatorConfig.properties 属性文件，由generatorConfig.xml导入（定义属性方便更改）
-  + xxx.xxx.ftl 代码模板文件
-  + xxx.xxx.ftlconfig.properties 模板配置文件（文件名为：“代码模板文件”+config.properties），每个模板都可配置生成的文件路径
+  + xxx.xxx.ftl 代码模板文件,例如controller.java.ftl
+  + xxx.xxx.ftlconfig.properties 模板配置文件（文件名为：“代码模板文件”+config.properties,例如controller.java.ftlconfig.properties），每个模板都可配置生成的文件路径
   
   
   
