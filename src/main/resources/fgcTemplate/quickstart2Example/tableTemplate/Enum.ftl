@@ -8,7 +8,7 @@
 <#if isHaveEnum >
     package ${diy_enum_targetPackage}.${introspectedTable.tableConfiguration.properties.module};
 
-    import com.shotgun.mycommon.base.base.ViewEnum;
+    import com.shotgun.mycommon.base.base.api.ViewEnum;
     import java.io.Serializable;
     import java.util.LinkedHashMap;
     import java.util.Map;
