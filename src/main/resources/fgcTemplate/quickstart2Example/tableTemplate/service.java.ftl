@@ -5,7 +5,7 @@ import ${diy_model_targetPackage}.${introspectedTable.tableConfiguration.propert
 import com.shotgun.mycommon.service.base.MyIService;
 
 /**
- * 只提供给service层的接口才放到这里(controller无法访问到)，提供给controller层的接口放在ServiceApi接口
+ * 只提供给service层的接口才放到这里(controller无法访问到)，control层和service都可以访问的接口放在ServiceApi接口
  **/
 public interface ${className}Service extends ${className}ServiceApi, MyIService<${className}>  {
 
