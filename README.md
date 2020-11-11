@@ -1,5 +1,9 @@
 # free-generator-code
-## 原理:将mybatis-generator中的运行时变量（表结构等对象）传递给FreeMarker，最后执行FreeMarker模板生成代码。
+
+## 框架原理:将mybatis-generator中的运行时变量（表结构等对象）传递给FreeMarker，最后执行FreeMarker模板生成代码。
+
+
+
 
 
 基于FreeMarker、mybatis-generator的通用代码生成器，生成不仅限于java代码，还可生成任意你想要的语言代码。使用非常简单，你几乎不需要编写java代码，内部包含许多ftl案例，你可以参考ftl案例来扩展自定义ftl模板。
