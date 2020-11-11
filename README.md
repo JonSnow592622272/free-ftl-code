@@ -49,7 +49,7 @@
 <hr>
 
 # 版本更新内容：
-+ 3.1.0
++ 3.1.0    （由于其他原因，从此前版本不在提供，3.1.0作为最低版本）
   + 完善quickstart模板（将quickstartExample.tableTemplate目录下tableXmlExample.ftl改为动态字段）
   + 增加mybatis-plus模板包名相对路径处理(启动类StartUpMybatisPlus.java)
   + 完善内容
