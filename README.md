@@ -1,5 +1,10 @@
 # free-generator-code
 
+## 框架原理:将mybatis-generator中的运行时变量（表结构等对象）传递给FreeMarker，最后执行FreeMarker模板生成代码。
+
+
+
+
 
 基于FreeMarker、mybatis-generator的通用代码生成器，生成不仅限于java代码，还可生成任意你想要的语言代码。使用非常简单，你几乎不需要编写java代码，内部包含许多ftl案例，你可以参考ftl案例来扩展自定义ftl模板。
 
@@ -44,7 +49,7 @@
 <hr>
 
 # 版本更新内容：
-+ 3.1.0
++ 3.1.0    （由于其他原因，从此前版本不在提供，3.1.0作为最低版本）
   + 完善quickstart模板（将quickstartExample.tableTemplate目录下tableXmlExample.ftl改为动态字段）
   + 增加mybatis-plus模板包名相对路径处理(启动类StartUpMybatisPlus.java)
   + 完善内容
